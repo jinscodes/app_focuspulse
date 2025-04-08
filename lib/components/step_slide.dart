@@ -71,7 +71,7 @@ class StepSlide extends StatelessWidget {
               color: AppColors.bgBeige,
             ),
           ),
-        )
+        ),
       ],
     );
   }
