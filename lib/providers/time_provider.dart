@@ -11,3 +11,11 @@ final totalProvider = StateProvider<int>((ref) {
 final sessionProvider = StateProvider<int>((ref) {
   return 1;
 });
+
+final shortbreakProvider = StateProvider<int>((ref) {
+  return 1;
+});
+
+final longbreakProvider = StateProvider<int>((ref) {
+  return 1;
+});

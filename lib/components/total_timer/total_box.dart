@@ -38,11 +38,11 @@ class TotalBox extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "TITLE",
+              "TOTAL",
               style: TextStyle(
-                fontFamily: "sebino",
+                fontFamily: "howdy_duck",
                 fontSize: 12.sp,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.normal,
                 color: AppColors.fontbrown,
               ),
             ),
