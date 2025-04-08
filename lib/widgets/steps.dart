@@ -91,11 +91,11 @@ class _StepsState extends State<Steps> {
               style: TextButton.styleFrom(
                 overlayColor: Colors.transparent,
               ),
-              child: const Text(
+              child: Text(
                 "SKIP",
                 style: TextStyle(
                   fontFamily: 'howdy_duck',
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   color: AppColors.fontbrown,
                   fontWeight: FontWeight.normal,
                 ),
