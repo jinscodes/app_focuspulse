@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/widgets/splash.dart';
 
 void main() {
@@ -10,14 +12,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) => MaterialApp(
+        title: 'Focus Pulse',
+        themeMode: ThemeMode.system,
+        theme: ThemeData(
+          useMaterial3: true,
+          colorSchemeSeed: AppColors.bgBeige,
+          brightness: Brightness.light,
+        ),
+        debugShowCheckedModeBanner: false,
+        home: const SplashScreen(),
       ),
-      home: const SplashScreen(),
     );
   }
 }
