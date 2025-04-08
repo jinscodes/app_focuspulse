@@ -2,24 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
-import 'package:focuspulse/components/session_timer/session_modal.dart';
+import 'package:focuspulse/components/short_break/s_break_modal.dart';
 import 'package:focuspulse/providers/time_provider.dart';
 
-class SessionBox extends ConsumerWidget {
-  const SessionBox({super.key});
+class SBreakBox extends ConsumerWidget {
+  const SBreakBox({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final sessionTime = ref.watch(sessionProvider);
+    final shortbreakTime = ref.watch(shortbreakProvider);
 
     return GestureDetector(
       onTap: () {
-        sessionModal(context, ref);
+        sBreakModal(context, ref);
       },
       child: Container(
         width: 100.w,
         height: 100.h,
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
         decoration: BoxDecoration(
           color: AppColors.bgBeige,
           borderRadius: BorderRadius.circular(20.r),
@@ -38,7 +38,8 @@ class SessionBox extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "SESSION",
+              "SHORT BREAK",
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontFamily: "howdy_duck",
                 fontSize: 12.sp,
@@ -48,7 +49,7 @@ class SessionBox extends ConsumerWidget {
             ),
             SizedBox(height: 8.h),
             Text(
-              '$sessionTime',
+              '$shortbreakTime',
               style: TextStyle(
                 fontFamily: 'howdy_duck',
                 fontSize: 20.sp,

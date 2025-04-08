@@ -19,7 +19,7 @@ class RepetitionBox extends ConsumerWidget {
       child: Container(
         width: 100.w,
         height: 100.h,
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
         decoration: BoxDecoration(
           color: AppColors.bgBeige,
           borderRadius: BorderRadius.circular(20.r),
@@ -38,11 +38,11 @@ class RepetitionBox extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "TITLE",
+              "REPETITION",
               style: TextStyle(
-                fontFamily: "sebino",
-                fontSize: 12.sp,
-                fontWeight: FontWeight.bold,
+                fontFamily: "howdy_duck",
+                fontSize: 10.sp,
+                fontWeight: FontWeight.normal,
                 color: AppColors.fontbrown,
               ),
             ),
