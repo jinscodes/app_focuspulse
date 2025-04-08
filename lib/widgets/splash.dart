@@ -1,8 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
-import 'package:focuspulse/widgets/home.dart';
+import 'package:focuspulse/widgets/steps.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -13,7 +14,7 @@ class SplashScreen extends StatelessWidget {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
+          builder: (context) => const Steps(),
         ),
       );
     });
@@ -26,7 +27,8 @@ class SplashScreen extends StatelessWidget {
           children: [
             Image.asset(
               "assets/images/logo.png",
-              width: 150,
+              width: 150.w,
+              height: 120.h,
             )
           ],
         ),
