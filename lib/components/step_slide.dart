@@ -48,7 +48,7 @@ class StepSlide extends StatelessWidget {
           width: 300.w,
           height: 300.h,
         ),
-        const SizedBox(height: 30),
+        const SizedBox(height: 40),
         ElevatedButton(
           onPressed: onNext,
           style: ElevatedButton.styleFrom(
@@ -59,8 +59,8 @@ class StepSlide extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
             ),
             padding: const EdgeInsets.symmetric(
-              horizontal: 50,
-              vertical: 20,
+              horizontal: 60,
+              vertical: 15,
             ),
           ),
           child: const Text(
