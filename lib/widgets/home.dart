@@ -64,7 +64,7 @@ class HomeScreen extends ConsumerWidget {
                 SizedBox(width: 10.w),
               ],
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: 50.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
