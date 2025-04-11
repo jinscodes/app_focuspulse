@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		VoRP36mQ5Nwny9ftv74QUMKfkBQ=
+		fs7PcDa7VKRG0JBIqu93/+SVD0w=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		Cs3dGmVr6ihuaMa3gy/eOWHG/k8=
+		BNcDOqii/StglJhAkp7rZOQ0dDY=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -40,6 +40,10 @@
 		<data>
 		dI7nsD5VnouRqtuUJG9KFhQFTgM=
 		</data>
+		<key>flutter_assets/assets/images/player.png</key>
+		<data>
+		rHf5ljZISJsxCq9GXMxeShlgeK0=
+		</data>
 		<key>flutter_assets/assets/images/step1.png</key>
 		<data>
 		12s2ilypz0KTMiYDcb3ernvyIJ4=
@@ -59,6 +63,26 @@
 		<key>flutter_assets/assets/sounds/air_conditioner.mp3</key>
 		<data>
 		mAE1n01fk4A2WW3lioDE9y47Igc=
+		</data>
+		<key>flutter_assets/assets/sounds/musci1.mp3</key>
+		<data>
+		mAE1n01fk4A2WW3lioDE9y47Igc=
+		</data>
+		<key>flutter_assets/assets/sounds/music2.mp3</key>
+		<data>
+		NqmWY5dziqNky17SiCsg4ot7CnI=
+		</data>
+		<key>flutter_assets/assets/sounds/music3.mp3</key>
+		<data>
+		+X9V+QRDbWOcO17vg+mldEFuGW8=
+		</data>
+		<key>flutter_assets/assets/sounds/music4.mp3</key>
+		<data>
+		m93t/P6QgubF/EXqAF+fBRZhfz8=
+		</data>
+		<key>flutter_assets/assets/sounds/music5.mp3</key>
+		<data>
+		XWG7dZRh0KW33DYu9FTftaXbfgE=
 		</data>
 		<key>flutter_assets/assets/sounds/noisy_fan.mp3</key>
 		<data>
@@ -86,7 +110,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		y0sdSk9eidmZ6IqqHM0Bfhw1PvQ=
+		sxSHNJ1POQIdu5oFRC15K726l+c=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -107,14 +131,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VfQJiXon2aKE4KD+fxWR1B4W4zuYSwHnAaQZ2kfPzNw=
+			3HsuzGUUbrdXtOROHxVb/upzO64pW7FlOTLQEQdG1Qc=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jTm8hls7OkpuvWbIDsUekYYZbgfYh/yv4ngJQAt0eZQ=
+			eG0wdxaP0S1dSitOJS/Ifj5huBYcNS9RIsWx6Uqp88A=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -159,6 +183,13 @@
 			MmoG0t/K+uzqRfA159LtZiVTl1AQXN+bbHIC8tI8W7U=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/images/player.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			teJ8ry0aIgIWni87OR+YAql2YV8yku6uiou8d0P5F38=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/images/step1.png</key>
 		<dict>
 			<key>hash2</key>
@@ -192,6 +223,41 @@
 			<key>hash2</key>
 			<data>
 			DwzRCfzGz/huaOxGL7vfq7NK01u4FKo0aC1PQrLyirc=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/sounds/musci1.mp3</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			DwzRCfzGz/huaOxGL7vfq7NK01u4FKo0aC1PQrLyirc=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/sounds/music2.mp3</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			5kB3c+4pDltA0fi0G13EieqS+A7mv7lLkr2KP8oBu2U=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/sounds/music3.mp3</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			r9OidieZ859LgJPIjzPp3Mm8sQTOjYw1HIhD2MpbRHU=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/sounds/music4.mp3</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2pJrMFulRX8/lLFHNeeOYSRyBWAp4NObJkuum7Vbex8=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/sounds/music5.mp3</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			p44Y6aMo2qu7aPKkC2i2Ao1P2zuz3DDHNzlY/RSzVXQ=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/sounds/noisy_fan.mp3</key>
@@ -240,7 +306,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			46oZdH0ySn6jNfrtvhvQL7uGeXMvr/mXTaHPy+MuIHw=
+			Aw/DIE8z3V5xW40DxFFDzqS4V/8ok5t7SMBeEHuIi3o=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
