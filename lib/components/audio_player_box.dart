@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
@@ -11,8 +13,20 @@ class AudioPlayerBox extends StatefulWidget {
 }
 
 class _AudioPlayerBoxState extends State<AudioPlayerBox> {
-  int _audioIndex = 1;
+  int _audioIndex = 0;
   late AudioPlayer _audioPlayer;
+  final List<String> _audioFiles = [
+    'assets/sounds/Fan.mp3',
+    'assets/sounds/Fan2.mp3',
+    'assets/sounds/Pure Noise.mp3',
+    'assets/sounds/Pure Noise2.mp3',
+    'assets/sounds/Pure Noise3.mp3',
+    'assets/sounds/Pure Noise4.mp3',
+    'assets/sounds/Rain.mp3',
+    'assets/sounds/Rain2.mp3',
+    'assets/sounds/Rain3.mp3',
+    'assets/sounds/Train.mp3',
+  ];
 
   @override
   void initState() {
@@ -28,8 +42,7 @@ class _AudioPlayerBoxState extends State<AudioPlayerBox> {
 
   Future<void> _playAudio() async {
     try {
-      print('assets/sounds/music$_audioIndex.mp3');
-      await _audioPlayer.setAsset('assets/sounds/music$_audioIndex.mp3');
+      await _audioPlayer.setAsset(_audioFiles[_audioIndex]);
       await _audioPlayer.play();
     } catch (e) {
       print("Error playing audio: $e");
@@ -42,10 +55,10 @@ class _AudioPlayerBoxState extends State<AudioPlayerBox> {
 
   void _nextAudioIndex(int index) {
     setState(() {
-      if (_audioIndex == 5) {
-        _audioIndex = 1;
-      } else {
+      if (_audioIndex < _audioFiles.length - 1) {
         _audioIndex++;
+      } else {
+        _audioIndex = 0;
       }
     });
     _pauseAudio();
@@ -53,10 +66,10 @@ class _AudioPlayerBoxState extends State<AudioPlayerBox> {
 
   void _prevAudioIndex(int index) {
     setState(() {
-      if (_audioIndex == 1) {
-        _audioIndex = 5;
-      } else {
+      if (_audioIndex > 0) {
         _audioIndex--;
+      } else {
+        _audioIndex = _audioFiles.length - 1;
       }
     });
     _pauseAudio();
@@ -105,7 +118,7 @@ class _AudioPlayerBoxState extends State<AudioPlayerBox> {
               ),
             ),
             Text(
-              "Music $_audioIndex",
+              _audioFiles[_audioIndex].split("/").last.split(".").first,
               style: TextStyle(
                 fontFamily: 'howdy_duck',
                 fontSize: 20.sp,
