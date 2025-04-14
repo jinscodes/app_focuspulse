@@ -16,6 +16,8 @@ class _AudioPlayerBoxState extends State<AudioPlayerBox> {
   int _audioIndex = 0;
   late AudioPlayer _audioPlayer;
   final List<String> _audioFiles = [
+    'assets/sounds/Dryer.mp3',
+    'assets/sounds/Dryer2.mp3',
     'assets/sounds/Fan.mp3',
     'assets/sounds/Fan2.mp3',
     'assets/sounds/Pure Noise.mp3',
