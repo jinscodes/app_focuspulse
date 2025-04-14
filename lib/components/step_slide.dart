@@ -58,16 +58,16 @@ class StepSlide extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
             ),
-            padding: const EdgeInsets.symmetric(
-              horizontal: 60,
-              vertical: 15,
+            padding: EdgeInsets.symmetric(
+              horizontal: 60.w,
+              vertical: 15.h,
             ),
           ),
-          child: const Text(
+          child: Text(
             "NEXT",
             style: TextStyle(
               fontFamily: 'howdy_duck',
-              fontSize: 20,
+              fontSize: 20.sp,
               color: AppColors.bgBeige,
             ),
           ),

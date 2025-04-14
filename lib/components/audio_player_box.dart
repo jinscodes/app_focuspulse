@@ -84,8 +84,8 @@ class _AudioPlayerBoxState extends State<AudioPlayerBox> {
           children: [
             Image.asset(
               "assets/images/player.png",
-              width: 180.w,
-              height: 180.h,
+              width: 120.w,
+              height: 120.h,
               opacity: const AlwaysStoppedAnimation(0.7),
             ),
             StreamBuilder(
