@@ -16,6 +16,8 @@ class _AudioPlayerBoxState extends State<AudioPlayerBox> {
   int _audioIndex = 0;
   late AudioPlayer _audioPlayer;
   final List<String> _audioFiles = [
+    'assets/sounds/Dryer.mp3',
+    'assets/sounds/Dryer2.mp3',
     'assets/sounds/Fan.mp3',
     'assets/sounds/Fan2.mp3',
     'assets/sounds/Pure Noise.mp3',
@@ -84,8 +86,8 @@ class _AudioPlayerBoxState extends State<AudioPlayerBox> {
           children: [
             Image.asset(
               "assets/images/player.png",
-              width: 180.w,
-              height: 180.h,
+              width: 120.w,
+              height: 120.h,
               opacity: const AlwaysStoppedAnimation(0.7),
             ),
             StreamBuilder(
