@@ -15,13 +15,6 @@ dependencies:
   flutter_riverpod: ^2.6.1
   riverpod_annotation: ^2.6.1
   just_audio: ^0.9.46
-  flutter_launcher_icons: ^0.14.3
-
-flutter_launcher_icons:
-  android: true
-  ios: true
-  image_path: "assets/images/app_icon.png"
-  remove_alpha_ios: true
 
 dev_dependencies:
   flutter_test:
