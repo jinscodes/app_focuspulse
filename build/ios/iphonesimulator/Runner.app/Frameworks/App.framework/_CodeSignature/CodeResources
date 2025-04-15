@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		BYb8hfR627Mzsvx3vKEmdCiNlqk=
+		D47jpJ1u/bTWjHz1a1Re4Gu0lls=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		Z3KnDWbvD7GYvEAN7TxIK2H16KU=
+		9Hm73darrqEMaLXghxwlaxxgYjk=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		F3ECA1symh3lhi2jN7fHpbEamYc=
+		RqKRXotq1dCaX1pngY7RPrEgqG4=
 		</data>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
 		<data>
@@ -35,6 +35,10 @@
 		<key>flutter_assets/assets/fonts/sebino-regular.ttf</key>
 		<data>
 		9RBZmBNvAVeoRIlc4w+M7gmKsDo=
+		</data>
+		<key>flutter_assets/assets/images/app_icon_500.png</key>
+		<data>
+		KpfU54rsUYItmsc0vtShDDdnHrs=
 		</data>
 		<key>flutter_assets/assets/images/logo.png</key>
 		<data>
@@ -143,14 +147,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			r+KzOxvKtIswnfX72aDQXOYM/5o2P6tbiPxuMFJesg0=
+			Q+h72KLmKM8AT+DHyCovk69FoxY8BhaomMeqawkWfTw=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2K0mmNFGGEbrU9P+fQkmc+aXKusfyanifxZIKxXlOYY=
+			S3w8tJ8+/NCvq+VBNMuK1IAkU6fX4xwbo4YYmpmuZy4=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -164,7 +168,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			34Bt7YzdRiVAhIeWEPZc+8jee4dA7YN3NMgudfyif0k=
+			0g/XsJmvFYSrhO49004r0jqb1bZ9PHcKLmfo6Zo42qs=
 			</data>
 		</dict>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
@@ -186,6 +190,13 @@
 			<key>hash2</key>
 			<data>
 			5tEwspVdGUMpBJe5DQ22JtdtXb7XUox3jv8dDeipgbg=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/app_icon_500.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			kwt1zlGK4YTCTqc1HZCzgy7KOCqyfIqn4kZIG/FVbZA=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/logo.png</key>
