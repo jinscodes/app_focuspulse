@@ -10,6 +10,10 @@ analyzer_plugin
 3.0
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/analyzer_plugin-0.11.3/
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/analyzer_plugin-0.11.3/lib/
+archive
+3.0
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/archive-4.0.5/
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/archive-4.0.5/lib/
 args
 3.3
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/args-2.7.0/
@@ -130,6 +134,10 @@ fixnum
 3.1
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/fixnum-1.1.1/
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/fixnum-1.1.1/lib/
+flutter_launcher_icons
+3.0
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/flutter_launcher_icons-0.14.3/
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/flutter_launcher_icons-0.14.3/lib/
 flutter_lints
 3.1
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/flutter_lints-3.0.2/
@@ -174,6 +182,10 @@ http_parser
 3.4
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/http_parser-4.1.2/
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/http_parser-4.1.2/lib/
+image
+3.0
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/image-4.5.4/
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/image-4.5.4/lib/
 io
 3.4
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/io-1.0.5/
@@ -270,6 +282,10 @@ path_provider_windows
 3.2
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/path_provider_windows-2.3.0/
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/path_provider_windows-2.3.0/lib/
+petitparser
+3.5
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/petitparser-6.1.0/
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/petitparser-6.1.0/lib/
 platform
 3.2
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/platform-3.1.6/
@@ -282,6 +298,10 @@ pool
 2.12
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/pool-1.5.1/
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/pool-1.5.1/lib/
+posix
+3.0
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/posix-6.0.1/
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/posix-6.0.1/lib/
 pub_semver
 3.4
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/pub_semver-2.2.0/
@@ -402,6 +422,10 @@ xdg_directories
 3.3
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/xdg_directories-1.1.0/
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/xdg_directories-1.1.0/lib/
+xml
+3.2
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/xml-6.5.0/
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/xml-6.5.0/lib/
 yaml
 3.4
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/yaml-3.1.3/
