@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/components/next_button.dart';
 
 class StepSlide extends StatelessWidget {
   final String title;
@@ -49,29 +50,7 @@ class StepSlide extends StatelessWidget {
           height: 300.h,
         ),
         const SizedBox(height: 40),
-        ElevatedButton(
-          onPressed: onNext,
-          style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.fontbrown,
-            elevation: 0,
-            surfaceTintColor: Colors.transparent,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            padding: EdgeInsets.symmetric(
-              horizontal: 60.w,
-              vertical: 15.h,
-            ),
-          ),
-          child: Text(
-            "NEXT",
-            style: TextStyle(
-              fontFamily: 'howdy_duck',
-              fontSize: 20.sp,
-              color: AppColors.bgBeige,
-            ),
-          ),
-        ),
+        NextButton(onNext),
       ],
     );
   }

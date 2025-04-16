@@ -28,7 +28,7 @@ class _StepsState extends State<Steps> {
     },
     {
       "title": "BREAK",
-      "description": "Regain your envergy and take a short break.",
+      "description": "Regain your energy and take a short break.",
       "imagePath": "assets/images/step3.png",
       "router": "/step_break",
     }
