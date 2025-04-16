@@ -3,18 +3,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
 
-class CustomButton extends ConsumerWidget {
-  final String title;
-  final VoidCallback onPressed;
+class NextButton extends ConsumerWidget {
+  final VoidCallback onNext;
 
-  const CustomButton(this.title, this.onPressed, {super.key});
+  const NextButton(this.onNext, {super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: onNext,
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.playerbrown,
+        backgroundColor: AppColors.fontbrown,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
         shape: RoundedRectangleBorder(
@@ -22,14 +21,14 @@ class CustomButton extends ConsumerWidget {
         ),
         padding: EdgeInsets.symmetric(
           horizontal: 60.w,
-          vertical: 10.h,
+          vertical: 15.h,
         ),
       ),
       child: Text(
         "NEXT",
         style: TextStyle(
           fontFamily: 'howdy_duck',
-          fontSize: 15.sp,
+          fontSize: 20.sp,
           color: AppColors.bgBeige,
         ),
       ),
