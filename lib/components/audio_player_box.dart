@@ -1,18 +1,20 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/providers/audio_provider.dart';
 import 'package:just_audio/just_audio.dart';
 
-class AudioPlayerBox extends StatefulWidget {
+class AudioPlayerBox extends ConsumerStatefulWidget {
   const AudioPlayerBox({super.key});
 
   @override
-  State<AudioPlayerBox> createState() => _AudioPlayerBoxState();
+  ConsumerState<AudioPlayerBox> createState() => _AudioPlayerBoxState();
 }
 
-class _AudioPlayerBoxState extends State<AudioPlayerBox> {
+class _AudioPlayerBoxState extends ConsumerState<AudioPlayerBox> {
   int _audioIndex = 0;
   late AudioPlayer _audioPlayer;
   final List<String> _audioFiles = [
@@ -42,6 +44,7 @@ class _AudioPlayerBoxState extends State<AudioPlayerBox> {
 
   Future<void> _playAudio() async {
     try {
+      ref.read(audioProvider.notifier).state = true;
       await _audioPlayer.setAsset(_audioFiles[_audioIndex]);
       await _audioPlayer.play();
     } catch (e) {
@@ -50,6 +53,7 @@ class _AudioPlayerBoxState extends State<AudioPlayerBox> {
   }
 
   Future<void> _pauseAudio() async {
+    ref.read(audioProvider.notifier).state = false;
     await _audioPlayer.pause();
   }
 
@@ -77,6 +81,8 @@ class _AudioPlayerBoxState extends State<AudioPlayerBox> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isPlaying = ref.watch(audioProvider);
+
     return Column(
       children: [
         Stack(
@@ -88,20 +94,13 @@ class _AudioPlayerBoxState extends State<AudioPlayerBox> {
               height: 120.h,
               opacity: const AlwaysStoppedAnimation(0.7),
             ),
-            StreamBuilder(
-              stream: _audioPlayer.playerStateStream,
-              builder: (context, snapshot) {
-                final playerState = snapshot.data;
-                final isPlaying = playerState?.playing ?? false;
-                return IconButton(
-                  onPressed: isPlaying ? _pauseAudio : _playAudio,
-                  icon: Icon(
-                    size: 50.sp,
-                    color: AppColors.playerbrown,
-                    isPlaying ? Icons.pause_circle : Icons.play_circle,
-                  ),
-                );
-              },
+            IconButton(
+              onPressed: isPlaying ? _pauseAudio : _playAudio,
+              icon: Icon(
+                isPlaying ? Icons.pause_circle : Icons.play_circle,
+                size: 50.sp,
+                color: AppColors.playerbrown,
+              ),
             ),
           ],
         ),
