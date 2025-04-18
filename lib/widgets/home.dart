@@ -10,7 +10,6 @@ import 'package:focuspulse/components/session_timer/session_box.dart';
 import 'package:focuspulse/components/short_break/s_break_box.dart';
 import 'package:focuspulse/components/start_button.dart';
 import 'package:focuspulse/components/total_timer/total_box.dart';
-import 'package:focuspulse/providers/time_provider.dart';
 import 'package:focuspulse/widgets/timer.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -18,10 +17,6 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final totalTimer = ref.watch(totalProvider);
-    final repTimer = ref.watch(repetitionProvider);
-    final sessionTimer = ref.watch(sessionProvider);
-
     void navigateToTimer() {
       Navigator.push(
         context,

@@ -68,14 +68,6 @@
 		<data>
 		xrq3BaoO02h/ZigC2Woq8P/ZwW0=
 		</data>
-		<key>flutter_assets/assets/sounds/Dryer.mp3</key>
-		<data>
-		V+ZckWUtZfY/4II4f5v5TabCVgU=
-		</data>
-		<key>flutter_assets/assets/sounds/Dryer2.mp3</key>
-		<data>
-		k1SmLt9Ab3wQ0SaFIpKneEWdXtg=
-		</data>
 		<key>flutter_assets/assets/sounds/Fan.mp3</key>
 		<data>
 		vnbQ4LBL8s7tnIo6DMab/8/32Os=
@@ -126,7 +118,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		+woD3QwOvfhoCiwz0LMGUcRS4l4=
+		l8PPBbYgDkBxVgSkfs4e/9le4UY=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -248,20 +240,6 @@
 			ErvkFhf10qIiEABese/qhvVh4rGv1xMb+gAgJ80Pf6g=
 			</data>
 		</dict>
-		<key>flutter_assets/assets/sounds/Dryer.mp3</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			BXnpyFtId0p3zl186BykVMAyWc+phOaQkEbMIs/0IKs=
-			</data>
-		</dict>
-		<key>flutter_assets/assets/sounds/Dryer2.mp3</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			e9ZWPTug79a7sw2fblOLHF3HLETOUGTDJeAEJyCMyvw=
-			</data>
-		</dict>
 		<key>flutter_assets/assets/sounds/Fan.mp3</key>
 		<dict>
 			<key>hash2</key>
@@ -350,7 +328,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9FBD3tlhXc7eUXDcrF/J6ncFmrlRcIhHc9nxWkQ37xQ=
+			xtwYKK3RSoWXfPYBso+zVchS2cLoTQ8MSsVAb2m/+hk=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
