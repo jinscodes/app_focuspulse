@@ -47,6 +47,19 @@ class MenuDrawer extends ConsumerWidget {
           ListTile(
             contentPadding: EdgeInsets.symmetric(horizontal: 40.w),
             title: const Text(
+              'SETTINGS',
+              style: TextStyle(
+                fontFamily: 'howdy_duck',
+                fontSize: 20,
+                color: AppColors.fontbrown,
+              ),
+            ),
+            onTap: () => navigateToSettings(),
+          ),
+          SizedBox(height: 10.h),
+          ListTile(
+            contentPadding: EdgeInsets.symmetric(horizontal: 40.w),
+            title: const Text(
               'SAVED',
               style: TextStyle(
                 fontFamily: 'howdy_duck',
@@ -68,19 +81,6 @@ class MenuDrawer extends ConsumerWidget {
               ),
             ),
             onTap: () => navigateToStats(),
-          ),
-          SizedBox(height: 10.h),
-          ListTile(
-            contentPadding: EdgeInsets.symmetric(horizontal: 40.w),
-            title: const Text(
-              'SETTINGS',
-              style: TextStyle(
-                fontFamily: 'howdy_duck',
-                fontSize: 20,
-                color: AppColors.fontbrown,
-              ),
-            ),
-            onTap: () => navigateToSettings(),
           ),
         ],
       ),
