@@ -65,6 +65,8 @@ class _AudioPlayerBoxState extends ConsumerState<AudioPlayerBox> {
         _audioIndex = 0;
       }
     });
+    ref.read(audioNameProvider.notifier).state =
+        _audioFiles[_audioIndex].split("/").last.split(".").first;
     _pauseAudio();
   }
 
@@ -76,12 +78,15 @@ class _AudioPlayerBoxState extends ConsumerState<AudioPlayerBox> {
         _audioIndex = _audioFiles.length - 1;
       }
     });
+    ref.read(audioNameProvider.notifier).state =
+        _audioFiles[_audioIndex].split("/").last.split(".").first;
     _pauseAudio();
   }
 
   @override
   Widget build(BuildContext context) {
     final bool isPlaying = ref.watch(audioProvider);
+    final String audioName = ref.watch(audioNameProvider);
 
     return Column(
       children: [
@@ -117,7 +122,7 @@ class _AudioPlayerBoxState extends ConsumerState<AudioPlayerBox> {
               ),
             ),
             Text(
-              _audioFiles[_audioIndex].split("/").last.split(".").first,
+              audioName,
               style: TextStyle(
                 fontFamily: 'howdy_duck',
                 fontSize: 20.sp,

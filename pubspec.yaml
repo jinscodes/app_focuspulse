@@ -39,6 +39,7 @@ flutter:
     - assets/images/
     - assets/sounds/
     - assets/svg/
+    - assets/gifs/
 
   fonts:
     - family: howdy_duck
