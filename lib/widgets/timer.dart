@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/providers/audio_provider.dart';
 import 'package:focuspulse/providers/time_provider.dart';
+import 'package:just_audio/just_audio.dart';
 
 class TimerScreen extends ConsumerStatefulWidget {
   const TimerScreen({super.key});
@@ -14,10 +15,41 @@ class TimerScreen extends ConsumerStatefulWidget {
 }
 
 class _TimerScreenState extends ConsumerState<TimerScreen> {
+  late AudioPlayer _audioPlayer;
+
+  @override
+  void initState() {
+    super.initState();
+    _audioPlayer = AudioPlayer();
+  }
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
+  }
+
+  Future<void> _playAudio() async {
+    try {
+      final noise = ref.watch(audioNameProvider);
+      ref.read(audioProvider.notifier).state = true;
+      await _audioPlayer.setAsset('assets/sounds/$noise.mp3');
+      await _audioPlayer.play();
+    } catch (e) {
+      print("Error playing audio: $e");
+    }
+  }
+
+  Future<void> _pauseAudio() async {
+    ref.read(audioProvider.notifier).state = false;
+    await _audioPlayer.pause();
+  }
+
   @override
   Widget build(BuildContext context) {
     final noise = ref.watch(audioNameProvider);
     final session = ref.watch(sessionProvider);
+    final isPlaying = ref.watch(audioProvider);
 
     String formatTime(int minutes) {
       final int seconds = minutes * 60;
@@ -91,23 +123,30 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                                 height: 20.h,
                               ),
                               SizedBox(width: 10.w),
-                              Text(
-                                noise,
-                                style: TextStyle(
-                                  fontFamily: 'howdy_duck',
-                                  fontSize: 14.sp,
-                                  color: AppColors.bgTimer,
+                              TextButton(
+                                onPressed: () {
+                                  isPlaying ? _pauseAudio() : _playAudio();
+                                },
+                                child: Text(
+                                  noise,
+                                  style: TextStyle(
+                                    fontFamily: 'howdy_duck',
+                                    fontSize: 14.sp,
+                                    color: AppColors.bgTimer,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
-                                textAlign: TextAlign.center,
-                                overflow: TextOverflow.ellipsis,
                               ),
                               SizedBox(width: 10.w),
-                              Image.asset(
-                                'assets/gifs/playing.gif',
-                                width: 20.w,
-                                height: 20.h,
-                                fit: BoxFit.cover,
-                              )
+                              isPlaying
+                                  ? Image.asset(
+                                      'assets/gifs/playing.gif',
+                                      width: 20.w,
+                                      height: 20.h,
+                                      fit: BoxFit.cover,
+                                    )
+                                  : SizedBox(width: 20.w, height: 20.h),
                             ],
                           ),
                           ClipRRect(
