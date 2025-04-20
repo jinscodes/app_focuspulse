@@ -127,6 +127,12 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                                 onPressed: () {
                                   isPlaying ? _pauseAudio() : _playAudio();
                                 },
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                  minimumSize: const Size(0, 0),
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
                                 child: Text(
                                   noise,
                                   style: TextStyle(
@@ -135,7 +141,6 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                                     color: AppColors.bgTimer,
                                   ),
                                   textAlign: TextAlign.center,
-                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                               SizedBox(width: 10.w),
@@ -152,6 +157,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(2),
                             child: Container(
+                              width: ScreenUtil().screenWidth * 0.9,
                               height: 2.w,
                               color: Colors.white,
                             ),
@@ -164,7 +170,6 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                               color: AppColors.bgTimer,
                             ),
                             textAlign: TextAlign.center,
-                            overflow: TextOverflow.ellipsis,
                           ),
                         ],
                       ),
