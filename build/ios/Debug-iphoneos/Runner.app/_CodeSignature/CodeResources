@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		EZHNsdBUhRzjU5DyaimYYfcWlZE=
+		qqwRw7xwu4kjre+qN30c5hseYt4=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		ADmokTgCWiuFYeqsbdYlXdxDT1w=
+		WgaUS+x/DI3E1yCyz2uRrLI903I=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
@@ -178,7 +178,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		XXUpTVdp06oYJ1gs/51zD4mGXv0=
+		BhdGRz2jIWiwUriXrvmDbHNl6Zg=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -294,7 +294,7 @@
 		</data>
 		<key>Frameworks/audio_session.framework/audio_session</key>
 		<data>
-		Y87JPEXSdF0+CeEhBqRBht4vIG0=
+		M2+qoFkGyWvSoHdC+vn9n81ckKQ=
 		</data>
 		<key>Frameworks/just_audio.framework/Info.plist</key>
 		<data>
@@ -306,7 +306,7 @@
 		</data>
 		<key>Frameworks/just_audio.framework/just_audio</key>
 		<data>
-		FhI/2wic+Bkyjm4GdSgycPC4Ibo=
+		cozwN93yHe7NZJ7Ab5NzgXnXtI8=
 		</data>
 		<key>Frameworks/path_provider_foundation.framework/Info.plist</key>
 		<data>
@@ -318,7 +318,7 @@
 		</data>
 		<key>Frameworks/path_provider_foundation.framework/path_provider_foundation</key>
 		<data>
-		c7iZk9Z2MZeGyduIrb8azDLh9ZM=
+		ski01N/QkP8cWBE3pzZx+pwOkoU=
 		</data>
 		<key>Frameworks/path_provider_foundation.framework/path_provider_foundation_privacy.bundle/Info.plist</key>
 		<data>
@@ -338,11 +338,11 @@
 		</data>
 		<key>Runner.debug.dylib</key>
 		<data>
-		PVtacqtGIDQst6ZPzXQjDsmpkVA=
+		ZgTuSlFgsUWTNDBvhLeqoVcZxZc=
 		</data>
 		<key>__preview.dylib</key>
 		<data>
-		Li9ycjt0Qd3gAh2z2msFUjjs+EA=
+		NezkQ8jLU0LtBN/P35s8FZQ2JcA=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -425,7 +425,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			V+Z2MfmYgIaqlBbQC3lnsRHEPSBAINcEeMVQnjwMuAc=
+			vw+DojGHWpjtCAnagrKKCvahktALXk344H9juP5MBt8=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -439,7 +439,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			20frW5XqbMKhXDX9iPc/my2CfXiw4ovOAgPOv79ry/E=
+			dT6dPQiovwL9Fi68ZJb+nn3rA22+nI/5UzRcP2beqXk=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
@@ -656,7 +656,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			dMYr6Haip8xYbDhlhe8kmSoei03fcdrQ73yU/fK+pAU=
+			yAfWi963NJfKYg6uIUACeCD7sKujTZq72ura0gOaLMU=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -859,7 +859,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			C4mJbBjDBj8nn2xzOfjYGVs2Honzmp7rXzqjZQLDOTc=
+			qMC/khNlulV4PSQA22pZu/B5h+AinFoJDRPjjZleqx8=
 			</data>
 		</dict>
 		<key>Frameworks/just_audio.framework/Info.plist</key>
@@ -880,7 +880,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vQqD8KwU7gU6M0WRzLpWMyl6+xJ0Vv7UP47N6keOJWM=
+			LVuBIlVNyUbcjKpcpUYfSpYWs2Al6Ji8+g34nBlccJ8=
 			</data>
 		</dict>
 		<key>Frameworks/path_provider_foundation.framework/Info.plist</key>
@@ -901,7 +901,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Z/D3pohjmYGwpyLPArch/qufPOvW+XiRPNd9zhYcqHs=
+			WVgw2MwgeHEknzbxJbmhzaBzyQoHYlBSDpLMH5QUw84=
 			</data>
 		</dict>
 		<key>Frameworks/path_provider_foundation.framework/path_provider_foundation_privacy.bundle/Info.plist</key>
@@ -922,14 +922,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1XISi5vnLDsxAzuSN4x4IfPTLk2+am21pEOjlEYiYfQ=
+			mAVUkF7R1czeHKV2UJbWMPbjVQ8U8UDjmkLvSHDfM50=
 			</data>
 		</dict>
 		<key>__preview.dylib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			63uCKgUi6CCVV7czDlRrxaoAHSt0V7VB6/YW+jHjuaQ=
+			uy6vieZDpDn+d29j6mP/OtJlNLq5BwKS2GKn5EQ0h0U=
 			</data>
 		</dict>
 		<key>embedded.mobileprovision</key>
