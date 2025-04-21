@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/models/pause_audio.dart';
+import 'package:focuspulse/models/play_audo.dart';
 import 'package:focuspulse/providers/audio_provider.dart';
 import 'package:focuspulse/providers/time_provider.dart';
 import 'package:just_audio/just_audio.dart';
@@ -27,22 +29,6 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
   void dispose() {
     _audioPlayer.dispose();
     super.dispose();
-  }
-
-  Future<void> _playAudio() async {
-    try {
-      final noise = ref.watch(audioNameProvider);
-      ref.read(audioProvider.notifier).state = true;
-      await _audioPlayer.setAsset('assets/sounds/$noise.mp3');
-      await _audioPlayer.play();
-    } catch (e) {
-      print("Error playing audio: $e");
-    }
-  }
-
-  Future<void> _pauseAudio() async {
-    ref.read(audioProvider.notifier).state = false;
-    await _audioPlayer.pause();
   }
 
   @override
@@ -95,8 +81,8 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                           color: AppColors.timerbrown,
                         ),
                       ),
-                      SvgPicture.asset(
-                        'assets/svg/heartbeat.svg',
+                      Image.asset(
+                        'assets/gifs/heartrate.gif',
                         width: 100.w,
                       ),
                     ],
@@ -125,8 +111,16 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                               SizedBox(width: 10.w),
                               TextButton(
                                 onPressed: () {
-                                  isPlaying ? _pauseAudio() : _playAudio();
+                                  isPlaying
+                                      ? pauseAudio(ref, _audioPlayer)
+                                      : playAudio(ref, _audioPlayer);
                                 },
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                  minimumSize: const Size(0, 0),
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
                                 child: Text(
                                   noise,
                                   style: TextStyle(
@@ -135,7 +129,6 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                                     color: AppColors.bgTimer,
                                   ),
                                   textAlign: TextAlign.center,
-                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                               SizedBox(width: 10.w),
@@ -152,6 +145,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(2),
                             child: Container(
+                              width: ScreenUtil().screenWidth * 0.9,
                               height: 2.w,
                               color: Colors.white,
                             ),
@@ -164,7 +158,6 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                               color: AppColors.bgTimer,
                             ),
                             textAlign: TextAlign.center,
-                            overflow: TextOverflow.ellipsis,
                           ),
                         ],
                       ),

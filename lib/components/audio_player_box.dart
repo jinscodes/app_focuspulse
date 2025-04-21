@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/models/pause_audio.dart';
+import 'package:focuspulse/models/play_audo.dart';
 import 'package:focuspulse/providers/audio_provider.dart';
 import 'package:just_audio/just_audio.dart';
 
@@ -42,21 +44,6 @@ class _AudioPlayerBoxState extends ConsumerState<AudioPlayerBox> {
     super.dispose();
   }
 
-  Future<void> _playAudio() async {
-    try {
-      ref.read(audioProvider.notifier).state = true;
-      await _audioPlayer.setAsset(_audioFiles[_audioIndex]);
-      await _audioPlayer.play();
-    } catch (e) {
-      print("Error playing audio: $e");
-    }
-  }
-
-  Future<void> _pauseAudio() async {
-    ref.read(audioProvider.notifier).state = false;
-    await _audioPlayer.pause();
-  }
-
   void _nextAudioIndex(int index) {
     setState(() {
       if (_audioIndex < _audioFiles.length - 1) {
@@ -67,7 +54,7 @@ class _AudioPlayerBoxState extends ConsumerState<AudioPlayerBox> {
     });
     ref.read(audioNameProvider.notifier).state =
         _audioFiles[_audioIndex].split("/").last.split(".").first;
-    _pauseAudio();
+    pauseAudio(ref, _audioPlayer);
   }
 
   void _prevAudioIndex(int index) {
@@ -80,7 +67,7 @@ class _AudioPlayerBoxState extends ConsumerState<AudioPlayerBox> {
     });
     ref.read(audioNameProvider.notifier).state =
         _audioFiles[_audioIndex].split("/").last.split(".").first;
-    _pauseAudio();
+    pauseAudio(ref, _audioPlayer);
   }
 
   @override
@@ -100,7 +87,9 @@ class _AudioPlayerBoxState extends ConsumerState<AudioPlayerBox> {
               opacity: const AlwaysStoppedAnimation(0.7),
             ),
             IconButton(
-              onPressed: isPlaying ? _pauseAudio : _playAudio,
+              onPressed: isPlaying
+                  ? () => pauseAudio(ref, _audioPlayer)
+                  : () => playAudio(ref, _audioPlayer),
               icon: Icon(
                 isPlaying ? Icons.pause_circle : Icons.play_circle,
                 size: 50.sp,
