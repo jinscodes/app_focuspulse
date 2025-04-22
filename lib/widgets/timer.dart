@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,30 +20,64 @@ class TimerScreen extends ConsumerStatefulWidget {
 
 class _TimerScreenState extends ConsumerState<TimerScreen> {
   late AudioPlayer _audioPlayer;
+  bool isTimerPlaying = true;
+  Timer? _timer;
 
   @override
   void initState() {
-    super.initState();
     _audioPlayer = AudioPlayer();
+    startTimer();
+    super.initState();
   }
 
   @override
   void dispose() {
     _audioPlayer.dispose();
+    _timer?.cancel();
     super.dispose();
+  }
+
+  void startTimer() {
+    if (_timer != null) return;
+
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      final currentSession = ref.read(sessionProvider);
+      if (currentSession > 0) {
+        ref.read(sessionProvider.notifier).state--;
+      } else {
+        _timer?.cancel();
+        _timer = null;
+      }
+    });
+  }
+
+  void stopTimer() {
+    _timer?.cancel();
+    _timer = null;
+  }
+  String formatTime(int minutes) {
+    Duration duration = Duration(seconds: minutes * 60);
+    return duration.toString().split('.').first.substring(2, 7);
   }
 
   @override
   Widget build(BuildContext context) {
     final noise = ref.watch(audioNameProvider);
-    final session = ref.watch(sessionProvider);
-    final isPlaying = ref.watch(audioProvider);
+    final session = ref.watch(sessionProvider) * 60;
+    final isMusicPlaying = ref.watch(audioProvider);
 
-    String formatTime(int minutes) {
-      final int seconds = minutes * 60;
-      final int displayMinutes = seconds ~/ 60;
-      final int displaySeconds = seconds % 60;
-      return '${displayMinutes.toString().padLeft(2, '0')}:${displaySeconds.toString().padLeft(2, '0')}';
+    void playTimer() {
+      setState(() {
+        isTimerPlaying = false;
+      });
+      startTimer();
+    }
+
+    void pauseTimer() {
+      setState(() {
+        isTimerPlaying = true;
+      });
+      stopTimer();
     }
 
     return Scaffold(
@@ -49,14 +85,23 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          IconButton(
-            onPressed: () => {print("you pressed the button")},
-            icon: Icon(
-              Icons.play_circle,
-              size: 100.w,
-              color: AppColors.timerbrown,
-            ),
-          ),
+          isTimerPlaying
+              ? IconButton(
+                  onPressed: playTimer,
+                  icon: Icon(
+                    Icons.pause_circle,
+                    size: 100.w,
+                    color: AppColors.timerbrown,
+                  ),
+                )
+              : IconButton(
+                  onPressed: pauseTimer,
+                  icon: Icon(
+                    Icons.play_circle,
+                    size: 100.w,
+                    color: AppColors.timerbrown,
+                  ),
+                ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,22 +119,28 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                         ),
                       ),
                       Text(
-                        formatTime(session),
+                        // formatTime(session),
+                        '$session',
                         style: TextStyle(
                           fontFamily: 'howdy_duck',
                           fontSize: 64.sp,
                           color: AppColors.timerbrown,
                         ),
                       ),
-                      Image.asset(
-                        'assets/gifs/heartrate.gif',
-                        width: 100.w,
-                      ),
+                      isTimerPlaying
+                          ? Image.asset(
+                              'assets/gifs/heartrate.gif',
+                              width: 100.w,
+                            )
+                          : SvgPicture.asset(
+                              'assets/svg/heartbeat.svg',
+                              width: 100.w,
+                            ),
                     ],
                   ),
                 ),
                 Container(
-                  height: 142.h,
+                  height: 152.h,
                   decoration: BoxDecoration(
                     color: AppColors.timerbrown,
                     borderRadius: BorderRadius.circular(20.r),
@@ -111,7 +162,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                               SizedBox(width: 10.w),
                               TextButton(
                                 onPressed: () {
-                                  isPlaying
+                                  isMusicPlaying
                                       ? pauseAudio(ref, _audioPlayer)
                                       : playAudio(ref, _audioPlayer);
                                 },
@@ -132,7 +183,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                                 ),
                               ),
                               SizedBox(width: 10.w),
-                              isPlaying
+                              isMusicPlaying
                                   ? Image.asset(
                                       'assets/gifs/playing.gif',
                                       width: 20.w,

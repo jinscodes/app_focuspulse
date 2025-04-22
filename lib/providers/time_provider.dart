@@ -1,21 +1,21 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final repetitionProvider = StateProvider<int>((ref) {
-  return 1;
+final repetitionProvider = StateProvider<double>((ref) {
+  return 1.0;
 });
 
-final totalProvider = StateProvider<int>((ref) {
-  return 1;
+final totalProvider = StateProvider<double>((ref) {
+  return 1.0;
 });
 
-final sessionProvider = StateProvider<int>((ref) {
-  return 1;
+final sessionProvider = StateProvider<double>((ref) {
+  return 1.0;
 });
 
-final shortbreakProvider = StateProvider<int>((ref) {
-  return 1;
+final shortbreakProvider = StateProvider<double>((ref) {
+  return 1.0;
 });
 
-final longbreakProvider = StateProvider<int>((ref) {
-  return 1;
+final longbreakProvider = StateProvider<double>((ref) {
+  return 1.0;
 });

@@ -49,7 +49,7 @@ class SBreakBox extends ConsumerWidget {
             ),
             SizedBox(height: 8.h),
             Text(
-              '$shortbreakTime',
+              '${shortbreakTime.toInt()}',
               style: TextStyle(
                 fontFamily: 'howdy_duck',
                 fontSize: 20.sp,

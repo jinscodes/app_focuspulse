@@ -48,7 +48,7 @@ class SessionBox extends ConsumerWidget {
             ),
             SizedBox(height: 8.h),
             Text(
-              '$sessionTime',
+              '${sessionTime.toInt()}',
               style: TextStyle(
                 fontFamily: 'howdy_duck',
                 fontSize: 20.sp,

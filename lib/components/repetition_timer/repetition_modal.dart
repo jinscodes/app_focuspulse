@@ -5,7 +5,7 @@ import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/providers/time_provider.dart';
 
 void repetitionModal(BuildContext context, WidgetRef ref) {
-  int selectedTime = 1;
+  double selectedTime = 1.0;
 
   showModalBottomSheet(
     context: context,
@@ -56,7 +56,7 @@ void repetitionModal(BuildContext context, WidgetRef ref) {
                   inactiveColor: Colors.grey,
                   onChanged: (double value) {
                     setState(() {
-                      selectedTime = value.toInt();
+                      selectedTime = value;
                     });
                   },
                 ),
