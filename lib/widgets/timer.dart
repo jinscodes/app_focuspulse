@@ -55,6 +55,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
     _timer?.cancel();
     _timer = null;
   }
+
   String formatTime(int minutes) {
     Duration duration = Duration(seconds: minutes * 60);
     return duration.toString().split('.').first.substring(2, 7);

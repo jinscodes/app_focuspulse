@@ -37,7 +37,7 @@ void lBreakModal(BuildContext context, WidgetRef ref) {
                 ),
                 SizedBox(height: 20.h),
                 Text(
-                  "$selectedTime minutes",
+                  "${selectedTime.toInt()} minutes",
                   style: TextStyle(
                     fontFamily: 'howdy_duck',
                     fontSize: 24.sp,
@@ -51,7 +51,7 @@ void lBreakModal(BuildContext context, WidgetRef ref) {
                   min: 1,
                   max: 60,
                   divisions: 59,
-                  label: "$selectedTime",
+                  label: "${selectedTime.toInt()}",
                   activeColor: AppColors.fontbrown,
                   inactiveColor: Colors.grey,
                   onChanged: (double value) {
