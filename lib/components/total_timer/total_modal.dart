@@ -5,7 +5,7 @@ import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/providers/time_provider.dart';
 
 void totalModal(BuildContext context, WidgetRef ref) {
-  int selectedTime = 1;
+  double selectedTime = 1.0;
 
   showModalBottomSheet(
     context: context,
@@ -37,7 +37,7 @@ void totalModal(BuildContext context, WidgetRef ref) {
                 ),
                 SizedBox(height: 20.h),
                 Text(
-                  "$selectedTime minutes",
+                  "${selectedTime.toInt()} minutes",
                   style: TextStyle(
                     fontFamily: 'howdy_duck',
                     fontSize: 24.sp,
@@ -51,12 +51,12 @@ void totalModal(BuildContext context, WidgetRef ref) {
                   min: 1,
                   max: 60,
                   divisions: 59,
-                  label: "$selectedTime",
+                  label: "${selectedTime.toInt()}",
                   activeColor: AppColors.fontbrown,
                   inactiveColor: Colors.grey,
                   onChanged: (double value) {
                     setState(() {
-                      selectedTime = value.toInt();
+                      selectedTime = value;
                     });
                   },
                 ),

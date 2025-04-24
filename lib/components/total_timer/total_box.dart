@@ -48,7 +48,7 @@ class TotalBox extends ConsumerWidget {
             ),
             SizedBox(height: 8.h),
             Text(
-              '$totalTime',
+              '${totalTime.toInt()}',
               style: TextStyle(
                 fontFamily: 'howdy_duck',
                 fontSize: 20.sp,

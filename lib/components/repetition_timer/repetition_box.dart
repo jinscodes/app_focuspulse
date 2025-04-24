@@ -48,7 +48,7 @@ class RepetitionBox extends ConsumerWidget {
             ),
             SizedBox(height: 8.h),
             Text(
-              '$repTime',
+              '${repTime.toInt()}',
               style: TextStyle(
                 fontFamily: 'howdy_duck',
                 fontSize: 20.sp,
