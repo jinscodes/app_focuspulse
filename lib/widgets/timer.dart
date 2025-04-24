@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/models/format_timer.dart';
 import 'package:focuspulse/models/pause_audio.dart';
 import 'package:focuspulse/models/play_audo.dart';
 import 'package:focuspulse/providers/audio_provider.dart';
@@ -20,66 +21,52 @@ class TimerScreen extends ConsumerStatefulWidget {
 
 class _TimerScreenState extends ConsumerState<TimerScreen> {
   late AudioPlayer _audioPlayer;
-  bool isTimerPlaying = true;
+  late double sessionTime;
+  bool isTimerPlaying = false;
   Timer? _timer;
 
   @override
   void initState() {
-    _audioPlayer = AudioPlayer();
-    startTimer();
     super.initState();
+    _audioPlayer = AudioPlayer();
+    sessionTime = ref.read(sessionProvider) * 60;
   }
 
   @override
   void dispose() {
-    _audioPlayer.dispose();
     _timer?.cancel();
     super.dispose();
   }
 
-  void startTimer() {
+  void playTimer() {
     if (_timer != null) return;
 
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      final currentSession = ref.read(sessionProvider);
-      if (currentSession > 0) {
-        ref.read(sessionProvider.notifier).state--;
-      } else {
+      if (sessionTime <= 0) {
         _timer?.cancel();
         _timer = null;
       }
+
+      setState(() {
+        sessionTime--;
+        isTimerPlaying = true;
+      });
     });
   }
 
-  void stopTimer() {
+  void pauseTimer() {
+    setState(() {
+      isTimerPlaying = false;
+    });
+
     _timer?.cancel();
     _timer = null;
-  }
-
-  String formatTime(int minutes) {
-    Duration duration = Duration(seconds: minutes * 60);
-    return duration.toString().split('.').first.substring(2, 7);
   }
 
   @override
   Widget build(BuildContext context) {
     final noise = ref.watch(audioNameProvider);
-    final session = ref.watch(sessionProvider) * 60;
-    final isMusicPlaying = ref.watch(audioProvider);
-
-    void playTimer() {
-      setState(() {
-        isTimerPlaying = false;
-      });
-      startTimer();
-    }
-
-    void pauseTimer() {
-      setState(() {
-        isTimerPlaying = true;
-      });
-      stopTimer();
-    }
+    final isAudioPlaying = ref.watch(audioProvider);
 
     return Scaffold(
       backgroundColor: AppColors.bgTimer,
@@ -88,7 +75,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
         children: [
           isTimerPlaying
               ? IconButton(
-                  onPressed: playTimer,
+                  onPressed: pauseTimer,
                   icon: Icon(
                     Icons.pause_circle,
                     size: 100.w,
@@ -96,7 +83,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                   ),
                 )
               : IconButton(
-                  onPressed: pauseTimer,
+                  onPressed: playTimer,
                   icon: Icon(
                     Icons.play_circle,
                     size: 100.w,
@@ -120,8 +107,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                         ),
                       ),
                       Text(
-                        // formatTime(session),
-                        '$session',
+                        formatTime(sessionTime),
                         style: TextStyle(
                           fontFamily: 'howdy_duck',
                           fontSize: 64.sp,
@@ -163,7 +149,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                               SizedBox(width: 10.w),
                               TextButton(
                                 onPressed: () {
-                                  isMusicPlaying
+                                  isAudioPlaying
                                       ? pauseAudio(ref, _audioPlayer)
                                       : playAudio(ref, _audioPlayer);
                                 },
@@ -184,7 +170,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
                                 ),
                               ),
                               SizedBox(width: 10.w),
-                              isMusicPlaying
+                              isAudioPlaying
                                   ? Image.asset(
                                       'assets/gifs/playing.gif',
                                       width: 20.w,

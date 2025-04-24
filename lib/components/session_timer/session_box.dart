@@ -27,12 +27,6 @@ class SessionBox extends ConsumerWidget {
             color: AppColors.borderbrown,
             width: 3.w,
           ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 10,
-            ),
-          ],
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
