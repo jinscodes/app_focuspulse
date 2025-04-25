@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final audioProvider = StateProvider<List>((ref) {
+final stepsProvider = StateProvider<List<String>>((ref) {
   return [];
 });
 
-final presentStepProvider = StateProvider<String>((ref) {
+final currentStepProvider = StateProvider<String>((ref) {
   return '';
 });
