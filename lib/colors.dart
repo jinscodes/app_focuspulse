@@ -7,4 +7,6 @@ class AppColors {
   static const Color playerbrown = Color(0xFFD19D71);
   static const Color bgTimer = Color(0xFFFEFEFE);
   static const Color timerbrown = Color(0xFFBF9065);
+  static const Color dialogBrown = Color(0xFF3A0700);
+  static const Color dialogBtnBrown = Color(0xFF77450A);
 }
