@@ -49,8 +49,8 @@ void sBreakModal(BuildContext context, WidgetRef ref) {
                 Slider(
                   value: selectedTime.toDouble(),
                   min: 1,
-                  max: 60,
-                  divisions: 59,
+                  max: 30,
+                  divisions: 6,
                   label: "${selectedTime.toInt()}",
                   activeColor: AppColors.fontbrown,
                   inactiveColor: Colors.grey,

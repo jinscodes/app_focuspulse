@@ -49,8 +49,8 @@ void totalModal(BuildContext context, WidgetRef ref) {
                 Slider(
                   value: selectedTime.toDouble(),
                   min: 1,
-                  max: 60,
-                  divisions: 59,
+                  max: 10,
+                  divisions: 9,
                   label: "$selectedTime",
                   activeColor: AppColors.fontbrown,
                   inactiveColor: Colors.grey,

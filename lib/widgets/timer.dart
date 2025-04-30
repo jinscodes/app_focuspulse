@@ -7,9 +7,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/components/show_session_complete_dialog.dart';
 import 'package:focuspulse/models/format_timer.dart';
 import 'package:focuspulse/models/pause_audio.dart';
 import 'package:focuspulse/models/play_audo.dart';
+import 'package:focuspulse/models/save_steps.dart';
 import 'package:focuspulse/providers/audio_provider.dart';
 import 'package:focuspulse/providers/time_provider.dart';
 import 'package:just_audio/just_audio.dart';
@@ -25,6 +27,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
   late AudioPlayer _audioPlayer;
   late double sessionTime;
   late int total;
+  late List<String> sequnce;
   bool isTimerPlaying = false;
   Timer? _timer;
 
@@ -34,6 +37,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
     _audioPlayer = AudioPlayer();
     sessionTime = ref.read(sessionProvider) * 60;
     total = ref.read(totalProvider);
+    sequnce = createStepList(ref);
   }
 
   @override
@@ -49,92 +53,93 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
       if (sessionTime <= 0) {
         _timer?.cancel();
         _timer = null;
+        showSessionCompleteDialog(context);
 
-        Future.delayed(const Duration(seconds: 1), () {
-          showDialog(
-            context: context,
-            builder: (conext) => AlertDialog(
-              contentPadding: const EdgeInsets.all(0),
-              backgroundColor: AppColors.bgTimer,
-              content: SizedBox(
-                width: 300.w,
-                height: 320.h,
-                child: Column(
-                  children: [
-                    SizedBox(height: 22.h),
-                    Icon(
-                      Icons.check_circle_outline_rounded,
-                      color: AppColors.dialogBrown,
-                      size: 60.w,
-                    ),
-                    SizedBox(height: 22.h),
-                    Text(
-                      "SESSION COMPLETE",
-                      style: TextStyle(
-                        fontFamily: 'howdy_duck',
-                        fontSize: 22.sp,
-                        color: AppColors.dialogBrown,
-                      ),
-                    ),
-                    SizedBox(height: 22.h),
-                    Text(
-                      "You finished STEP Session 1",
-                      style: TextStyle(
-                        fontFamily: 'howdy_duck',
-                        fontSize: 12.sp,
-                        color: AppColors.dialogBrown,
-                      ),
-                    ),
-                    SizedBox(height: 25.h),
-                    SizedBox(
-                      width: 250.w,
-                      height: 50.h,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.dialogBtnBrown,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16.r),
-                          ),
-                        ),
-                        child: Text(
-                          'Short Break',
-                          style: TextStyle(
-                            fontFamily: 'howdy_duck',
-                            fontSize: 14.sp,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 5.h),
-                    SizedBox(
-                      width: 250.w,
-                      height: 50.h,
-                      child: TextButton(
-                        onPressed: () {},
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.transparent,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16.r),
-                          ),
-                        ),
-                        child: Text(
-                          'Next',
-                          style: TextStyle(
-                            fontFamily: 'howdy_duck',
-                            fontSize: 14.sp,
-                            color: AppColors.dialogBrown,
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          );
-        });
+        // Future.delayed(const Duration(seconds: 1), () {
+        //   showDialog(
+        //     context: context,
+        //     builder: (conext) => AlertDialog(
+        //       contentPadding: const EdgeInsets.all(0),
+        //       backgroundColor: AppColors.bgTimer,
+        //       content: SizedBox(
+        //         width: 300.w,
+        //         height: 320.h,
+        //         child: Column(
+        //           children: [
+        //             SizedBox(height: 22.h),
+        //             Icon(
+        //               Icons.check_circle_outline_rounded,
+        //               color: AppColors.dialogBrown,
+        //               size: 60.w,
+        //             ),
+        //             SizedBox(height: 22.h),
+        //             Text(
+        //               "SESSION COMPLETE",
+        //               style: TextStyle(
+        //                 fontFamily: 'howdy_duck',
+        //                 fontSize: 22.sp,
+        //                 color: AppColors.dialogBrown,
+        //               ),
+        //             ),
+        //             SizedBox(height: 22.h),
+        //             Text(
+        //               "You finished STEP Session 1",
+        //               style: TextStyle(
+        //                 fontFamily: 'howdy_duck',
+        //                 fontSize: 12.sp,
+        //                 color: AppColors.dialogBrown,
+        //               ),
+        //             ),
+        //             SizedBox(height: 25.h),
+        //             SizedBox(
+        //               width: 250.w,
+        //               height: 50.h,
+        //               child: ElevatedButton(
+        //                 onPressed: () {},
+        //                 style: ElevatedButton.styleFrom(
+        //                   backgroundColor: AppColors.dialogBtnBrown,
+        //                   shape: RoundedRectangleBorder(
+        //                     borderRadius: BorderRadius.circular(16.r),
+        //                   ),
+        //                 ),
+        //                 child: Text(
+        //                   'Short Break',
+        //                   style: TextStyle(
+        //                     fontFamily: 'howdy_duck',
+        //                     fontSize: 14.sp,
+        //                     color: Colors.white,
+        //                   ),
+        //                 ),
+        //               ),
+        //             ),
+        //             SizedBox(height: 5.h),
+        //             SizedBox(
+        //               width: 250.w,
+        //               height: 50.h,
+        //               child: TextButton(
+        //                 onPressed: () {},
+        //                 style: TextButton.styleFrom(
+        //                   backgroundColor: Colors.transparent,
+        //                   shape: RoundedRectangleBorder(
+        //                     borderRadius: BorderRadius.circular(16.r),
+        //                   ),
+        //                 ),
+        //                 child: Text(
+        //                   'Next',
+        //                   style: TextStyle(
+        //                     fontFamily: 'howdy_duck',
+        //                     fontSize: 14.sp,
+        //                     color: AppColors.dialogBrown,
+        //                   ),
+        //                 ),
+        //               ),
+        //             )
+        //           ],
+        //         ),
+        //       ),
+        //     ),
+        //   );
+        // });
       }
 
       setState(() {
