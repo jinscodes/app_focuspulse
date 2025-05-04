@@ -26,7 +26,7 @@ class StartButton extends ConsumerWidget {
         ),
       ),
       child: Text(
-        "NEXT",
+        "START",
         style: TextStyle(
           fontFamily: 'howdy_duck',
           fontSize: 15.sp,

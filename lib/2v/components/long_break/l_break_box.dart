@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:focuspulse/2v/components/long_break/l_break_modal.dart';
+import 'package:focuspulse/2v/time_provider.dart';
 import 'package:focuspulse/colors.dart';
-import 'package:focuspulse/components/session_timer/session_modal.dart';
-import 'package:focuspulse/providers/time_provider.dart';
 
-class SessionBox extends ConsumerWidget {
-  const SessionBox({super.key});
+class LBreakBox extends ConsumerWidget {
+  const LBreakBox({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final sessionTime = ref.watch(sessionProvider);
+    final longbreakTime = ref.watch(longbreakProvider);
 
     return GestureDetector(
       onTap: () {
-        sessionModal(context, ref);
+        lBreakModal(context, ref);
       },
       child: Container(
         width: 100.w,
         height: 100.h,
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
         decoration: BoxDecoration(
           color: AppColors.bgBeige,
           borderRadius: BorderRadius.circular(20.r),
@@ -27,12 +27,19 @@ class SessionBox extends ConsumerWidget {
             color: AppColors.borderbrown,
             width: 3.w,
           ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 10,
+            ),
+          ],
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "SESSION",
+              "LONG BREAK",
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontFamily: "howdy_duck",
                 fontSize: 12.sp,
@@ -42,7 +49,7 @@ class SessionBox extends ConsumerWidget {
             ),
             SizedBox(height: 8.h),
             Text(
-              '${sessionTime.toInt()}',
+              '${longbreakTime.toInt()}',
               style: TextStyle(
                 fontFamily: 'howdy_duck',
                 fontSize: 20.sp,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:focuspulse/2v/components/short_break/s_break_modal.dart';
+import 'package:focuspulse/2v/time_provider.dart';
 import 'package:focuspulse/colors.dart';
-import 'package:focuspulse/components/short_break/s_break_modal.dart';
-import 'package:focuspulse/providers/time_provider.dart';
 
 class SBreakBox extends ConsumerWidget {
   const SBreakBox({super.key});

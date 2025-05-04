@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:focuspulse/2v/time_provider.dart';
 import 'package:focuspulse/colors.dart';
-import 'package:focuspulse/providers/time_provider.dart';
 
-void sBreakModal(BuildContext context, WidgetRef ref) {
+void repetitionModal(BuildContext context, WidgetRef ref) {
   double selectedTime = 1.0;
 
   showModalBottomSheet(
@@ -49,8 +49,8 @@ void sBreakModal(BuildContext context, WidgetRef ref) {
                 Slider(
                   value: selectedTime.toDouble(),
                   min: 1,
-                  max: 30,
-                  divisions: 6,
+                  max: 10,
+                  divisions: 9,
                   label: "${selectedTime.toInt()}",
                   activeColor: AppColors.fontbrown,
                   inactiveColor: Colors.grey,
@@ -63,7 +63,7 @@ void sBreakModal(BuildContext context, WidgetRef ref) {
                 SizedBox(height: 20.h),
                 ElevatedButton(
                   onPressed: () {
-                    ref.read(shortbreakProvider.notifier).state = selectedTime;
+                    ref.read(repetitionProvider.notifier).state = selectedTime;
                     Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(

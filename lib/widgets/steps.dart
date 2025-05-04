@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:focuspulse/2v/components/step_slide.dart';
 import 'package:focuspulse/colors.dart';
-import 'package:focuspulse/components/step_slide.dart';
 import 'package:focuspulse/widgets/home.dart';
 
 class Steps extends StatefulWidget {

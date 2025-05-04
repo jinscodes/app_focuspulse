@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:focuspulse/2v/components/total_timer/total_modal.dart';
+import 'package:focuspulse/2v/time_provider.dart';
 import 'package:focuspulse/colors.dart';
-import 'package:focuspulse/components/repetition_timer/repetition_modal.dart';
-import 'package:focuspulse/providers/time_provider.dart';
 
-class RepetitionBox extends ConsumerWidget {
-  const RepetitionBox({super.key});
+class TotalBox extends ConsumerWidget {
+  const TotalBox({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final repTime = ref.watch(repetitionProvider);
+    final totalTime = ref.watch(totalProvider);
 
     return GestureDetector(
       onTap: () {
-        repetitionModal(context, ref);
+        totalModal(context, ref);
       },
       child: Container(
         width: 100.w,
         height: 100.h,
-        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
         decoration: BoxDecoration(
           color: AppColors.bgBeige,
           borderRadius: BorderRadius.circular(20.r),
@@ -38,17 +38,17 @@ class RepetitionBox extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "REPETITION",
+              "TOTAL",
               style: TextStyle(
                 fontFamily: "howdy_duck",
-                fontSize: 10.sp,
+                fontSize: 12.sp,
                 fontWeight: FontWeight.normal,
                 color: AppColors.fontbrown,
               ),
             ),
             SizedBox(height: 8.h),
             Text(
-              '${repTime.toInt()}',
+              '${totalTime.toInt()}',
               style: TextStyle(
                 fontFamily: 'howdy_duck',
                 fontSize: 20.sp,

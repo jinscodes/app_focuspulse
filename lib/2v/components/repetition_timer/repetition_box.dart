@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:focuspulse/2v/components/repetition_timer/repetition_modal.dart';
+import 'package:focuspulse/2v/time_provider.dart';
 import 'package:focuspulse/colors.dart';
-import 'package:focuspulse/components/long_break/l_break_modal.dart';
-import 'package:focuspulse/providers/time_provider.dart';
 
-class LBreakBox extends ConsumerWidget {
-  const LBreakBox({super.key});
+class RepetitionBox extends ConsumerWidget {
+  const RepetitionBox({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final longbreakTime = ref.watch(longbreakProvider);
+    final repTime = ref.watch(repetitionProvider);
 
     return GestureDetector(
       onTap: () {
-        lBreakModal(context, ref);
+        repetitionModal(context, ref);
       },
       child: Container(
         width: 100.w,
@@ -38,18 +38,17 @@ class LBreakBox extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "LONG BREAK",
-              textAlign: TextAlign.center,
+              "REPETITION",
               style: TextStyle(
                 fontFamily: "howdy_duck",
-                fontSize: 12.sp,
+                fontSize: 10.sp,
                 fontWeight: FontWeight.normal,
                 color: AppColors.fontbrown,
               ),
             ),
             SizedBox(height: 8.h),
             Text(
-              '${longbreakTime.toInt()}',
+              '${repTime.toInt()}',
               style: TextStyle(
                 fontFamily: 'howdy_duck',
                 fontSize: 20.sp,

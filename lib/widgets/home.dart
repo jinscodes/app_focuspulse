@@ -1,106 +1,138 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:focuspulse/2v/components/menu_drawer.dart';
 import 'package:focuspulse/colors.dart';
-import 'package:focuspulse/components/audio_player_box.dart';
-import 'package:focuspulse/components/long_break/l_break_box.dart';
-import 'package:focuspulse/components/menu_drawer.dart';
-import 'package:focuspulse/components/repetition_timer/repetition_box.dart';
-import 'package:focuspulse/components/session_timer/session_box.dart';
-import 'package:focuspulse/components/short_break/s_break_box.dart';
-import 'package:focuspulse/components/start_button.dart';
-import 'package:focuspulse/components/total_timer/total_box.dart';
-import 'package:focuspulse/widgets/timer.dart';
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    void navigateToTimer() {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const TimerScreen(),
-        ),
-      );
-    }
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  int? selectedIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    final List<String> timerList = [
+      'assets/images/toeic.png',
+      'assets/images/toefl.png',
+      'assets/images/opic.png',
+      'assets/images/korea_sat.png'
+    ];
 
     return Scaffold(
+      backgroundColor: AppColors.bgBeige,
       appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
         backgroundColor: AppColors.bgBeige,
-        centerTitle: false,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: AppColors.fontbrown),
+        foregroundColor: AppColors.fontbrown,
+        centerTitle: true,
       ),
       drawer: const MenuDrawer(),
-      backgroundColor: AppColors.bgBeige,
       body: Center(
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/images/timer.png',
-                  width: 40.w,
-                  height: 40.h,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24.w),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/timer.png',
+                    height: 50.h,
+                  ),
+                  Text(
+                    "Timer List",
+                    style: TextStyle(
+                      fontSize: 30.sp,
+                      fontFamily: 'howdy_duck',
+                      color: AppColors.fontbrown,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 24.h),
+              SizedBox(
+                height: 500.h,
+                child: ListView.builder(
+                  padding: EdgeInsets.zero,
+                  itemCount: timerList.length,
+                  itemBuilder: (context, index) {
+                    final isSelected = selectedIndex == index;
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = index;
+                        });
+                      },
+                      child: SizedBox(
+                        width: 1.sw,
+                        height: 110.h,
+                        child: Card(
+                          color: AppColors.bgBeige,
+                          margin: EdgeInsets.only(bottom: 20.h),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.r),
+                            side: BorderSide(
+                              color: isSelected
+                                  ? AppColors.fontbrown
+                                  : AppColors.borderbrown,
+                              width: 2,
+                            ),
+                          ),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Center(
+                                child: Image.asset(
+                                  timerList[index],
+                                  height: 50.h,
+                                ),
+                              ),
+                              Positioned(
+                                right: 16.w,
+                                child: Icon(
+                                  Icons.check_rounded,
+                                  size: 24.w,
+                                  color: isSelected
+                                      ? AppColors.checkedGreen
+                                      : AppColors.uncheckedGray,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
-                Text(
-                  "Timer",
+              ),
+              SizedBox(height: 40.h),
+              ElevatedButton(
+                onPressed: () {
+                  print("Clicked");
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.fontbrown,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16.r),
+                  ),
+                  minimumSize: Size(1.sw, 55.h),
+                ),
+                child: const Text(
+                  "Next",
                   style: TextStyle(
+                    fontSize: 20,
                     fontFamily: 'howdy_duck',
-                    fontSize: 24.sp,
-                    color: AppColors.fontbrown,
+                    color: AppColors.bgBeige,
                   ),
                 ),
-              ],
-            ),
-            SizedBox(height: 20.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const RepetitionBox(),
-                SizedBox(width: 10.w),
-                const TotalBox(),
-                SizedBox(width: 10.w),
-                const SessionBox()
-              ],
-            ),
-            SizedBox(height: 20.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SBreakBox(),
-                SizedBox(width: 10.w),
-                const LBreakBox(),
-                SizedBox(width: 10.w),
-              ],
-            ),
-            SizedBox(height: 30.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/images/timer.png',
-                  width: 40.w,
-                  height: 40.h,
-                ),
-                Text(
-                  "Sound",
-                  style: TextStyle(
-                    fontFamily: 'howdy_duck',
-                    fontSize: 24.sp,
-                    color: AppColors.fontbrown,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 12.h),
-            const AudioPlayerBox(),
-            SizedBox(height: 40.h),
-            StartButton("START", () => navigateToTimer()),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
@@ -6,7 +8,6 @@ Future<void> showSessionCompleteDialog(BuildContext context) async {
   await Future.delayed(const Duration(seconds: 1));
 
   showDialog(
-    // ignore: use_build_context_synchronously
     context: context,
     builder: (context) => AlertDialog(
       contentPadding: const EdgeInsets.all(0),
@@ -46,7 +47,7 @@ Future<void> showSessionCompleteDialog(BuildContext context) async {
               height: 50.h,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pop(); // Close the dialog
+                  Navigator.of(context).pop();
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.dialogBtnBrown,
