@@ -13,7 +13,6 @@ import 'package:focuspulse/models/format_timer.dart';
 import 'package:focuspulse/models/pause_audio.dart';
 import 'package:focuspulse/models/play_audo.dart';
 import 'package:focuspulse/providers/audio_provider.dart';
-import 'package:focuspulse/providers/process_provider.dart';
 import 'package:just_audio/just_audio.dart';
 
 class TimerScreen extends ConsumerStatefulWidget {
@@ -74,9 +73,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen> {
   Widget build(BuildContext context) {
     final noise = ref.watch(audioNameProvider);
     final isAudioPlaying = ref.watch(audioProvider);
-    final test = ref.watch(stepsProvider);
-
-    print('$test');
+    // final test = ref.watch(stepsProvider);
 
     return Scaffold(
       backgroundColor: AppColors.bgTimer,
