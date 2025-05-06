@@ -1,13 +1,9 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:focuspulse/colors.dart';
-import 'package:focuspulse/models/play_audio.dart';
 import 'package:focuspulse/providers/process_provider.dart';
-import 'package:just_audio/just_audio.dart';
 
 class NoiseList extends ConsumerStatefulWidget {
   const NoiseList({super.key});
@@ -17,10 +13,9 @@ class NoiseList extends ConsumerStatefulWidget {
 }
 
 class _NoiseListState extends ConsumerState<NoiseList> {
-  late AudioPlayer _audioPlayer;
   int? selectedIndex;
   final List<Map<String, String>> soundList = [
-    {"key": 'na', "path": "na", "name": "N/A"},
+    {"key": 'na', "name": "N/A"},
     {"key": 'dryer', "path": "dryer", "name": "Dryer"},
     {"key": 'dryer', "path": "dryer2", "name": "Dryer"},
     {"key": 'fan', "path": "fan", "name": "Fan"},
@@ -32,20 +27,13 @@ class _NoiseListState extends ConsumerState<NoiseList> {
     {"key": 'rain', "path": "rain", "name": "Rain"},
     {"key": 'rain', "path": "rain2", "name": "Rain"},
     {"key": 'rain', "path": "rain3", "name": "Rain"},
-    {"key": 'train', "path": "train", "name": "Train"},
+    {"key": 'train', "path": "train", "name": "Rain"},
   ];
 
   @override
   void initState() {
     super.initState();
-    _audioPlayer = AudioPlayer();
     print(ref.read(timerProvider)['timer']);
-  }
-
-  @override
-  void dispose() {
-    _audioPlayer.dispose();
-    super.dispose();
   }
 
   @override
@@ -86,13 +74,8 @@ class _NoiseListState extends ConsumerState<NoiseList> {
                     final isSelected = selectedIndex == index;
 
                     return GestureDetector(
-                      onTap: () async {
-                        setState(() {
-                          selectedIndex = index;
-                        });
-                        final noise = soundList[index]['path']!;
-                        print('noise_list:  $noise');
-                        await playAudio(ref, _audioPlayer, noise);
+                      onTap: () {
+                        print("clicked");
                       },
                       child: SizedBox(
                         width: 1.sw,
@@ -117,12 +100,6 @@ class _NoiseListState extends ConsumerState<NoiseList> {
                                 SvgPicture.asset(
                                   'assets/svg/${soundList[index]['key']!}.svg',
                                   height: 30.h,
-                                  colorFilter: ColorFilter.mode(
-                                    isSelected
-                                        ? AppColors.fontbrown
-                                        : AppColors.soundBrown,
-                                    BlendMode.srcIn,
-                                  ),
                                 ),
                                 SizedBox(width: 16.w),
                                 Text(
@@ -130,9 +107,7 @@ class _NoiseListState extends ConsumerState<NoiseList> {
                                   style: TextStyle(
                                     fontSize: 16.sp,
                                     fontFamily: 'howdy_duck',
-                                    color: isSelected
-                                        ? AppColors.fontbrown
-                                        : AppColors.soundBrown,
+                                    color: AppColors.soundBrown,
                                   ),
                                 ),
                               ],

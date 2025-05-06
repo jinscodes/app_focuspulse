@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
-import 'package:focuspulse/models/clear_audio_cache.dart';
 import 'package:focuspulse/widgets/steps.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -19,8 +18,6 @@ class SplashScreen extends StatelessWidget {
         ),
       );
     });
-
-    clearAudioCache();
 
     return Scaffold(
       backgroundColor: AppColors.bgBeige,
