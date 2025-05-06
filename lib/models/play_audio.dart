@@ -5,7 +5,7 @@ Future<void> playAudio(
     WidgetRef ref, AudioPlayer audioPlayer, String noise) async {
   try {
     if (noise == 'na') {
-      await audioPlayer.stop();
+      return await audioPlayer.stop();
     }
 
     await audioPlayer.stop();
