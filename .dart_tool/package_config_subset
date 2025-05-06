@@ -203,9 +203,9 @@ json_annotation
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/json_annotation-4.9.0/
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/json_annotation-4.9.0/lib/
 just_audio
-3.0
-file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/just_audio-0.9.46/
-file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/just_audio-0.9.46/lib/
+3.6
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/just_audio-0.10.2/
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/just_audio-0.10.2/lib/
 just_audio_platform_interface
 2.17
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/just_audio_platform_interface-4.5.0/
@@ -382,6 +382,10 @@ string_scanner
 3.1
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/string_scanner-1.4.1/
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/string_scanner-1.4.1/lib/
+synchronized
+3.7
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/synchronized-3.3.1/
+file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/synchronized-3.3.1/lib/
 term_glyph
 3.1
 file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/term_glyph-1.2.2/
