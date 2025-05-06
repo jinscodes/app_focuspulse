@@ -75,6 +75,7 @@ class _TimerListState extends ConsumerState<TimerList> {
                   itemCount: timerList.length,
                   itemBuilder: (context, index) {
                     final isSelected = selectedIndex == index;
+
                     return GestureDetector(
                       onTap: () {
                         setState(() {

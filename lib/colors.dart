@@ -11,4 +11,5 @@ class AppColors {
   static const Color dialogBtnBrown = Color(0xFF77450A);
   static const Color uncheckedGray = Color(0xFFCED3CE);
   static const Color checkedGreen = Color(0xFF15D200);
+  static const Color soundBrown = Color(0xFFBF9065);
 }
