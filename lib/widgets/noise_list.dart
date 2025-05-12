@@ -40,6 +40,14 @@ class _NoiseListState extends ConsumerState<NoiseList>
     super.initState();
     _audioPlayer = AudioPlayer();
     WidgetsBinding.instance.addObserver(this);
+
+    selectedIndex = soundList.indexWhere((sound) => sound['key'] == 'na');
+    if (selectedIndex != -1) {
+      final defaultNoise = soundList[selectedIndex!]['path']!;
+      if (defaultNoise != "na") {
+        playAudio(ref, _audioPlayer, defaultNoise);
+      }
+    }
   }
 
   @override
