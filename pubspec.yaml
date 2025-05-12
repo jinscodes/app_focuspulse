@@ -40,6 +40,7 @@ flutter:
     - assets/sounds/
     - assets/svg/
     - assets/gifs/
+    - assets/json/
 
   fonts:
     - family: howdy_duck

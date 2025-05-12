@@ -5,6 +5,7 @@ import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/components/list_next_btn.dart';
 import 'package:focuspulse/components/list_title.dart';
 import 'package:focuspulse/components/sound_card.dart';
+import 'package:focuspulse/models/load_sound_list.dart';
 import 'package:focuspulse/models/play_audio.dart';
 import 'package:just_audio/just_audio.dart';
 
@@ -19,27 +20,26 @@ class _NoiseListState extends ConsumerState<NoiseList>
     with WidgetsBindingObserver {
   int? selectedIndex;
   late AudioPlayer _audioPlayer;
-  final List<Map<String, String>> soundList = [
-    {"key": 'na', "path": "na", "name": "N/A"},
-    {"key": 'dryer', "path": "dryer", "name": "Dryer"},
-    {"key": 'dryer', "path": "dryer2", "name": "Dryer"},
-    {"key": 'fan', "path": "fan", "name": "Fan"},
-    {"key": 'fan', "path": "fan2", "name": "Fan"},
-    {"key": 'whitenoise', "path": "whitenoise", "name": "WhiteNoise"},
-    {"key": 'whitenoise', "path": "whitenoise2", "name": "WhiteNoise"},
-    {"key": 'whitenoise', "path": "whitenoise3", "name": "WhiteNoise"},
-    {"key": 'whitenoise', "path": "whitenoise4", "name": "WhiteNoise"},
-    {"key": 'rain', "path": "rain", "name": "Rain"},
-    {"key": 'rain', "path": "rain2", "name": "Rain"},
-    {"key": 'rain', "path": "rain3", "name": "Rain"},
-    {"key": 'train', "path": "train", "name": "Train"},
-  ];
+  List<Map<String, String>> soundList = [];
 
   @override
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
     WidgetsBinding.instance.addObserver(this);
+    loadSoundList().then((loadedSoundList) {
+      setState(() {
+        soundList = loadedSoundList;
+
+        selectedIndex = soundList.indexWhere((sound) => sound['key'] == 'na');
+        if (selectedIndex != -1) {
+          final defaultNoise = soundList[selectedIndex!]['path']!;
+          if (defaultNoise != "na") {
+            playAudio(ref, _audioPlayer, defaultNoise);
+          }
+        }
+      });
+    });
   }
 
   @override
