@@ -15,7 +15,8 @@ class NoiseList extends ConsumerStatefulWidget {
   ConsumerState<ConsumerStatefulWidget> createState() => _NoiseListState();
 }
 
-class _NoiseListState extends ConsumerState<NoiseList> {
+class _NoiseListState extends ConsumerState<NoiseList>
+    with WidgetsBindingObserver {
   int? selectedIndex;
   late AudioPlayer _audioPlayer;
   final List<Map<String, String>> soundList = [
@@ -38,12 +39,23 @@ class _NoiseListState extends ConsumerState<NoiseList> {
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
+    WidgetsBinding.instance.addObserver(this);
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _audioPlayer.stop();
     _audioPlayer.dispose();
     super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.inactive ||
+        state == AppLifecycleState.paused) {
+      _audioPlayer.stop();
+    }
   }
 
   @override
