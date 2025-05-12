@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/components/list_next_btn.dart';
+import 'package:focuspulse/components/list_title.dart';
 import 'package:focuspulse/models/play_audio.dart';
 import 'package:just_audio/just_audio.dart';
 
@@ -55,23 +57,7 @@ class _NoiseListState extends ConsumerState<NoiseList> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: 30.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/images/piano.png',
-                    height: 40.h,
-                  ),
-                  Text(
-                    "Sound List",
-                    style: TextStyle(
-                      fontSize: 24.sp,
-                      fontFamily: 'howdy_duck',
-                      color: AppColors.fontbrown,
-                    ),
-                  ),
-                ],
-              ),
+              const ListTitle('Sound List', 'assets/images/piano.png'),
               SizedBox(height: 30.h),
               SizedBox(
                 height: 500.h,
@@ -140,24 +126,7 @@ class _NoiseListState extends ConsumerState<NoiseList> {
                 ),
               ),
               SizedBox(height: 60.h),
-              ElevatedButton(
-                onPressed: () => {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.fontbrown,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16.r),
-                  ),
-                  minimumSize: Size(1.sw, 55.h),
-                ),
-                child: const Text(
-                  "Next",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'howdy_duck',
-                    color: AppColors.bgBeige,
-                  ),
-                ),
-              ),
+              ListNextBtn(() => print("Next button pressed")),
             ],
           ),
         ),
