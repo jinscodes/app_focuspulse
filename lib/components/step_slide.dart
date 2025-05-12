@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:focuspulse/2v/components/next_button.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/components/next_button.dart';
 
 class StepSlide extends StatelessWidget {
   final String title;

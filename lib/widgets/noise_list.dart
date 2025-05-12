@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/components/list_next_btn.dart';
+import 'package:focuspulse/components/list_title.dart';
+import 'package:focuspulse/components/sound_card.dart';
 import 'package:focuspulse/models/play_audio.dart';
 import 'package:just_audio/just_audio.dart';
 
@@ -13,7 +15,8 @@ class NoiseList extends ConsumerStatefulWidget {
   ConsumerState<ConsumerStatefulWidget> createState() => _NoiseListState();
 }
 
-class _NoiseListState extends ConsumerState<NoiseList> {
+class _NoiseListState extends ConsumerState<NoiseList>
+    with WidgetsBindingObserver {
   int? selectedIndex;
   late AudioPlayer _audioPlayer;
   final List<Map<String, String>> soundList = [
@@ -36,12 +39,23 @@ class _NoiseListState extends ConsumerState<NoiseList> {
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
+    WidgetsBinding.instance.addObserver(this);
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _audioPlayer.stop();
     _audioPlayer.dispose();
     super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.inactive ||
+        state == AppLifecycleState.paused) {
+      _audioPlayer.stop();
+    }
   }
 
   @override
@@ -55,23 +69,7 @@ class _NoiseListState extends ConsumerState<NoiseList> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: 30.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/images/piano.png',
-                    height: 40.h,
-                  ),
-                  Text(
-                    "Sound List",
-                    style: TextStyle(
-                      fontSize: 24.sp,
-                      fontFamily: 'howdy_duck',
-                      color: AppColors.fontbrown,
-                    ),
-                  ),
-                ],
-              ),
+              const ListTitle('Sound List', 'assets/images/piano.png'),
               SizedBox(height: 30.h),
               SizedBox(
                 height: 500.h,
@@ -81,7 +79,10 @@ class _NoiseListState extends ConsumerState<NoiseList> {
                   itemBuilder: (context, index) {
                     final isSelected = selectedIndex == index;
 
-                    return GestureDetector(
+                    return SoundCard(
+                      isSelected: isSelected,
+                      imagePath: soundList[index]['key']!,
+                      name: soundList[index]['name']!,
                       onTap: () async {
                         setState(() {
                           selectedIndex = index;
@@ -89,75 +90,12 @@ class _NoiseListState extends ConsumerState<NoiseList> {
                         final noise = soundList[index]['path']!;
                         await playAudio(ref, _audioPlayer, noise);
                       },
-                      child: SizedBox(
-                        width: 1.sw,
-                        height: 110.h,
-                        child: Card(
-                          color: AppColors.bgBeige,
-                          margin: EdgeInsets.only(bottom: 20.h),
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.r),
-                            side: BorderSide(
-                              color: isSelected
-                                  ? AppColors.fontbrown
-                                  : AppColors.borderbrown,
-                              width: 3,
-                            ),
-                          ),
-                          child: Center(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  'assets/svg/${soundList[index]['key']!}.svg',
-                                  height: 30.h,
-                                  colorFilter: ColorFilter.mode(
-                                    isSelected
-                                        ? AppColors.fontbrown
-                                        : AppColors.soundBrown,
-                                    BlendMode.srcIn,
-                                  ),
-                                ),
-                                SizedBox(width: 16.w),
-                                Text(
-                                  soundList[index]['name']!,
-                                  style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontFamily: 'howdy_duck',
-                                    color: isSelected
-                                        ? AppColors.fontbrown
-                                        : AppColors.soundBrown,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
                     );
                   },
                 ),
               ),
               SizedBox(height: 60.h),
-              ElevatedButton(
-                onPressed: () => {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.fontbrown,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16.r),
-                  ),
-                  minimumSize: Size(1.sw, 55.h),
-                ),
-                child: const Text(
-                  "Next",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'howdy_duck',
-                    color: AppColors.bgBeige,
-                  ),
-                ),
-              ),
+              ListNextBtn(() => print("Next button pressed")),
             ],
           ),
         ),

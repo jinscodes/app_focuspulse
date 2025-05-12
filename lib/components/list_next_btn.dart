@@ -3,33 +3,27 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
 
-class StartButton extends ConsumerWidget {
-  final String title;
-  final VoidCallback onPressed;
+class ListNextBtn extends ConsumerWidget {
+  final VoidCallback navigateToNextScreen;
 
-  const StartButton(this.title, this.onPressed, {super.key});
+  const ListNextBtn(this.navigateToNextScreen, {super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: () => navigateToNextScreen(),
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.playerbrown,
-        elevation: 0,
-        surfaceTintColor: Colors.transparent,
+        backgroundColor: AppColors.fontbrown,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(16.r),
         ),
-        padding: EdgeInsets.symmetric(
-          horizontal: 60.w,
-          vertical: 10.h,
-        ),
+        minimumSize: Size(1.sw, 55.h),
       ),
-      child: Text(
-        "START",
+      child: const Text(
+        "Next",
         style: TextStyle(
+          fontSize: 20,
           fontFamily: 'howdy_duck',
-          fontSize: 15.sp,
           color: AppColors.bgBeige,
         ),
       ),

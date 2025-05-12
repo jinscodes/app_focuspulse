@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/components/list_next_btn.dart';
+import 'package:focuspulse/components/list_title.dart';
+import 'package:focuspulse/components/timer_card.dart';
 import 'package:focuspulse/providers/process_provider.dart';
 import 'package:focuspulse/widgets/noise_list.dart';
 
@@ -50,23 +53,7 @@ class _TimerListState extends ConsumerState<TimerList> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: 30.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/images/timer.png',
-                    height: 40.h,
-                  ),
-                  Text(
-                    "Timer List",
-                    style: TextStyle(
-                      fontSize: 24.sp,
-                      fontFamily: 'howdy_duck',
-                      color: AppColors.fontbrown,
-                    ),
-                  ),
-                ],
-              ),
+              const ListTitle('Timer List', 'assets/images/timer.png'),
               SizedBox(height: 30.h),
               SizedBox(
                 height: 500.h,
@@ -76,74 +63,20 @@ class _TimerListState extends ConsumerState<TimerList> {
                   itemBuilder: (context, index) {
                     final isSelected = selectedIndex == index;
 
-                    return GestureDetector(
+                    return TimerCard(
+                      isSelected: isSelected,
+                      imagePath: timerList[index]['path']!,
                       onTap: () {
                         setState(() {
                           selectedIndex = index;
                         });
                       },
-                      child: SizedBox(
-                        width: 1.sw,
-                        height: 110.h,
-                        child: Card(
-                          color: AppColors.bgBeige,
-                          margin: EdgeInsets.only(bottom: 20.h),
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.r),
-                            side: BorderSide(
-                              color: isSelected
-                                  ? AppColors.fontbrown
-                                  : AppColors.borderbrown,
-                              width: 3,
-                            ),
-                          ),
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              Center(
-                                child: Image.asset(
-                                  timerList[index]['path']!,
-                                  height: 50.h,
-                                ),
-                              ),
-                              Positioned(
-                                right: 16.w,
-                                child: Icon(
-                                  Icons.check_rounded,
-                                  size: 24.w,
-                                  color: isSelected
-                                      ? AppColors.checkedGreen
-                                      : AppColors.uncheckedGray,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
                     );
                   },
                 ),
               ),
               SizedBox(height: 60.h),
-              ElevatedButton(
-                onPressed: () => navigateToNextScreen(),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.fontbrown,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16.r),
-                  ),
-                  minimumSize: Size(1.sw, 55.h),
-                ),
-                child: const Text(
-                  "Next",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'howdy_duck',
-                    color: AppColors.bgBeige,
-                  ),
-                ),
-              ),
+              ListNextBtn(navigateToNextScreen),
             ],
           ),
         ),
