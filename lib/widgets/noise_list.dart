@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/components/list_next_btn.dart';
 import 'package:focuspulse/components/list_title.dart';
+import 'package:focuspulse/components/sound_card.dart';
 import 'package:focuspulse/models/play_audio.dart';
 import 'package:just_audio/just_audio.dart';
 
@@ -67,7 +67,10 @@ class _NoiseListState extends ConsumerState<NoiseList> {
                   itemBuilder: (context, index) {
                     final isSelected = selectedIndex == index;
 
-                    return GestureDetector(
+                    return SoundCard(
+                      isSelected: isSelected,
+                      imagePath: soundList[index]['key']!,
+                      name: soundList[index]['name']!,
                       onTap: () async {
                         setState(() {
                           selectedIndex = index;
@@ -75,52 +78,6 @@ class _NoiseListState extends ConsumerState<NoiseList> {
                         final noise = soundList[index]['path']!;
                         await playAudio(ref, _audioPlayer, noise);
                       },
-                      child: SizedBox(
-                        width: 1.sw,
-                        height: 110.h,
-                        child: Card(
-                          color: AppColors.bgBeige,
-                          margin: EdgeInsets.only(bottom: 20.h),
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.r),
-                            side: BorderSide(
-                              color: isSelected
-                                  ? AppColors.fontbrown
-                                  : AppColors.borderbrown,
-                              width: 3,
-                            ),
-                          ),
-                          child: Center(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  'assets/svg/${soundList[index]['key']!}.svg',
-                                  height: 30.h,
-                                  colorFilter: ColorFilter.mode(
-                                    isSelected
-                                        ? AppColors.fontbrown
-                                        : AppColors.soundBrown,
-                                    BlendMode.srcIn,
-                                  ),
-                                ),
-                                SizedBox(width: 16.w),
-                                Text(
-                                  soundList[index]['name']!,
-                                  style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontFamily: 'howdy_duck',
-                                    color: isSelected
-                                        ? AppColors.fontbrown
-                                        : AppColors.soundBrown,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
                     );
                   },
                 ),
