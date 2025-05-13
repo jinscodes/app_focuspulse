@@ -1,0 +1,59 @@
+[
+  {
+    "key": "toeic",
+    "session": [{ "Reading": 45 }, { "Listening": 75 }],
+    "break": [5]
+  },
+  {
+    "key": "toefl",
+    "time": [
+      { "Reading": 35 },
+      { "Listening": 36 },
+      { "Speaking": 16 },
+      { "Writing": 29 }
+    ],
+    "break": [0, 10, 0]
+  },
+  {
+    "key": "opic",
+    "time": [
+      { "Background Investigation": 5 },
+      { "Introducing": 1 },
+      { "Test": 30 }
+    ],
+    "break": [0]
+  },
+  {
+    "key": "ielts",
+    "time": [
+      { "Listening": 40 },
+      { "Reading": 60 },
+      { "Writing": 60 },
+      { "Speaking": 15 }
+    ],
+    "break": [0, 0, 10]
+  },
+  {
+    "key": "teps",
+    "time": [
+      { "Listening": 40 },
+      { "Reading": 60 },
+      { "Vocabulary": 15 },
+      { "Writing": 30 }
+    ],
+    "break": [0, 0, 0]
+  },
+  {
+    "key": "k-sat",
+    "time": [
+      { "Korean": 80 },
+      { "Math": 100 },
+      { "English": 70 },
+      { "Korean History": 30 },
+      { "Social Studies||Science 1": 30 },
+      { "Social Studies||Science 2": 30 },
+      { "Second Foreign Language": 40 }
+    ],
+    "break": [20, 50, 20, 5, 5, 18]
+  }
+]

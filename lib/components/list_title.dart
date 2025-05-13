@@ -5,27 +5,32 @@ import 'package:focuspulse/colors.dart';
 
 class ListTitle extends ConsumerWidget {
   final String title;
-  final String imgPath;
+  final String description;
 
-  const ListTitle(this.title, this.imgPath, {super.key});
+  const ListTitle(this.title, this.description, {super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image.asset(
-          imgPath,
-          height: 40.h,
-        ),
         Text(
           title,
           style: TextStyle(
-            fontSize: 24.sp,
+            fontSize: 40.sp,
             fontFamily: 'howdy_duck',
             color: AppColors.fontbrown,
           ),
         ),
+        SizedBox(height: 10.h),
+        Text(
+          description,
+          style: TextStyle(
+            fontSize: 20.sp,
+            fontFamily: 'howdy_duck',
+            color: AppColors.fontbrown,
+          ),
+        )
       ],
     );
   }

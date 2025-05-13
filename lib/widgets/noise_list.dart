@@ -84,12 +84,13 @@ class _NoiseListState extends ConsumerState<NoiseList>
           padding: EdgeInsets.symmetric(horizontal: 24.w),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 30.h),
-              const ListTitle('Sound List', 'assets/images/piano.png'),
+              const ListTitle('STEP 2', 'Choose sound'),
               SizedBox(height: 30.h),
               SizedBox(
-                height: 500.h,
+                height: 480.h,
                 child: ListView.builder(
                   padding: EdgeInsets.zero,
                   itemCount: soundList.length,
@@ -111,7 +112,7 @@ class _NoiseListState extends ConsumerState<NoiseList>
                   },
                 ),
               ),
-              SizedBox(height: 60.h),
+              SizedBox(height: 30.h),
               ListNextBtn(navigateToNextScreen),
             ],
           ),

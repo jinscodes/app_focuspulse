@@ -5,9 +5,9 @@ import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/components/list_next_btn.dart';
 import 'package:focuspulse/components/list_title.dart';
 import 'package:focuspulse/components/timer_card.dart';
+import 'package:focuspulse/models/load_timer_list.dart';
 import 'package:focuspulse/providers/process_provider.dart';
 import 'package:focuspulse/widgets/noise_list.dart';
-import 'package:focuspulse/widgets/timer_step_description.dart';
 
 class TimerList extends ConsumerStatefulWidget {
   const TimerList({super.key});
@@ -18,18 +18,20 @@ class TimerList extends ConsumerStatefulWidget {
 
 class _TimerListState extends ConsumerState<TimerList> {
   int? selectedIndex;
+  List<Map<String, String>> timerList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadTimerList().then((loadedTimerList) {
+      setState(() {
+        timerList = loadedTimerList;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, String>> timerList = [
-      {"path": 'assets/images/toeic.png', "key": 'toeic'},
-      {"path": 'assets/images/toefl.png', "key": 'toefl'},
-      {"path": 'assets/images/opic.png', "key": 'opic'},
-      {"path": 'assets/images/ielts.png', "key": 'ielts'},
-      {"path": 'assets/images/teps.png', "key": 'teps'},
-      {"path": 'assets/images/det.png', "key": 'det'},
-    ];
-
     void navigateToNextScreen() {
       ref.read(timerProvider.notifier).update((state) {
         return {
@@ -45,19 +47,6 @@ class _TimerListState extends ConsumerState<TimerList> {
       );
     }
 
-    void navigateToDescriptionScreen() {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => TimerStepDescription(
-            'STEP2',
-            'Choose your sound',
-            navigateToNextScreen,
-          ),
-        ),
-      );
-    }
-
     return Scaffold(
       backgroundColor: AppColors.bgBeige,
       body: Center(
@@ -65,12 +54,13 @@ class _TimerListState extends ConsumerState<TimerList> {
           padding: EdgeInsets.symmetric(horizontal: 24.w),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 30.h),
-              const ListTitle('Timer List', 'assets/images/timer.png'),
+              const ListTitle('STEP 1', 'Choose test type'),
               SizedBox(height: 30.h),
               SizedBox(
-                height: 500.h,
+                height: 480.h,
                 child: ListView.builder(
                   padding: EdgeInsets.zero,
                   itemCount: timerList.length,
@@ -89,8 +79,8 @@ class _TimerListState extends ConsumerState<TimerList> {
                   },
                 ),
               ),
-              SizedBox(height: 60.h),
-              ListNextBtn(navigateToDescriptionScreen),
+              SizedBox(height: 30.h),
+              ListNextBtn(navigateToNextScreen),
             ],
           ),
         ),
