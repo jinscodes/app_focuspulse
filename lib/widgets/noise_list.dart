@@ -7,6 +7,8 @@ import 'package:focuspulse/components/list_title.dart';
 import 'package:focuspulse/components/sound_card.dart';
 import 'package:focuspulse/models/load_sound_list.dart';
 import 'package:focuspulse/models/play_audio.dart';
+import 'package:focuspulse/providers/process_provider.dart';
+import 'package:focuspulse/widgets/timer.dart';
 import 'package:just_audio/just_audio.dart';
 
 class NoiseList extends ConsumerStatefulWidget {
@@ -58,6 +60,21 @@ class _NoiseListState extends ConsumerState<NoiseList>
     }
   }
 
+  void navigateToNextScreen() {
+    ref.read(timerProvider.notifier).update((state) {
+      return {
+        ...state,
+        'noise': soundList[selectedIndex!]['key']!,
+      };
+    });
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const TimerScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,12 +84,13 @@ class _NoiseListState extends ConsumerState<NoiseList>
           padding: EdgeInsets.symmetric(horizontal: 24.w),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 30.h),
-              const ListTitle('Sound List', 'assets/images/piano.png'),
+              const ListTitle('STEP 2', 'Choose sound'),
               SizedBox(height: 30.h),
               SizedBox(
-                height: 500.h,
+                height: 480.h,
                 child: ListView.builder(
                   padding: EdgeInsets.zero,
                   itemCount: soundList.length,
@@ -94,8 +112,8 @@ class _NoiseListState extends ConsumerState<NoiseList>
                   },
                 ),
               ),
-              SizedBox(height: 60.h),
-              ListNextBtn(() => print("Next button pressed")),
+              SizedBox(height: 30.h),
+              ListNextBtn(navigateToNextScreen),
             ],
           ),
         ),

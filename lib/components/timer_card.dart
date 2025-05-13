@@ -20,7 +20,7 @@ class TimerCard extends StatelessWidget {
       onTap: onTap,
       child: SizedBox(
         width: 1.sw,
-        height: 110.h,
+        height: 100.h,
         child: Card(
           color: AppColors.bgBeige,
           margin: EdgeInsets.only(bottom: 20.h),
