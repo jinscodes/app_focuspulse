@@ -7,6 +7,7 @@ import 'package:focuspulse/components/list_title.dart';
 import 'package:focuspulse/components/timer_card.dart';
 import 'package:focuspulse/providers/process_provider.dart';
 import 'package:focuspulse/widgets/noise_list.dart';
+import 'package:focuspulse/widgets/timer_step_description.dart';
 
 class TimerList extends ConsumerStatefulWidget {
   const TimerList({super.key});
@@ -44,6 +45,19 @@ class _TimerListState extends ConsumerState<TimerList> {
       );
     }
 
+    void navigateToDescriptionScreen() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => TimerStepDescription(
+            'STEP2',
+            'Choose your sound',
+            navigateToNextScreen,
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: AppColors.bgBeige,
       body: Center(
@@ -76,7 +90,7 @@ class _TimerListState extends ConsumerState<TimerList> {
                 ),
               ),
               SizedBox(height: 60.h),
-              ListNextBtn(navigateToNextScreen),
+              ListNextBtn(navigateToDescriptionScreen),
             ],
           ),
         ),

@@ -7,6 +7,8 @@ import 'package:focuspulse/components/list_title.dart';
 import 'package:focuspulse/components/sound_card.dart';
 import 'package:focuspulse/models/load_sound_list.dart';
 import 'package:focuspulse/models/play_audio.dart';
+import 'package:focuspulse/providers/process_provider.dart';
+import 'package:focuspulse/widgets/timer.dart';
 import 'package:just_audio/just_audio.dart';
 
 class NoiseList extends ConsumerStatefulWidget {
@@ -58,6 +60,21 @@ class _NoiseListState extends ConsumerState<NoiseList>
     }
   }
 
+  void navigateToNextScreen() {
+    ref.read(timerProvider.notifier).update((state) {
+      return {
+        ...state,
+        'noise': soundList[selectedIndex!]['key']!,
+      };
+    });
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const TimerScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,7 +112,7 @@ class _NoiseListState extends ConsumerState<NoiseList>
                 ),
               ),
               SizedBox(height: 60.h),
-              ListNextBtn(() => print("Next button pressed")),
+              ListNextBtn(navigateToNextScreen),
             ],
           ),
         ),
