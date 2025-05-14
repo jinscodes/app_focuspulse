@@ -36,7 +36,7 @@ class _TimerListState extends ConsumerState<TimerList> {
       ref.read(timerProvider.notifier).update((state) {
         return {
           ...state,
-          'timer': timerList[selectedIndex!]['key']!,
+          'timerKey': timerList[selectedIndex!]['key']!,
         };
       });
       Navigator.push(
