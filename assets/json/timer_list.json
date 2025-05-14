@@ -1,4 +1,5 @@
 [
+  { "path": "assets/images/logo.png", "key": "test" },
   { "path": "assets/images/toeic.png", "key": "toeic" },
   { "path": "assets/images/opic.png", "key": "opic" },
   { "path": "assets/images/teps.png", "key": "teps" },
