@@ -125,7 +125,7 @@ class _TimerState extends ConsumerState<TimerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgBeige,
+      backgroundColor: AppColors.bgWhite,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -24,7 +24,7 @@ class ListNextBtn extends ConsumerWidget {
         style: TextStyle(
           fontSize: 20,
           fontFamily: 'howdy_duck',
-          color: AppColors.bgBeige,
+          color: AppColors.bgWhite,
         ),
       ),
     );

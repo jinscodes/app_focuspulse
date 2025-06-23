@@ -23,13 +23,13 @@ class SplashScreen extends StatelessWidget {
     clearAudioCache();
 
     return Scaffold(
-      backgroundColor: AppColors.bgBeige,
+      backgroundColor: AppColors.bgWhite,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              "assets/images/logo.png",
+              "assets/images/logo_splashscreen.png",
               width: 150.w,
               height: 120.h,
             )

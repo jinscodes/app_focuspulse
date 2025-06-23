@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         themeMode: ThemeMode.system,
         theme: ThemeData(
           useMaterial3: true,
-          colorSchemeSeed: AppColors.bgBeige,
+          colorSchemeSeed: AppColors.bgWhite,
           brightness: Brightness.light,
         ),
         debugShowCheckedModeBanner: false,

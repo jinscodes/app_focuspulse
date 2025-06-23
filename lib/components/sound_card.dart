@@ -25,7 +25,7 @@ class SoundCard extends StatelessWidget {
         width: 1.sw,
         height: 100.h,
         child: Card(
-          color: AppColors.bgBeige,
+          color: AppColors.bgWhite,
           margin: EdgeInsets.only(bottom: 20.h),
           elevation: 0,
           shape: RoundedRectangleBorder(
