@@ -62,7 +62,7 @@ class _StepsState extends State<Steps> {
   Widget build(BuildContext context) {
     final currentStepData = _steps[_currentStep];
     return Scaffold(
-      backgroundColor: AppColors.bgBeige,
+      backgroundColor: AppColors.bgWhite,
       body: Stack(
         children: [
           Center(

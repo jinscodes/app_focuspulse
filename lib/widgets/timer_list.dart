@@ -48,7 +48,7 @@ class _TimerListState extends ConsumerState<TimerList> {
     }
 
     return Scaffold(
-      backgroundColor: AppColors.bgBeige,
+      backgroundColor: AppColors.bgWhite,
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.w),

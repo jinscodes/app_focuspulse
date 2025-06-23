@@ -29,7 +29,7 @@ class NextButton extends ConsumerWidget {
         style: TextStyle(
           fontFamily: 'howdy_duck',
           fontSize: 20.sp,
-          color: AppColors.bgBeige,
+          color: AppColors.bgWhite,
         ),
       ),
     );
