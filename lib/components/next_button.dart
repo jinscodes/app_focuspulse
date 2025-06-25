@@ -10,26 +10,30 @@ class NextButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ElevatedButton(
-      onPressed: onNext,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.fontbrown,
-        elevation: 0,
-        surfaceTintColor: Colors.transparent,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-        padding: EdgeInsets.symmetric(
-          horizontal: 60.w,
-          vertical: 15.h,
-        ),
-      ),
-      child: Text(
-        "NEXT",
-        style: TextStyle(
-          fontFamily: 'howdy_duck',
-          fontSize: 20.sp,
-          color: AppColors.bgWhite,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20.0.w),
+      child: SizedBox(
+        width: double.infinity,
+        height: 48.h,
+        child: ElevatedButton(
+          onPressed: onNext,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.black,
+            elevation: 0,
+            surfaceTintColor: Colors.transparent,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(24.r),
+            ),
+          ),
+          child: Text(
+            "Got it",
+            style: TextStyle(
+              fontFamily: 'spaceGrotesk',
+              fontSize: 16.sp,
+              fontWeight: FontWeight.bold,
+              color: AppColors.bgWhite,
+            ),
+          ),
         ),
       ),
     );
