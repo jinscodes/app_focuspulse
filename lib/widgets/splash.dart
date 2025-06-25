@@ -11,7 +11,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Timer(const Duration(seconds: 2), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -30,8 +30,8 @@ class SplashScreen extends StatelessWidget {
           children: [
             Image.asset(
               "assets/images/logo_splashscreen.png",
-              width: 150.w,
-              height: 120.h,
+              width: 200.w,
+              height: 200.h,
             )
           ],
         ),

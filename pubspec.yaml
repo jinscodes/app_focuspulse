@@ -50,3 +50,15 @@ flutter:
       fonts:
         - asset: assets/fonts/sebino-regular.ttf
           weight: 400
+    - family: space_grotesk
+      fonts:
+        - asset: assets/fonts/space_grotesk/light.ttf
+          weight: 300
+        - asset: assets/fonts/space_grotesk/regular.ttf
+          weight: 400
+        - asset: assets/fonts/space_grotesk/medium.ttf
+          weight: 500
+        - asset: assets/fonts/space_grotesk/semiBold.ttf
+          weight: 600
+        - asset: assets/fonts/space_grotesk/bold.ttf
+          weight: 700
