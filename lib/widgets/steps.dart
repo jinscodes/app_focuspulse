@@ -67,15 +67,7 @@ class _StepsState extends State<Steps> {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.close),
-          onPressed: () {
-            if (_currentStep > 0) {
-              setState(() {
-                _currentStep--;
-              });
-            } else {
-              Navigator.pop(context);
-            }
-          },
+          onPressed: () => _skip(),
         ),
         title: Text(
           currentStepData["title"] ?? "",
@@ -89,7 +81,7 @@ class _StepsState extends State<Steps> {
       backgroundColor: AppColors.bgWhite,
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20.0),
+          padding: EdgeInsets.symmetric(vertical: 20.0.h),
           child: Column(
             children: [
               AnimatedSwitcher(
@@ -111,47 +103,6 @@ class _StepsState extends State<Steps> {
           ),
         ),
       ),
-      // body: Stack(
-      //   children: [
-      //     Center(
-      //       child: AnimatedSwitcher(
-      //         duration: const Duration(milliseconds: 500),
-      //         transitionBuilder: (child, animation) {
-      //           return FadeTransition(
-      //             opacity: animation,
-      //             child: child,
-      //           );
-      //         },
-      //         child: StepSlide(
-      //           key: ValueKey<int>(_currentStep),
-      //           title: currentStepData["title"] ?? "",
-      //           description: currentStepData["description"] ?? "",
-      //           imagePath: currentStepData["imagePath"] ?? "",
-      //           onNext: _nextStep,
-      //         ),
-      //       ),
-      //     ),
-      //     Positioned(
-      //       top: 50.h,
-      //       left: 15.w,
-      //       child: TextButton(
-      //         onPressed: _skip,
-      //         style: TextButton.styleFrom(
-      //           overlayColor: Colors.transparent,
-      //         ),
-      //         child: Text(
-      //           "SKIP",
-      //           style: TextStyle(
-      //             fontFamily: 'howdy_duck',
-      //             fontSize: 16.sp,
-      //             color: AppColors.fontbrown,
-      //             fontWeight: FontWeight.normal,
-      //           ),
-      //         ),
-      //       ),
-      //     ),
-      //   ],
-      // ),
     );
   }
 }
