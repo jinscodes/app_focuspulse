@@ -40,7 +40,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -130,7 +130,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 24.h),
+              SizedBox(height: 12.h),
               Column(
                 children: [
                   Row(
