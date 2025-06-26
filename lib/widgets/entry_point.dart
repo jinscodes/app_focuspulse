@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/widgets/history.dart';
 import 'package:focuspulse/widgets/home.dart';
@@ -30,7 +31,6 @@ class _EntryPointState extends ConsumerState<EntryPoint> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
-      // body: _screens[_selectedIndex],
       body: AnimatedSwitcher(
         duration: const Duration(milliseconds: 150),
         switchInCurve: Curves.easeIn,
@@ -45,21 +45,42 @@ class _EntryPointState extends ConsumerState<EntryPoint> {
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
         ),
-        child: BottomNavigationBar(
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Divider(
+              height: 1,
+              thickness: 1,
+              color: Colors.grey[300],
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.timer),
-              label: 'Timer',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.history),
-              label: 'History',
+            BottomNavigationBar(
+              backgroundColor: AppColors.bgWhite,
+              selectedItemColor: Colors.black,
+              currentIndex: _selectedIndex,
+              onTap: _onItemTapped,
+              items: [
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.only(top: 8.h),
+                    child: const Icon(Icons.home),
+                  ),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.only(top: 8.h),
+                    child: const Icon(Icons.timer),
+                  ),
+                  label: 'Timer',
+                ),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.only(top: 8.h),
+                    child: const Icon(Icons.history),
+                  ),
+                  label: 'History',
+                ),
+              ],
             ),
           ],
         ),
