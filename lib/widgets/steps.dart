@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/components/step_slide.dart';
-import 'package:focuspulse/widgets/home.dart';
+import 'package:focuspulse/widgets/entry_point.dart';
 
 class Steps extends StatefulWidget {
   const Steps({super.key});
@@ -42,7 +42,7 @@ class _StepsState extends State<Steps> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const HomeScreen(),
+            builder: (context) => const EntryPoint(),
           ),
         );
       }
@@ -53,7 +53,7 @@ class _StepsState extends State<Steps> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => const HomeScreen(),
+        builder: (context) => const EntryPoint(),
       ),
     );
   }
