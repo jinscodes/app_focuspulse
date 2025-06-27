@@ -13,4 +13,6 @@ class AppColors {
   static const Color checkedGreen = Color(0xFF15D200);
   static const Color soundBrown = Color(0xFFBF9065);
   static const Color bgGray = Color(0xFFEDEDED);
+  static const Color fontGray = Color(0xFF737373);
+  static const Color borderGray = Color(0xFFDBDBDB);
 }

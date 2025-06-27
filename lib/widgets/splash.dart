@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/models/clear_audio_cache.dart';
-import 'package:focuspulse/widgets/steps.dart';
+import 'package:focuspulse/widgets/intro.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const Steps(),
+          builder: (context) => const Intro(),
         ),
       );
     });
