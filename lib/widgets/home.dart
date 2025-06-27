@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
-import 'package:focuspulse/models/load_sound_list.dart';
-import 'package:focuspulse/models/load_timer_setting.dart';
+import 'package:focuspulse/components/quick_access_timers.dart';
+import 'package:focuspulse/components/sound_list.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -20,10 +20,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.bgWhite,
         elevation: 0,
-        title: const Text(
+        title: Text(
           'FocusPulse',
           style: TextStyle(
-            fontSize: 24,
+            fontSize: 18.sp,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -40,7 +40,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -63,141 +63,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 ),
               ),
               SizedBox(height: 32.h),
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Test List",
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          print("Click icon more");
-                        },
-                        icon: Icon(
-                          Icons.more_horiz,
-                          size: 24.w,
-                        ),
-                      ),
-                    ],
-                  ),
-                  FutureBuilder(
-                    future: loadTimerSetting(),
-                    builder: (context, snapshot) {
-                      if (!snapshot.hasData) {
-                        return const CircularProgressIndicator();
-                      }
-                      final timerSettings = snapshot.data!;
-                      return Column(
-                        children: List.generate(3, (index) {
-                          final key = timerSettings[index]['key'];
-                          return Theme(
-                            data: Theme.of(context).copyWith(
-                              splashColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                            ),
-                            child: ListTile(
-                              contentPadding: EdgeInsets.zero,
-                              minTileHeight: 56.h,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.r),
-                              ),
-                              title: Text(
-                                key,
-                                style: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                              trailing: Icon(
-                                Icons.chevron_right,
-                                size: 24.w,
-                                color: Colors.grey,
-                              ),
-                              onTap: () {
-                                print("Click on $key");
-                              },
-                            ),
-                          );
-                        }),
-                      );
-                    },
-                  ),
-                ],
-              ),
-              SizedBox(height: 24.h),
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Sound List",
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          print("Click icon more");
-                        },
-                        icon: Icon(
-                          Icons.more_horiz,
-                          size: 24.w,
-                        ),
-                      ),
-                    ],
-                  ),
-                  FutureBuilder(
-                    future: loadSoundList(),
-                    builder: (context, snapshot) {
-                      if (!snapshot.hasData) {
-                        return const CircularProgressIndicator();
-                      }
-                      final timerSettings = snapshot.data!;
-                      return Column(
-                        children: List.generate(3, (index) {
-                          final key = timerSettings[index]['key'];
-                          return Theme(
-                            data: Theme.of(context).copyWith(
-                              splashColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                            ),
-                            child: ListTile(
-                              contentPadding: EdgeInsets.zero,
-                              minTileHeight: 56.h,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.r),
-                              ),
-                              title: Text(
-                                key!,
-                                style: TextStyle(
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                              trailing: Icon(
-                                Icons.chevron_right,
-                                size: 24.w,
-                                color: Colors.grey,
-                              ),
-                              onTap: () {
-                                print("Click on $key");
-                              },
-                            ),
-                          );
-                        }),
-                      );
-                    },
-                  ),
-                ],
-              )
+              const QuickAccessTimers(),
+              SizedBox(height: 12.h),
+              const SoundList(),
             ],
           ),
         ),

@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:focuspulse/colors.dart';
-import 'package:focuspulse/components/list_next_btn.dart';
-import 'package:focuspulse/components/list_title.dart';
-import 'package:focuspulse/components/timer_card.dart';
-import 'package:focuspulse/models/load_timer_list.dart';
-import 'package:focuspulse/providers/process_provider.dart';
-import 'package:focuspulse/widgets/noise_list.dart';
+import 'package:focuspulse/models/load_timer_setting.dart';
+import 'package:focuspulse/widgets/test_details.dart';
 
 class TimerList extends ConsumerStatefulWidget {
   const TimerList({super.key});
@@ -17,70 +14,136 @@ class TimerList extends ConsumerStatefulWidget {
 }
 
 class _TimerListState extends ConsumerState<TimerList> {
-  int? selectedIndex;
-  List<Map<String, String>> timerList = [];
+  String _searchQuery = '';
 
-  @override
-  void initState() {
-    super.initState();
-    loadTimerList().then((loadedTimerList) {
-      setState(() {
-        timerList = loadedTimerList;
-      });
-    });
+  void onClickItem(String testKey) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => TestDetailsScreen(testKey),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    void navigateToNextScreen() {
-      ref.read(timerProvider.notifier).update((state) {
-        return {
-          ...state,
-          'timerKey': timerList[selectedIndex!]['key']!,
-        };
-      });
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const NoiseList(),
-        ),
-      );
-    }
-
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.w),
+      appBar: AppBar(
+        backgroundColor: AppColors.bgWhite,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, size: 24.w),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(
+          'Tests',
+          style: TextStyle(
+            fontSize: 18.sp,
+            fontWeight: FontWeight.bold,
+            fontFamily: "space_grotesk",
+          ),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 30.h),
-              const ListTitle('STEP 1', 'Choose test type'),
-              SizedBox(height: 30.h),
-              SizedBox(
-                height: 480.h,
-                child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  itemCount: timerList.length,
-                  itemBuilder: (context, index) {
-                    final isSelected = selectedIndex == index;
-
-                    return TimerCard(
-                      isSelected: isSelected,
-                      imagePath: timerList[index]['path']!,
-                      onTap: () {
-                        setState(() {
-                          selectedIndex = index;
-                        });
-                      },
-                    );
-                  },
+              TextField(
+                decoration: InputDecoration(
+                  hintText: 'Search',
+                  prefixIcon: const Icon(Icons.search),
+                  filled: true,
+                  fillColor: AppColors.bgGray,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12.r),
+                    borderSide: BorderSide.none,
+                  ),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 0, horizontal: 12.w),
                 ),
+                onChanged: (value) {
+                  setState(() {
+                    _searchQuery = value;
+                  });
+                },
               ),
-              SizedBox(height: 30.h),
-              ListNextBtn(navigateToNextScreen),
+              SizedBox(height: 16.h),
+              FutureBuilder(
+                future: loadTimerSetting(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return const CircularProgressIndicator();
+                  }
+                  final timerSettings = snapshot.data!;
+                  final filteredList = _searchQuery.isEmpty
+                      ? timerSettings
+                      : timerSettings
+                          .where((item) => item['key']
+                              .toString()
+                              .toLowerCase()
+                              .contains(_searchQuery.toLowerCase()))
+                          .toList();
+                  if (filteredList.isEmpty) {
+                    return const Center(child: Text('No results found.'));
+                  }
+                  return SizedBox(
+                    height: 600.h,
+                    child: ListView.builder(
+                      itemCount: filteredList.length,
+                      itemBuilder: (context, index) {
+                        final key = filteredList[index]['key'];
+                        return Theme(
+                          data: Theme.of(context).copyWith(
+                            splashColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                          ),
+                          child: ListTile(
+                            contentPadding: EdgeInsets.zero,
+                            minTileHeight: 56.h,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.r),
+                            ),
+                            leading: Container(
+                              width: 40.w,
+                              height: 40.h,
+                              decoration: BoxDecoration(
+                                color: AppColors.bgGray,
+                                borderRadius: BorderRadius.circular(8.r),
+                              ),
+                              child: Center(
+                                child: Center(
+                                  child: SvgPicture.asset(
+                                    'assets/svg/book.svg',
+                                    width: 16.w,
+                                    height: 16.h,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            title: Text(
+                              key.toString().toUpperCase(),
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                            trailing: Icon(
+                              Icons.chevron_right,
+                              size: 24.w,
+                              color: Colors.grey,
+                            ),
+                            onTap: () => onClickItem(key),
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),
