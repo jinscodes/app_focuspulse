@@ -31,6 +31,7 @@ class _TestDetailsState extends ConsumerState<TestDetailsScreen> {
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
       appBar: AppBar(
+        forceMaterialTransparency: true,
         backgroundColor: AppColors.bgWhite,
         elevation: 0,
         leading: IconButton(
@@ -177,11 +178,6 @@ class _TestDetailsState extends ConsumerState<TestDetailsScreen> {
                         ),
                       );
                     },
-                  ),
-                  SizedBox(height: 16.h),
-                  Text(
-                    testData.toString(),
-                    style: const TextStyle(fontSize: 16),
                   ),
                 ],
               ),
