@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/models/load_sound_list.dart';
 import 'package:focuspulse/models/load_timer_setting.dart';
+import 'package:focuspulse/widgets/timer.dart';
 
 class TestDetailsScreen extends ConsumerStatefulWidget {
   final String testKey;
@@ -24,10 +25,17 @@ class _TestDetailsState extends ConsumerState<TestDetailsScreen> {
     testKey = widget.testKey;
   }
 
+  void navigateToTimer(String testKey) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => TimerScreen(testKey: testKey),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    print(testKey);
-
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
       appBar: AppBar(
@@ -55,11 +63,11 @@ class _TestDetailsState extends ConsumerState<TestDetailsScreen> {
             return const Center(child: CircularProgressIndicator());
           }
           final timerSettings = snapshot.data!;
-          final testData = timerSettings.firstWhere(
+          final timerData = timerSettings.firstWhere(
             (item) => item['key'] == testKey,
             orElse: () => {},
           );
-          if (testData.isEmpty) {
+          if (timerData.isEmpty) {
             return const Center(child: Text('No data found for this test.'));
           }
           return Padding(
@@ -70,7 +78,7 @@ class _TestDetailsState extends ConsumerState<TestDetailsScreen> {
                 children: [
                   SizedBox(height: 16.h),
                   Text(
-                    testData['key'].toString().toUpperCase(),
+                    timerData['key'].toString().toUpperCase(),
                     style: TextStyle(
                       fontSize: 24.sp,
                       fontWeight: FontWeight.bold,
@@ -88,9 +96,9 @@ class _TestDetailsState extends ConsumerState<TestDetailsScreen> {
                   ListView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: testData['session']?.length ?? 0,
+                    itemCount: timerData['session']?.length ?? 0,
                     itemBuilder: (context, index) {
-                      final session = testData['session'][index];
+                      final session = timerData['session'][index];
                       final key = session.keys.first;
                       final value = session.values.first;
                       return Padding(
@@ -157,6 +165,8 @@ class _TestDetailsState extends ConsumerState<TestDetailsScreen> {
                             isExpanded: true,
                             value: selectedSound ?? soundNames.first,
                             alignment: Alignment.center,
+                            dropdownColor: AppColors.bgWhite,
+                            borderRadius: BorderRadius.circular(12.r),
                             items: soundNames.map((sound) {
                               return DropdownMenuItem<String>(
                                 value: sound,
@@ -197,9 +207,7 @@ class _TestDetailsState extends ConsumerState<TestDetailsScreen> {
                 borderRadius: BorderRadius.circular(24.r),
               ),
             ),
-            onPressed: () {
-              print("click button");
-            },
+            onPressed: () => navigateToTimer(testKey),
             child: Text(
               'Start Test',
               style: TextStyle(
