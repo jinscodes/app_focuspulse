@@ -45,7 +45,11 @@ class _TimerState extends ConsumerState<TimerScreen> {
 
             print(timerData);
 
-            return const Center();
+            return Center(
+              child: Text(
+                timerData.toString(),
+              ),
+            );
           }),
     );
   }

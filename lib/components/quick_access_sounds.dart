@@ -2,12 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/models/load_sound_list.dart';
+import 'package:focuspulse/widgets/sound_list.dart';
 
-class SoundList extends ConsumerWidget {
-  const SoundList({super.key});
+class QuickAccessSounds extends ConsumerStatefulWidget {
+  const QuickAccessSounds({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<QuickAccessSounds> createState() => _QuickAccessSoundsState();
+}
+
+class _QuickAccessSoundsState extends ConsumerState<QuickAccessSounds> {
+  void navigateToTimerList() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SoundList(),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         Row(
@@ -21,9 +36,7 @@ class SoundList extends ConsumerWidget {
               ),
             ),
             IconButton(
-              onPressed: () {
-                print("Click icon more");
-              },
+              onPressed: () => navigateToTimerList(),
               icon: Icon(
                 Icons.more_horiz,
                 size: 24.w,

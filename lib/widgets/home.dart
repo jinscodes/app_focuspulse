@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/components/quick_access_sounds.dart';
 import 'package:focuspulse/components/quick_access_timers.dart';
-import 'package:focuspulse/components/sound_list.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -65,7 +65,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               SizedBox(height: 32.h),
               const QuickAccessTimers(),
               SizedBox(height: 12.h),
-              const SoundList(),
+              const QuickAccessSounds(),
             ],
           ),
         ),
