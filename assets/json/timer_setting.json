@@ -6,7 +6,7 @@
   },
   {
     "key": "opic",
-    "time": [
+    "session": [
       { "Background Investigation": 5 },
       { "Introducing": 1 },
       { "Test": 30 }
@@ -15,7 +15,7 @@
   },
   {
     "key": "teps",
-    "time": [
+    "session": [
       { "Listening": 40 },
       { "Reading": 60 },
       { "Vocabulary": 15 },
@@ -25,7 +25,7 @@
   },
   {
     "key": "k-sat",
-    "time": [
+    "session": [
       { "Korean": 80 },
       { "Math": 100 },
       { "English": 70 },
@@ -38,7 +38,7 @@
   },
   {
     "key": "ielts",
-    "time": [
+    "session": [
       { "Listening": 40 },
       { "Reading": 60 },
       { "Writing": 60 },
@@ -48,7 +48,7 @@
   },
   {
     "key": "toefl",
-    "time": [
+    "session": [
       { "Reading": 35 },
       { "Listening": 36 },
       { "Speaking": 16 },
@@ -58,7 +58,7 @@
   },
   {
     "key": "cambridge-beginner",
-    "time": [
+    "session": [
       { "Reading & Use of English": 75 },
       { "Writing": 80 },
       { "Listening": 40 },
@@ -68,7 +68,7 @@
   },
   {
     "key": "cambridge-advanced",
-    "time": [
+    "session": [
       { "Reading & Use of English": 90 },
       { "Writing": 90 },
       { "Listening": 40 },
@@ -78,7 +78,7 @@
   },
   {
     "key": "sat",
-    "time": [{ "Reading & Writing": 64 }, { "Math": 70 }],
+    "session": [{ "Reading & Writing": 64 }, { "Math": 70 }],
     "break": [10]
   }
 ]

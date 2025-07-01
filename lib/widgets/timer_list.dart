@@ -48,7 +48,7 @@ class _TimerListState extends ConsumerState<TimerList> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.w),
         child: Center(
           child: Column(
             children: [
