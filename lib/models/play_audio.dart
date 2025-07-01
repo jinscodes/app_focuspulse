@@ -8,9 +8,15 @@ Future<void> playAudio(
       return await audioPlayer.stop();
     }
 
-    await audioPlayer.stop();
-    await audioPlayer.setAsset('assets/sounds/$noise.mp3');
-    await audioPlayer.play();
+    final currentSource = audioPlayer.audioSource;
+
+    if (currentSource == null) {
+      await audioPlayer.stop();
+      await audioPlayer.setAsset('assets/sounds/$noise.mp3');
+      await audioPlayer.play();
+    } else {
+      await audioPlayer.play();
+    }
   } catch (e) {
     // ignore: avoid_print
     print("Error playing audio: $e");

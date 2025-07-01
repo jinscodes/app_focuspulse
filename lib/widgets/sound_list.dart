@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/models/load_sound_list.dart';
+import 'package:focuspulse/widgets/sound_details.dart';
 
 class SoundList extends ConsumerStatefulWidget {
   const SoundList({super.key});
@@ -14,6 +15,17 @@ class SoundList extends ConsumerStatefulWidget {
 
 class _SoundListState extends ConsumerState<SoundList> {
   String _searchQuery = '';
+
+  void onClickItem(String soundKey) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SoundDetails(
+          soundKey,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,10 +81,10 @@ class _SoundListState extends ConsumerState<SoundList> {
                   if (!snapshot.hasData) {
                     return const CircularProgressIndicator();
                   }
-                  final timerSettings = snapshot.data!;
+                  final soundSettings = snapshot.data!;
                   final filteredList = _searchQuery.isEmpty
-                      ? timerSettings
-                      : timerSettings
+                      ? soundSettings
+                      : soundSettings
                           .where((item) => item['key']
                               .toString()
                               .toLowerCase()
@@ -86,7 +98,7 @@ class _SoundListState extends ConsumerState<SoundList> {
                     child: ListView.builder(
                       itemCount: filteredList.length,
                       itemBuilder: (context, index) {
-                        final key = filteredList[index]['key'];
+                        final key = filteredList[index]['key']!;
                         return Theme(
                           data: Theme.of(context).copyWith(
                             splashColor: Colors.transparent,
@@ -127,7 +139,7 @@ class _SoundListState extends ConsumerState<SoundList> {
                               size: 24.w,
                               color: Colors.grey,
                             ),
-                            onTap: () => print('clicked'),
+                            onTap: () => onClickItem(key),
                           ),
                         );
                       },

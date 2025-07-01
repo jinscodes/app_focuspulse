@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/models/load_sound_list.dart';
+import 'package:focuspulse/widgets/sound_details.dart';
 import 'package:focuspulse/widgets/sound_list.dart';
 
 class QuickAccessSounds extends ConsumerStatefulWidget {
@@ -17,6 +18,15 @@ class _QuickAccessSoundsState extends ConsumerState<QuickAccessSounds> {
       context,
       MaterialPageRoute(
         builder: (context) => const SoundList(),
+      ),
+    );
+  }
+
+  void onClickItem(String soundKey) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SoundDetails(soundKey),
       ),
     );
   }
@@ -77,9 +87,7 @@ class _QuickAccessSoundsState extends ConsumerState<QuickAccessSounds> {
                       size: 24.w,
                       color: Colors.grey,
                     ),
-                    onTap: () {
-                      print("Click on $key");
-                    },
+                    onTap: () => onClickItem(key),
                   ),
                 );
               }),
