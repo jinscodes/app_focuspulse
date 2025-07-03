@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/models/load_timer_setting.dart';
 
@@ -27,6 +28,24 @@ class _TimerState extends ConsumerState<TimerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, size: 24.w),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(
+          'Timer',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 20.sp,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       body: FutureBuilder(
           future: loadTimerSetting(),
           builder: (context, snapshot) {
@@ -39,15 +58,72 @@ class _TimerState extends ConsumerState<TimerScreen> {
               orElse: () => {},
             );
 
-            if (timerData.isEmpty) {
-              return const Center(child: Text('No data found for this test.'));
-            }
-
-            print(timerData);
-
-            return Center(
-              child: Text(
-                timerData.toString(),
+            return Padding(
+              padding: EdgeInsets.all(16.w),
+              child: Center(
+                child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Session & Duration",
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: "space_grotesk",
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 16.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: 0.45.sw,
+                          height: 56.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.r),
+                            border: Border.all(
+                              color: AppColors.borderGray,
+                            ),
+                          ),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 12.w),
+                              child: Text(
+                                timerData.isEmpty
+                                    ? "No Session"
+                                    : timerData['key'] ?? '',
+                                style: TextStyle(
+                                  color: AppColors.fontGray,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.normal,
+                                  fontFamily: "space_grotesk",
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 0.45.sw,
+                          height: 56.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.r),
+                            border: Border.all(
+                              color: AppColors.borderGray,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    timerData.isEmpty
+                        ? Text(
+                            timerData.toString(),
+                          )
+                        : const Text("data "),
+                  ],
+                ),
               ),
             );
           }),
