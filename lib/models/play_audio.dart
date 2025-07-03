@@ -18,7 +18,6 @@ Future<void> playAudio(
       await audioPlayer.play();
     }
   } catch (e) {
-    // ignore: avoid_print
     print("Error playing audio: $e");
   }
 }

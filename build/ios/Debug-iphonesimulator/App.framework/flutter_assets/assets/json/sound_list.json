@@ -1,15 +1,14 @@
 [
-  { "key": "dryer1", "path": "dryer", "name": "Dryer" },
-  { "key": "dryer2", "path": "dryer2", "name": "Dryer" },
-  { "key": "fan1", "path": "fan", "name": "Fan" },
-  { "key": "fan2", "path": "fan2", "name": "Fan" },
-  { "key": "whitenoise1", "path": "whitenoise", "name": "WhiteNoise" },
-  { "key": "whitenoise2", "path": "whitenoise2", "name": "WhiteNoise" },
-  { "key": "whitenoise3", "path": "whitenoise3", "name": "WhiteNoise" },
-  { "key": "whitenoise4", "path": "whitenoise4", "name": "WhiteNoise" },
-  { "key": "rain1", "path": "rain", "name": "Rain" },
-  { "key": "rain2", "path": "rain2", "name": "Rain" },
-  { "key": "rain3", "path": "rain3", "name": "Rain" },
-  { "key": "train", "path": "train", "name": "Train" },
-  { "key": "na", "path": "na", "name": "N/A" }
+  { "key": "dryer", "imgPath": "dryer" },
+  { "key": "dryer2", "imgPath": "dryer" },
+  { "key": "fan", "imgPath": "fan" },
+  { "key": "fan2", "imgPath": "fan" },
+  { "key": "whitenoise", "imgPath": "whitenoise" },
+  { "key": "whitenoise2", "imgPath": "whitenoise" },
+  { "key": "whitenoise3", "imgPath": "whitenoise" },
+  { "key": "whitenoise4", "imgPath": "whitenoise" },
+  { "key": "rain", "imgPath": "rain" },
+  { "key": "rain2", "imgPath": "rain" },
+  { "key": "rain3", "imgPath": "rain" },
+  { "key": "train", "imgPath": "train" }
 ]

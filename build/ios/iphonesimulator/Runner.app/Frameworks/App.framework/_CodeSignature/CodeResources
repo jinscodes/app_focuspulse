@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		XO+CGGeWstnwGxMCXG23FBmQ/cQ=
+		vqAh1aF8cj4MZm03VG+J8JL/V/k=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		PdMq1i4b9yueCQPv4sPmS0U3eHA=
+		GfheX0dIYp6XZk2tNoiR2J+h9pc=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -72,6 +72,14 @@
 		<data>
 		R23UnsHtvGRlV25xV1QDfhopfS4=
 		</data>
+		<key>flutter_assets/assets/images/dryer.png</key>
+		<data>
+		g3cIHzOsue12Tk6SiKQ7Y2MuQFE=
+		</data>
+		<key>flutter_assets/assets/images/fan.png</key>
+		<data>
+		io7xxTHngKQD/88AgGQXXWTbVds=
+		</data>
 		<key>flutter_assets/assets/images/ielts.png</key>
 		<data>
 		UaBy5sizmnLgo1Fnme9YV+Z5IPc=
@@ -99,6 +107,10 @@
 		<key>flutter_assets/assets/images/player.png</key>
 		<data>
 		rHf5ljZISJsxCq9GXMxeShlgeK0=
+		</data>
+		<key>flutter_assets/assets/images/rain.png</key>
+		<data>
+		HHF8ctMkdCTs5HlMyxL8LG8snHA=
 		</data>
 		<key>flutter_assets/assets/images/sat.png</key>
 		<data>
@@ -132,9 +144,17 @@
 		<data>
 		GsmY0KdQW6TYZX4PyT8RWdN3RZs=
 		</data>
+		<key>flutter_assets/assets/images/train.png</key>
+		<data>
+		TQZnFAFq3cbOToRJGcMh+lGzePc=
+		</data>
+		<key>flutter_assets/assets/images/whitenoise.png</key>
+		<data>
+		6Ebk8oWtPbVQ2MUguLtsTMK8K4U=
+		</data>
 		<key>flutter_assets/assets/json/sound_list.json</key>
 		<data>
-		lBF78D3rH/RNSNLylcxyTuHu6y8=
+		wX5DYzBE/c9A2N9FYnm86qDtr98=
 		</data>
 		<key>flutter_assets/assets/json/timer_list.json</key>
 		<data>
@@ -142,7 +162,7 @@
 		</data>
 		<key>flutter_assets/assets/json/timer_setting.json</key>
 		<data>
-		mpgWE6HrrrAcUN5W5j5aOK6Oq08=
+		/qEuOUl9+dShdO6XrYSYF+m6PHc=
 		</data>
 		<key>flutter_assets/assets/sounds/dryer.mp3</key>
 		<data>
@@ -220,6 +240,10 @@
 		<data>
 		vFz0KHXa2NEEFzBSduLPMDj/kWA=
 		</data>
+		<key>flutter_assets/assets/svg/speaker.svg</key>
+		<data>
+		evWnAArk6YhV3XdjDxf2x6BBdK8=
+		</data>
 		<key>flutter_assets/assets/svg/train.svg</key>
 		<data>
 		vR9g8xMoeDB79P7n7suBzLX3P1o=
@@ -238,7 +262,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		I4NuLT57vA4Vfe0J2tS6fFGFqZI=
+		XdCJIy1XmDbgxuShO6VZzQ1Xf0E=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -259,14 +283,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			DjONP5rJGvVQUew7DhhxLuRQ+t4svgyDAHYCsb8h73A=
+			m9fPUGeMMPrCqJdwz/VA8SxgY8flGlGeH9PzR4jgNZI=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DAEjRDK/cgOVaOS3AoKLy9kqTBfqZsX7OKJt0JwUK0s=
+			Agy6OUEvQIRsevMA27QkFwOuJKQgBOuqgtCJDeMDDSk=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -367,6 +391,20 @@
 			UEK/Y0IYhGo6n0aMY0xo+2v8SOangZyqEpvO0mkDNeU=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/images/dryer.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			K2ho9/1WnNhQf+Ieaw+9oZkwGGGCW1gB7nbXFJ2sO/c=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/fan.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			wU3YiRU3Td97fd9y5U3m/z5rRtyQzTyLEDyeu+zdHyY=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/images/ielts.png</key>
 		<dict>
 			<key>hash2</key>
@@ -414,6 +452,13 @@
 			<key>hash2</key>
 			<data>
 			teJ8ry0aIgIWni87OR+YAql2YV8yku6uiou8d0P5F38=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/rain.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			mksnJKDwfNiliDRgeHqM8TgL6zZvN4u/QSwqRiSkRe0=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/sat.png</key>
@@ -472,11 +517,25 @@
 			Tm773Z1k75D5u2b1UEz0SjGLlBU2kRBN2bCKaakAekw=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/images/train.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			qOD9kJKEMxXYtS9BLZcXjtHcoxu2v7OQ920DBg2Bpz0=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/whitenoise.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2yphGmkfMEJO2n8CnRl+GftAu4koNmP9c+P4tjZCEwQ=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/json/sound_list.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oUfd/tGRj3u+JSFOaseWzIF21ViJjJtjsYFX1e1/xx4=
+			5OwlcSfL1nszUTcRciGHZ5wlSLHbi94ulbGsvcUlC5c=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/json/timer_list.json</key>
@@ -490,7 +549,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XIGZrCJOcR3Q12HImu1dr98YSkOwvpTcfrekoEV9la0=
+			oE8SO8oz7p39ljgMw1RldhXGPYDYfJomhvsxT6bAzIQ=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/sounds/dryer.mp3</key>
@@ -626,6 +685,13 @@
 			hwgDbhepwakBSD0e0wwrgLocoobMuZTOAUaCNOLLuTg=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/svg/speaker.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2bcckkCm43DBeC3Rnm0QomumnGRrHQt2E5nSOoDICa4=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/svg/train.svg</key>
 		<dict>
 			<key>hash2</key>
@@ -658,7 +724,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OqraBPGul06e8usTQHwpXpKgDyUK3EFdkcJogDS2dKc=
+			4mJ5huc9COXK3o6vXgr/I8MPrYAUwTgzIAiPnXqJiAA=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
