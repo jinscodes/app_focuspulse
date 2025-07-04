@@ -15,4 +15,5 @@ class AppColors {
   static const Color bgGray = Color(0xFFEDEDED);
   static const Color fontGray = Color(0xFF737373);
   static const Color borderGray = Color(0xFFDBDBDB);
+  static const Color fontBlack = Color(0xFF141414);
 }
