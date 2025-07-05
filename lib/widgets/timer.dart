@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/components/blink_btn.dart';
 import 'package:focuspulse/models/load_timer_setting.dart';
+import 'package:focuspulse/widgets/record.dart';
 
 class TimerScreen extends ConsumerStatefulWidget {
   final String? testKey;
@@ -27,6 +28,7 @@ class _TimerState extends ConsumerState<TimerScreen> {
   int remainingSeconds = 0;
   Timer? timer;
   bool isRunning = false;
+  bool isFinished = false;
 
   @override
   void initState() {
@@ -158,6 +160,7 @@ class _TimerState extends ConsumerState<TimerScreen> {
               },
             );
           } else {
+            isFinished = true;
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('All sessions complete!')),
             );
@@ -241,15 +244,26 @@ class _TimerState extends ConsumerState<TimerScreen> {
         ),
       );
       if (confirm == true) {
-        setState(() {
-          currentStep++;
-          remainingSeconds = steps[currentStep]['duration'];
-        });
-        timer?.cancel();
-        startTimer();
+        if (currentStep == steps.length - 1) {
+          setState(() {
+            remainingSeconds = 0;
+            isFinished = true;
+          });
+          timer?.cancel();
+        } else {
+          setState(() {
+            currentStep++;
+            remainingSeconds = steps[currentStep]['duration'];
+          });
+          timer?.cancel();
+          startTimer();
+        }
       }
     } else {
-      remainingSeconds = 0;
+      setState(() {
+        remainingSeconds = 0;
+        isFinished = true;
+      });
       timer?.cancel();
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('All sessions complete!')),
@@ -262,6 +276,19 @@ class _TimerState extends ConsumerState<TimerScreen> {
     setState(() {
       isRunning = false;
     });
+  }
+
+  void goToRecordScreen(BuildContext context) async {
+    final sessionList = steps.where((e) => e['label'] != 'Break').toList();
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => RecordScreen(
+          sessions: sessionList,
+          testKey: _testKey,
+        ),
+      ),
+    );
   }
 
   @override
@@ -542,16 +569,20 @@ class _TimerState extends ConsumerState<TimerScreen> {
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: () => skipToNextStep(),
+                        onPressed: isFinished
+                            ? () => goToRecordScreen(context)
+                            : () => skipToNextStep(),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.bgGray,
+                          backgroundColor: isFinished
+                              ? Colors.greenAccent
+                              : AppColors.bgGray,
                           minimumSize: Size(84.w, 40.h),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.r),
                           ),
                         ),
                         child: Text(
-                          'Done',
+                          isFinished ? "Save" : 'Skip',
                           style: TextStyle(
                             fontSize: 14.sp,
                             fontWeight: FontWeight.bold,

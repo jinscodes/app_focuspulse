@@ -1,4 +1,7 @@
 [
+  { "key": "rain", "imgPath": "rain" },
+  { "key": "rain2", "imgPath": "rain" },
+  { "key": "rain3", "imgPath": "rain" },
   { "key": "dryer", "imgPath": "dryer" },
   { "key": "dryer2", "imgPath": "dryer" },
   { "key": "fan", "imgPath": "fan" },
@@ -7,8 +10,5 @@
   { "key": "whitenoise2", "imgPath": "whitenoise" },
   { "key": "whitenoise3", "imgPath": "whitenoise" },
   { "key": "whitenoise4", "imgPath": "whitenoise" },
-  { "key": "rain", "imgPath": "rain" },
-  { "key": "rain2", "imgPath": "rain" },
-  { "key": "rain3", "imgPath": "rain" },
   { "key": "train", "imgPath": "train" }
 ]
