@@ -98,12 +98,6 @@ class _NormalTimerState extends ConsumerState<NormalTimer> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, size: 24.w),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
         title: Text(
           'Timer',
           style: TextStyle(
