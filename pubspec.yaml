@@ -17,6 +17,7 @@ dependencies:
   just_audio: ^0.9.46
   flutter_launcher_icons: ^0.14.3
   flutter_svg: ^2.0.17
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_test:

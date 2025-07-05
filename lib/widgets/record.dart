@@ -34,21 +34,21 @@ class _RecordState extends ConsumerState<RecordScreen> {
   }
 
   void _onSave() {
+    Map finalResult = {};
     final List<Map<String, dynamic>> result = _sessions.map((session) {
       final label = session['label'];
       final score = _controllers[label]?.text ?? '';
       return {
         'label': label,
-        'duration': session['duration'],
         'score': score,
       };
     }).toList();
 
-    print('TestKey: $_testKey');
-    print('Result: $result');
+    finalResult.addAll({'test': _testKey, "result": result});
 
-    // You can navigate or use Riverpod to store this
-    Navigator.pop(context, result); // Or return result
+    print('record: $finalResult');
+
+    Navigator.of(context).popUntil((route) => route.isFirst);
   }
 
   @override
@@ -61,35 +61,102 @@ class _RecordState extends ConsumerState<RecordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print('$_sessions, $_testKey');
-
     return Scaffold(
-        appBar: AppBar(
-          forceMaterialTransparency: true,
-          backgroundColor: AppColors.bgWhite,
-          elevation: 0,
-          leading: IconButton(
-            icon: Icon(Icons.close_outlined, size: 24.w),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          title: const Text(
-            'Record',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
+      appBar: AppBar(
+        forceMaterialTransparency: true,
+        backgroundColor: AppColors.bgWhite,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.close_outlined, size: 24.w),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: const Text(
+          'Record',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        body: Padding(
-          padding: EdgeInsets.all(16.w),
-          child: Column(
-            children: [
-              Text(_sessions.toString()),
-              Text(_testKey),
-            ],
-          ),
-        ));
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16.w),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.separated(
+                itemCount: _sessions.length,
+                separatorBuilder: (_, __) => SizedBox(height: 24.h),
+                itemBuilder: (context, index) {
+                  final session = _sessions[index];
+                  final label = session['label'];
+
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        label,
+                        style: TextStyle(
+                          fontSize: 22.sp,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'space_grotesk',
+                        ),
+                      ),
+                      SizedBox(height: 12.h),
+                      TextField(
+                        controller: _controllers[label],
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          hintText: 'Score',
+                          hintStyle: TextStyle(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.normal,
+                            fontFamily: 'space_grotesk',
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: 16.w,
+                            vertical: 16.h,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12.r),
+                            borderSide: const BorderSide(
+                              color: AppColors.borderGray,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ),
+            SizedBox(height: 16.h),
+            SizedBox(
+              width: double.infinity,
+              height: 48.h,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(28.r),
+                  ),
+                ),
+                onPressed: _onSave,
+                child: Text(
+                  'Save',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'space_grotesk',
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
