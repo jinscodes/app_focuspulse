@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/widgets/history.dart';
 import 'package:focuspulse/widgets/home.dart';
-import 'package:focuspulse/widgets/timer.dart';
+import 'package:focuspulse/widgets/normal_timer.dart';
 
 class EntryPoint extends ConsumerStatefulWidget {
   const EntryPoint({super.key});
@@ -17,7 +17,7 @@ class _EntryPointState extends ConsumerState<EntryPoint> {
   int _selectedIndex = 0;
   final List<Widget> _screens = [
     const HomeScreen(),
-    const TimerScreen(),
+    const NormalTimer(),
     const HistoryScreen(),
   ];
 

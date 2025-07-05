@@ -221,7 +221,7 @@ class _TimerState extends ConsumerState<TimerScreen> {
                   Row(
                     children: [
                       Text(
-                        timerKey.toUpperCase(),
+                        timerKey.isEmpty ? 'Timer' : timerKey.toUpperCase(),
                         style: TextStyle(
                           fontSize: 24.sp,
                           fontWeight: FontWeight.bold,

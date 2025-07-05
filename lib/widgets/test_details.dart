@@ -190,6 +190,18 @@ class _TestDetailsState extends ConsumerState<TestDetailsScreen> {
                       );
                     },
                   ),
+                  SizedBox(height: 4.h),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "You can turn on and off the sound by clikcing the note (♪) icon on the next screen to hear the sound.",
+                      style: TextStyle(
+                        fontSize: 13.sp,
+                        color: AppColors.fontGray,
+                        fontFamily: "space_grotesk",
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
