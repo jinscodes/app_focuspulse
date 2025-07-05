@@ -51,6 +51,7 @@ class _SoundDetailsState extends ConsumerState<SoundDetails> {
 
   @override
   Widget build(BuildContext context) {
+    print("sound_details: $_soundKey");
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
       appBar: AppBar(
@@ -176,7 +177,7 @@ class _SoundDetailsState extends ConsumerState<SoundDetails> {
                                   color: Colors.black,
                                   size: 80.w,
                                 ),
-                                onPressed: () {
+                                onPressed: () async {
                                   if (_audioPlayer.playing) {
                                     pauseAudio(ref, _audioPlayer);
                                   } else {

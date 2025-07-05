@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		pzqWZzRhkpzVx35tJzAJVBMfUeo=
+		oRVhiz7v3KXlE/fHIu9i1VxP/ak=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,15 +54,15 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		AqgIDAKnEzqWr2VzoxPwKVPYkGE=
+		oONGRbnMn21NpWd6tzhAXtb8ZiM=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
-		vqAh1aF8cj4MZm03VG+J8JL/V/k=
+		bCRPdme5hYrqE0oPNsULrBn6qD4=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		GfheX0dIYp6XZk2tNoiR2J+h9pc=
+		dL6rYXqTXtBauL5LDzKVpn7VRuE=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -210,7 +210,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/json/timer_setting.json</key>
 		<data>
-		/qEuOUl9+dShdO6XrYSYF+m6PHc=
+		/AbCrROynQcbqVLVVNci7Nw20TI=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/sounds/dryer.mp3</key>
 		<data>
@@ -264,6 +264,10 @@
 		<data>
 		5I93bfSVqw7OKHd8r60H1HsvAUs=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/svg/draghandle.svg</key>
+		<data>
+		ZadnfodoKjntRmxjYUM5xqwtY4I=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/svg/dryer.svg</key>
 		<data>
 		yUm5OcQhuP2hllp5BrwRTa0gk8U=
@@ -310,7 +314,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		XdCJIy1XmDbgxuShO6VZzQ1Xf0E=
+		NVbZe0wZP+ZgTTincjuEByr196o=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -462,7 +466,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		8eRFH1ik4cTTuL09VNOJjMjJHDU=
+		DyGhvXDZT/SZ5X3dmJaOSZstAbE=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -553,7 +557,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rRvo7NvW49WC8f94nCi8GdHPayPDFxm8ZwWRuR5acok=
+			Jyi+w2G8X3Pla6jTBKzzP45lSljD+Twnd3K2+aqlXSk=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -567,21 +571,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pZRwueD+mTzwmTDx43kSSp/AGqlfws2TR3Gn285RfOk=
+			jTPt1fY5QgxPToZ3KFFnUUKv3PLk0lrbE0KMOSiBXy8=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			m9fPUGeMMPrCqJdwz/VA8SxgY8flGlGeH9PzR4jgNZI=
+			aKAffythmpyN0dBhihT4ocnLXFZVdUMtRcn40eWGQOA=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Agy6OUEvQIRsevMA27QkFwOuJKQgBOuqgtCJDeMDDSk=
+			BuYI+GzAcNyPXnBr5prYPINPMNmjKeDoTJGxnEUvJv8=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -840,7 +844,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oE8SO8oz7p39ljgMw1RldhXGPYDYfJomhvsxT6bAzIQ=
+			H99jZKaFKosTe44NgnUzcGtuxmFtekggX+GW9yzB1vQ=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/sounds/dryer.mp3</key>
@@ -934,6 +938,13 @@
 			SoPpJdgA1iu8kNfid3oBQI6C3XP03Op1TJlHUA6ULlQ=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/svg/draghandle.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			R2FE+Y9x7l5bvm9HAwljsXCpOJyfaHXefOEqha/xxkI=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/svg/dryer.svg</key>
 		<dict>
 			<key>hash2</key>
@@ -1015,7 +1026,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4mJ5huc9COXK3o6vXgr/I8MPrYAUwTgzIAiPnXqJiAA=
+			Jfiz0oA24P8h5LmL4BFo9ZuN6Rc92/68fabIBXeaOOU=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
