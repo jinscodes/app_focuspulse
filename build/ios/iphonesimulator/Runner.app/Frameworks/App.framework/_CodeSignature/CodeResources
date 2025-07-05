@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		vqAh1aF8cj4MZm03VG+J8JL/V/k=
+		bCRPdme5hYrqE0oPNsULrBn6qD4=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		GfheX0dIYp6XZk2tNoiR2J+h9pc=
+		dL6rYXqTXtBauL5LDzKVpn7VRuE=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -162,7 +162,7 @@
 		</data>
 		<key>flutter_assets/assets/json/timer_setting.json</key>
 		<data>
-		/qEuOUl9+dShdO6XrYSYF+m6PHc=
+		/AbCrROynQcbqVLVVNci7Nw20TI=
 		</data>
 		<key>flutter_assets/assets/sounds/dryer.mp3</key>
 		<data>
@@ -216,6 +216,10 @@
 		<data>
 		5I93bfSVqw7OKHd8r60H1HsvAUs=
 		</data>
+		<key>flutter_assets/assets/svg/draghandle.svg</key>
+		<data>
+		ZadnfodoKjntRmxjYUM5xqwtY4I=
+		</data>
 		<key>flutter_assets/assets/svg/dryer.svg</key>
 		<data>
 		yUm5OcQhuP2hllp5BrwRTa0gk8U=
@@ -262,7 +266,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		XdCJIy1XmDbgxuShO6VZzQ1Xf0E=
+		NVbZe0wZP+ZgTTincjuEByr196o=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -283,14 +287,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			m9fPUGeMMPrCqJdwz/VA8SxgY8flGlGeH9PzR4jgNZI=
+			aKAffythmpyN0dBhihT4ocnLXFZVdUMtRcn40eWGQOA=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Agy6OUEvQIRsevMA27QkFwOuJKQgBOuqgtCJDeMDDSk=
+			BuYI+GzAcNyPXnBr5prYPINPMNmjKeDoTJGxnEUvJv8=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -549,7 +553,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oE8SO8oz7p39ljgMw1RldhXGPYDYfJomhvsxT6bAzIQ=
+			H99jZKaFKosTe44NgnUzcGtuxmFtekggX+GW9yzB1vQ=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/sounds/dryer.mp3</key>
@@ -643,6 +647,13 @@
 			SoPpJdgA1iu8kNfid3oBQI6C3XP03Op1TJlHUA6ULlQ=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/svg/draghandle.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			R2FE+Y9x7l5bvm9HAwljsXCpOJyfaHXefOEqha/xxkI=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/svg/dryer.svg</key>
 		<dict>
 			<key>hash2</key>
@@ -724,7 +735,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4mJ5huc9COXK3o6vXgr/I8MPrYAUwTgzIAiPnXqJiAA=
+			Jfiz0oA24P8h5LmL4BFo9ZuN6Rc92/68fabIBXeaOOU=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

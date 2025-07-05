@@ -5,20 +5,23 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/models/load_timer_setting.dart';
 
 class TimerScreen extends ConsumerStatefulWidget {
   final String? testKey;
+  final String? soundKey;
 
-  const TimerScreen({this.testKey, super.key});
+  const TimerScreen({this.testKey, this.soundKey, super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _TimerState();
 }
 
 class _TimerState extends ConsumerState<TimerScreen> {
-  late String testKey;
+  late String _testKey;
+  late String _soundKey;
   int currentStep = 0;
   List<Map<String, dynamic>> steps = [];
   int remainingSeconds = 0;
@@ -27,7 +30,8 @@ class _TimerState extends ConsumerState<TimerScreen> {
   @override
   void initState() {
     super.initState();
-    testKey = widget.testKey ?? '';
+    _testKey = widget.testKey ?? '';
+    _soundKey = widget.soundKey ?? '';
   }
 
   void prepareSteps(Map<String, dynamic> timerData) {
@@ -57,9 +61,102 @@ class _TimerState extends ConsumerState<TimerScreen> {
         } else {
           t.cancel();
           if (currentStep < steps.length - 1) {
-            currentStep++;
-            remainingSeconds = steps[currentStep]['duration'];
-            startTimer();
+            showModalBottomSheet(
+              context: context,
+              isDismissible: false,
+              enableDrag: false,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(24.r)),
+              ),
+              builder: (context) {
+                return Padding(
+                  padding: EdgeInsets.all(24.w),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SvgPicture.asset(
+                        'assets/svg/draghandle.svg',
+                        width: 48.w,
+                        height: 4.h,
+                      ),
+                      SizedBox(height: 24.h),
+                      Text(
+                        'Session ended',
+                        style: TextStyle(
+                          fontSize: 22.sp,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "space_grotesk",
+                        ),
+                      ),
+                      SizedBox(height: 18.h),
+                      Text(
+                        'Your session has ended. Would you like to continue?',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.normal,
+                          fontFamily: "space_grotesk",
+                        ),
+                      ),
+                      SizedBox(height: 30.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.bgGray,
+                              minimumSize: Size(0.4.sw, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.r),
+                              ),
+                            ),
+                            child: Text(
+                              'Stop',
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "space_grotesk",
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                              setState(() {
+                                currentStep++;
+                                remainingSeconds =
+                                    steps[currentStep]['duration'];
+                              });
+                              startTimer();
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.black,
+                              minimumSize: Size(0.4.sw, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.r),
+                              ),
+                            ),
+                            child: Text(
+                              'Continue',
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "space_grotesk",
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
           } else {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('All sessions complete!')),
@@ -106,34 +203,39 @@ class _TimerState extends ConsumerState<TimerScreen> {
           }
 
           final timerData = snapshot.data!.firstWhere(
-            (item) => item['key'] == testKey,
+            (item) => item['key'] == _testKey,
             orElse: () => {},
           );
           final String timerKey = timerData['key'] ?? '';
-          final List sessions = timerData['session'] ?? '';
-          final List breaks = timerData['break'] ?? '';
 
           if (steps.isEmpty && timerData.isNotEmpty) {
             prepareSteps(timerData);
           }
-
-          print('$timerKey, $sessions, $breaks');
 
           return Padding(
             padding: EdgeInsets.all(16.w),
             child: Center(
               child: Column(
                 children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      timerKey.toUpperCase(),
-                      style: TextStyle(
-                        fontSize: 24.sp,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "space_grotesk",
+                  Row(
+                    children: [
+                      Text(
+                        timerKey.toUpperCase(),
+                        style: TextStyle(
+                          fontSize: 24.sp,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "space_grotesk",
+                        ),
                       ),
-                    ),
+                      // BlinkingIconButton(
+                      //   onPressed: () {},
+                      //   icon: Icon(
+                      //     Icons.music_note,
+                      //     size: 24.w,
+                      //   ),
+                      //   soundKey: _soundKey,
+                      // ),
+                    ],
                   ),
                   SizedBox(height: 12.h),
                   Align(

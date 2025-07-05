@@ -25,11 +25,12 @@ class _TestDetailsState extends ConsumerState<TestDetailsScreen> {
     testKey = widget.testKey;
   }
 
-  void navigateToTimer(String testKey) {
+  void navigateToTimer(String testKey, String? selectedSound) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => TimerScreen(testKey: testKey),
+        builder: (context) =>
+            TimerScreen(testKey: testKey, soundKey: selectedSound ?? 'dryer'),
       ),
     );
   }
@@ -207,7 +208,7 @@ class _TestDetailsState extends ConsumerState<TestDetailsScreen> {
                 borderRadius: BorderRadius.circular(24.r),
               ),
             ),
-            onPressed: () => navigateToTimer(testKey),
+            onPressed: () => navigateToTimer(testKey, selectedSound),
             child: Text(
               'Start Test',
               style: TextStyle(

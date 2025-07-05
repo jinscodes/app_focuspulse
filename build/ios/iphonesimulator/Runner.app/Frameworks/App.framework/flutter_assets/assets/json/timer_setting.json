@@ -1,5 +1,10 @@
 [
   {
+    "key": "test",
+    "session": [{ "Reading": 1 }, { "Listening": 1 }],
+    "break": [1]
+  },
+  {
     "key": "toeic",
     "session": [{ "Reading": 45 }, { "Listening": 75 }],
     "break": [5]
