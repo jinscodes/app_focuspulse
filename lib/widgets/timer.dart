@@ -5,7 +5,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/components/blink_btn.dart';
 import 'package:focuspulse/models/load_timer_setting.dart';
@@ -27,6 +26,7 @@ class _TimerState extends ConsumerState<TimerScreen> {
   List<Map<String, dynamic>> steps = [];
   int remainingSeconds = 0;
   Timer? timer;
+  bool isRunning = false;
 
   @override
   void initState() {
@@ -55,12 +55,16 @@ class _TimerState extends ConsumerState<TimerScreen> {
 
   void startTimer() {
     timer?.cancel();
+    setState(() {
+      isRunning = true;
+    });
     timer = Timer.periodic(const Duration(seconds: 1), (t) {
       setState(() {
         if (remainingSeconds > 0) {
           remainingSeconds--;
         } else {
           t.cancel();
+          isRunning = false;
           if (currentStep < steps.length - 1) {
             showModalBottomSheet(
               context: context,
@@ -75,12 +79,7 @@ class _TimerState extends ConsumerState<TimerScreen> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SvgPicture.asset(
-                        'assets/svg/draghandle.svg',
-                        width: 48.w,
-                        height: 4.h,
-                      ),
-                      SizedBox(height: 24.h),
+                      SizedBox(height: 12.h),
                       Text(
                         'Session ended',
                         style: TextStyle(
@@ -165,6 +164,103 @@ class _TimerState extends ConsumerState<TimerScreen> {
           }
         }
       });
+    });
+  }
+
+  void skipToNextStep() async {
+    if (currentStep < steps.length - 1) {
+      final confirm = await showDialog<bool>(
+        context: context,
+        builder: (context) => AlertDialog(
+          backgroundColor: Colors.white,
+          title: Padding(
+            padding: EdgeInsets.only(top: 10.h),
+            child: Text(
+              'Skip Step',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 22.sp,
+                fontWeight: FontWeight.bold,
+                fontFamily: "space_grotesk",
+              ),
+            ),
+          ),
+          content: Text(
+            'Are you sure you want to skip to the next step?',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.normal,
+              fontFamily: "space_grotesk",
+            ),
+          ),
+          actions: [
+            SizedBox(height: 10.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ElevatedButton(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(0.32.sw, 40.h),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.r),
+                    ),
+                  ),
+                  child: Text(
+                    'Cancel',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () => Navigator.of(context).pop(true),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    minimumSize: Size(0.32.sw, 40.h),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.r),
+                    ),
+                  ),
+                  child: Text(
+                    'Yes',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+      if (confirm == true) {
+        setState(() {
+          currentStep++;
+          remainingSeconds = steps[currentStep]['duration'];
+        });
+        timer?.cancel();
+        startTimer();
+      }
+    } else {
+      remainingSeconds = 0;
+      timer?.cancel();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('All sessions complete!')),
+      );
+    }
+  }
+
+  void pauseTimer() {
+    timer?.cancel();
+    setState(() {
+      isRunning = false;
     });
   }
 
@@ -427,7 +523,7 @@ class _TimerState extends ConsumerState<TimerScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       ElevatedButton(
-                        onPressed: startTimer,
+                        onPressed: isRunning ? pauseTimer : startTimer,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.black,
                           minimumSize: Size(84.w, 40.h),
@@ -436,7 +532,7 @@ class _TimerState extends ConsumerState<TimerScreen> {
                           ),
                         ),
                         child: Text(
-                          'Start',
+                          isRunning ? 'Pause' : 'Start',
                           style: TextStyle(
                             fontSize: 14.sp,
                             fontWeight: FontWeight.bold,
@@ -446,7 +542,7 @@ class _TimerState extends ConsumerState<TimerScreen> {
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: startTimer,
+                        onPressed: () => skipToNextStep(),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.bgGray,
                           minimumSize: Size(84.w, 40.h),
