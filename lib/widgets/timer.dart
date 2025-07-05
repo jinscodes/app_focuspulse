@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/components/blink_btn.dart';
 import 'package:focuspulse/models/load_timer_setting.dart';
 
 class TimerScreen extends ConsumerStatefulWidget {
@@ -227,14 +228,14 @@ class _TimerState extends ConsumerState<TimerScreen> {
                           fontFamily: "space_grotesk",
                         ),
                       ),
-                      // BlinkingIconButton(
-                      //   onPressed: () {},
-                      //   icon: Icon(
-                      //     Icons.music_note,
-                      //     size: 24.w,
-                      //   ),
-                      //   soundKey: _soundKey,
-                      // ),
+                      BlinkingIconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.music_note,
+                          size: 24.w,
+                        ),
+                        soundKey: _soundKey,
+                      ),
                     ],
                   ),
                   SizedBox(height: 12.h),
