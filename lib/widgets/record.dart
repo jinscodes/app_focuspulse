@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/models/store_result.dart';
 
 class RecordScreen extends ConsumerStatefulWidget {
   final List<Map<String, dynamic>> sessions;
@@ -20,6 +21,7 @@ class RecordScreen extends ConsumerStatefulWidget {
 class _RecordState extends ConsumerState<RecordScreen> {
   late List<Map<String, dynamic>> _sessions;
   late String _testKey;
+
   List<Map<String, dynamic>> result = [];
   final Map<String, TextEditingController> _controllers = {};
 
@@ -33,8 +35,9 @@ class _RecordState extends ConsumerState<RecordScreen> {
     }
   }
 
-  void _onSave() {
-    Map finalResult = {};
+  void _onSave() async {
+    DateTime now = DateTime.now();
+    Map<String, dynamic> finalResult = {};
     final List<Map<String, dynamic>> result = _sessions.map((session) {
       final label = session['label'];
       final score = _controllers[label]?.text ?? '';
@@ -44,9 +47,10 @@ class _RecordState extends ConsumerState<RecordScreen> {
       };
     }).toList();
 
-    finalResult.addAll({'test': _testKey, "result": result});
+    finalResult
+        .addAll({'test': _testKey, "result": result, "date": now.toString()});
 
-    print('record: $finalResult');
+    await storeResult('record-$now', finalResult);
 
     Navigator.of(context).popUntil((route) => route.isFirst);
   }

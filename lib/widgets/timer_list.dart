@@ -30,6 +30,7 @@ class _TimerListState extends ConsumerState<TimerList> {
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
       appBar: AppBar(
+        forceMaterialTransparency: true,
         backgroundColor: AppColors.bgWhite,
         elevation: 0,
         leading: IconButton(
