@@ -5,6 +5,16 @@
     "break": [1]
   },
   {
+    "key": "test2",
+    "session": [
+      { "Reading": 1 },
+      { "Listening": 1 },
+      { "Writing": 1 },
+      { "Speaking": 1 }
+    ],
+    "break": [1, 2, 1]
+  },
+  {
     "key": "toeic",
     "session": [{ "Reading": 45 }, { "Listening": 75 }],
     "break": [5]

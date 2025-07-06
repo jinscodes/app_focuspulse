@@ -9,6 +9,11 @@ import 'package:focuspulse/widgets/intro.dart';
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
+  // Future<void> clearAllData() async {
+  //   final prefs = await SharedPreferences.getInstance();
+  //   await prefs.clear();
+  // }
+
   @override
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 3), () {
@@ -21,6 +26,7 @@ class SplashScreen extends StatelessWidget {
     });
 
     clearAudioCache();
+    // clearAllData();
 
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
