@@ -7,7 +7,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/components/blink_btn.dart';
+import 'package:focuspulse/components/timer_skip_dialog.dart';
+import 'package:focuspulse/components/title_appbar.dart';
 import 'package:focuspulse/models/load_timer_setting.dart';
+import 'package:focuspulse/models/prepare_steps.dart';
 import 'package:focuspulse/widgets/record.dart';
 
 class TimerScreen extends ConsumerStatefulWidget {
@@ -35,24 +38,6 @@ class _TimerState extends ConsumerState<TimerScreen> {
     super.initState();
     _testKey = widget.testKey ?? '';
     _soundKey = widget.soundKey ?? '';
-  }
-
-  void prepareSteps(Map<String, dynamic> timerData) {
-    steps.clear();
-    final List sessions = timerData['session'] ?? [];
-    final List breaks = timerData['break'] ?? [];
-    for (int i = 0; i < sessions.length; i++) {
-      final session = sessions[i];
-      final label = session.keys.first;
-      final duration = session.values.first * 60;
-      steps.add({'label': label, 'duration': duration});
-      if (i < sessions.length - 1 && breaks.isNotEmpty) {
-        steps.add({'label': 'Break', 'duration': breaks[0] * 60});
-      }
-    }
-    if (steps.isNotEmpty) {
-      remainingSeconds = steps[0]['duration'];
-    }
   }
 
   void startTimer() {
@@ -170,79 +155,16 @@ class _TimerState extends ConsumerState<TimerScreen> {
     });
   }
 
+  void pauseTimer() {
+    timer?.cancel();
+    setState(() {
+      isRunning = false;
+    });
+  }
+
   void skipToNextStep() async {
     if (currentStep < steps.length - 1) {
-      final confirm = await showDialog<bool>(
-        context: context,
-        builder: (context) => AlertDialog(
-          backgroundColor: Colors.white,
-          title: Padding(
-            padding: EdgeInsets.only(top: 10.h),
-            child: Text(
-              'Skip Step',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 22.sp,
-                fontWeight: FontWeight.bold,
-                fontFamily: "space_grotesk",
-              ),
-            ),
-          ),
-          content: Text(
-            'Are you sure you want to skip to the next step?',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.normal,
-              fontFamily: "space_grotesk",
-            ),
-          ),
-          actions: [
-            SizedBox(height: 10.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(false),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    minimumSize: Size(0.32.sw, 40.h),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.r),
-                    ),
-                  ),
-                  child: Text(
-                    'Cancel',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(true),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    minimumSize: Size(0.32.sw, 40.h),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.r),
-                    ),
-                  ),
-                  child: Text(
-                    'Yes',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      );
+      final confirm = await timerSkipDialog(context);
       if (confirm == true) {
         if (currentStep == steps.length - 1) {
           setState(() {
@@ -271,13 +193,6 @@ class _TimerState extends ConsumerState<TimerScreen> {
     }
   }
 
-  void pauseTimer() {
-    timer?.cancel();
-    setState(() {
-      isRunning = false;
-    });
-  }
-
   void goToRecordScreen(BuildContext context) async {
     final sessionList = steps.where((e) => e['label'] != 'Break').toList();
     await Navigator.push(
@@ -301,24 +216,7 @@ class _TimerState extends ConsumerState<TimerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, size: 24.w),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: Text(
-          'Timer',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+      appBar: titleAppbar(context, Icon(Icons.arrow_back, size: 24.w), "title"),
       body: FutureBuilder(
         future: loadTimerSetting(),
         builder: (context, snapshot) {
@@ -333,7 +231,7 @@ class _TimerState extends ConsumerState<TimerScreen> {
           final String timerKey = timerData['key'] ?? '';
 
           if (steps.isEmpty && timerData.isNotEmpty) {
-            prepareSteps(timerData);
+            prepareSteps(steps, timerData, remainingSeconds);
           }
 
           return Padding(

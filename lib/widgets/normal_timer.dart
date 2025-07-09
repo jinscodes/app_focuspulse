@@ -41,10 +41,21 @@ class _NormalTimerState extends ConsumerState<NormalTimer> {
       builder: (context) {
         return AlertDialog(
           backgroundColor: Colors.white,
-          title: const Text('Set Timer'),
+          title: Padding(
+            padding: EdgeInsets.only(top: 10.h),
+            child: Text(
+              'Set Timer',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 22.sp,
+                fontWeight: FontWeight.bold,
+                fontFamily: "space_grotesk",
+              ),
+            ),
+          ),
           content: SizedBox(
             height: 180.h,
-            width: 320.w,
+            width: 0.9.sw,
             child: CupertinoTimerPicker(
               mode: CupertinoTimerPickerMode.hms,
               initialTimerDuration: tempDuration,
@@ -54,6 +65,7 @@ class _NormalTimerState extends ConsumerState<NormalTimer> {
             ),
           ),
           actions: [
+            SizedBox(height: 10.h),
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
               child: Text(
@@ -89,6 +101,19 @@ class _NormalTimerState extends ConsumerState<NormalTimer> {
         );
       },
     );
+  }
+
+  void resetTimer() {
+    timer?.cancel();
+    setState(() {
+      remainingSeconds = 0;
+    });
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -327,7 +352,7 @@ class _NormalTimerState extends ConsumerState<NormalTimer> {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: startTimer,
+                    onPressed: resetTimer,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.bgGray,
                       minimumSize: Size(84.w, 40.h),
@@ -336,7 +361,7 @@ class _NormalTimerState extends ConsumerState<NormalTimer> {
                       ),
                     ),
                     child: Text(
-                      'Done',
+                      'Reset',
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
