@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/components/blink_btn.dart';
 import 'package:focuspulse/components/timer_skip_dialog.dart';
+import 'package:focuspulse/components/title_appbar.dart';
 import 'package:focuspulse/models/load_timer_setting.dart';
 import 'package:focuspulse/models/prepare_steps.dart';
 import 'package:focuspulse/widgets/record.dart';
@@ -215,24 +216,7 @@ class _TimerState extends ConsumerState<TimerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, size: 24.w),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: Text(
-          'Timer',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+      appBar: titleAppbar(context, Icon(Icons.arrow_back, size: 24.w), "title"),
       body: FutureBuilder(
         future: loadTimerSetting(),
         builder: (context, snapshot) {
