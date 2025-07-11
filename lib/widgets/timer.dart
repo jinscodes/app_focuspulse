@@ -267,7 +267,6 @@ class _TimerState extends ConsumerState<TimerScreen> {
                         ),
                       ),
                       BlinkingIconButton(
-                        onPressed: () {},
                         icon: Icon(
                           Icons.music_note,
                           size: 24.w,

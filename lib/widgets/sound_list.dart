@@ -83,16 +83,18 @@ class _SoundListState extends ConsumerState<SoundList> {
                   }
                   final soundSettings = snapshot.data!;
                   final filteredList = _searchQuery.isEmpty
-                      ? soundSettings
+                      ? soundSettings.skip(1).toList()
                       : soundSettings
                           .where((item) => item['key']
                               .toString()
                               .toLowerCase()
                               .contains(_searchQuery.toLowerCase()))
+                          .skip(1)
                           .toList();
                   if (filteredList.isEmpty) {
                     return const Center(child: Text('No results found.'));
                   }
+
                   return SizedBox(
                     height: 600.h,
                     child: ListView.builder(
