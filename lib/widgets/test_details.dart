@@ -30,7 +30,7 @@ class _TestDetailsState extends ConsumerState<TestDetailsScreen> {
       context,
       MaterialPageRoute(
         builder: (context) =>
-            TimerScreen(testKey: testKey, soundKey: selectedSound ?? 'rain'),
+            TimerScreen(testKey: testKey, soundKey: selectedSound ?? 'na'),
       ),
     );
   }

@@ -61,9 +61,10 @@ class _QuickAccessSoundsState extends ConsumerState<QuickAccessSounds> {
               return const CircularProgressIndicator();
             }
             final timerSettings = snapshot.data!;
+
             return Column(
               children: List.generate(3, (index) {
-                final key = timerSettings[index]['key'];
+                final key = timerSettings[index + 1]['key'];
                 return Theme(
                   data: Theme.of(context).copyWith(
                     splashColor: Colors.transparent,

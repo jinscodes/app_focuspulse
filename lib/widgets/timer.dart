@@ -10,7 +10,6 @@ import 'package:focuspulse/components/blink_btn.dart';
 import 'package:focuspulse/components/timer_skip_dialog.dart';
 import 'package:focuspulse/components/title_appbar.dart';
 import 'package:focuspulse/models/load_timer_setting.dart';
-import 'package:focuspulse/models/prepare_steps.dart';
 import 'package:focuspulse/widgets/record.dart';
 
 class TimerScreen extends ConsumerStatefulWidget {
@@ -206,6 +205,24 @@ class _TimerState extends ConsumerState<TimerScreen> {
     );
   }
 
+  void prepareSteps(Map<String, dynamic> timerData) {
+    steps.clear();
+    final List sessions = timerData['session'] ?? [];
+    final List breaks = timerData['break'] ?? [];
+    for (int i = 0; i < sessions.length; i++) {
+      final session = sessions[i];
+      final label = session.keys.first;
+      final duration = session.values.first * 60;
+      steps.add({'label': label, 'duration': duration});
+      if (i < sessions.length - 1 && breaks.isNotEmpty) {
+        steps.add({'label': 'Break', 'duration': breaks[0] * 60});
+      }
+    }
+    if (steps.isNotEmpty) {
+      remainingSeconds = steps[0]['duration'];
+    }
+  }
+
   @override
   void dispose() {
     timer?.cancel();
@@ -231,7 +248,7 @@ class _TimerState extends ConsumerState<TimerScreen> {
           final String timerKey = timerData['key'] ?? '';
 
           if (steps.isEmpty && timerData.isNotEmpty) {
-            prepareSteps(steps, timerData, remainingSeconds);
+            prepareSteps(timerData);
           }
 
           return Padding(
@@ -250,7 +267,6 @@ class _TimerState extends ConsumerState<TimerScreen> {
                         ),
                       ),
                       BlinkingIconButton(
-                        onPressed: () {},
                         icon: Icon(
                           Icons.music_note,
                           size: 24.w,

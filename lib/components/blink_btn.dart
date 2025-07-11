@@ -10,14 +10,12 @@ class BlinkingIconButton extends ConsumerStatefulWidget {
   final Icon icon;
   final String soundKey;
   final WidgetRef? ref;
-  final VoidCallback? onPressed;
 
   const BlinkingIconButton({
     super.key,
     required this.icon,
     required this.soundKey,
     this.ref,
-    this.onPressed,
   });
 
   @override
@@ -46,7 +44,11 @@ class _BlinkingIconButtonState extends ConsumerState<BlinkingIconButton> {
         });
       }
     });
-    playAudio(ref, _audioPlayer, _soundKey);
+    if (_soundKey != 'na') {
+      playAudio(ref, _audioPlayer, _soundKey);
+    } else {
+      _stopBlinking();
+    }
   }
 
   void _stopBlinking() {
@@ -80,7 +82,6 @@ class _BlinkingIconButtonState extends ConsumerState<BlinkingIconButton> {
             });
             _startBlinking();
           }
-          widget.onPressed?.call();
         },
         icon: widget.icon,
       ),
