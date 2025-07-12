@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 AppBar titleAppbar(BuildContext context, Icon icon, String title) {
   return AppBar(
+    forceMaterialTransparency: true,
     backgroundColor: Colors.transparent,
     elevation: 0,
     leading: IconButton(
