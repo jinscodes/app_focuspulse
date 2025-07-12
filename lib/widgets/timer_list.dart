@@ -30,7 +30,7 @@ class _TimerListState extends ConsumerState<TimerList> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
-      appBar: titleAppbar(context, Icon(Icons.arrow_back, size: 24.w), 'Tests'),
+      appBar: titleAppbar(context, IconType.arrow, 'Tests'),
       body: Padding(
         padding: EdgeInsets.all(16.w),
         child: Center(
