@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
-import 'package:focuspulse/widgets/splash.dart';
+import 'package:focuspulse/widgets/intro.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await MobileAds.instance.initialize();
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
         ),
         debugShowCheckedModeBanner: false,
-        home: const SplashScreen(),
+        home: const Intro(),
       ),
     );
   }

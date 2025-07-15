@@ -18,6 +18,8 @@ dependencies:
   flutter_launcher_icons: ^0.14.3
   flutter_svg: ^2.0.17
   shared_preferences: ^2.5.3
+  google_mobile_ads: ^6.0.0
+  flutter_native_splash: ^2.4.6
 
 dev_dependencies:
   flutter_test:
@@ -33,6 +35,12 @@ flutter_launcher_icons:
   ios: true
   image_path: "assets/images/logo_app.png"
   remove_alpha_ios: true
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/images/logo_splashscreen.png
+  android: true
+  ios: true
 
 flutter:
   uses-material-design: true
