@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		XXNIqpiSeUgfv9WNYm/tXNfBnzo=
+		3U6mGSWAobhOnmOMUNJST5ln8es=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		/IOXc+8LvEufbJe5JsMHIdWxL5E=
+		yHoy+M4RtX17fOqea6EnPPUTve0=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
-		X6C4jUogp47P/xEHsk422yVX90I=
+		hkMd0E9WKdUC2RB1eCF/KpCjWVw=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/NativeAssetsManifest.json</key>
 		<data>
@@ -226,7 +226,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		vd5RUSoT/f28epm9JS54EDSK9lg=
+		nh4a/aPUksAEXY4/tJ5obZsxTy4=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -416,9 +416,37 @@
 		<data>
 		6uLTlq7fgHHWA8emYDf4ImHC+AY=
 		</data>
+		<key>Frameworks/webview_flutter_wkwebview.framework/Info.plist</key>
+		<data>
+		aEFbBEJkdFFN9Hqc/A8zpnimhcA=
+		</data>
+		<key>Frameworks/webview_flutter_wkwebview.framework/_CodeSignature/CodeResources</key>
+		<data>
+		vQf1sdDXOebl436M7WkO+3p9Eqs=
+		</data>
+		<key>Frameworks/webview_flutter_wkwebview.framework/webview_flutter_wkwebview</key>
+		<data>
+		F0UrpuyWI8S8ld4dmjYK23vTTYo=
+		</data>
+		<key>Frameworks/webview_flutter_wkwebview.framework/webview_flutter_wkwebview_privacy.bundle/Info.plist</key>
+		<data>
+		1ek2OXM8YCljSMbzPWHPe5Krj0M=
+		</data>
+		<key>Frameworks/webview_flutter_wkwebview.framework/webview_flutter_wkwebview_privacy.bundle/PrivacyInfo.xcprivacy</key>
+		<data>
+		/LX0ZlwxwIAIhjZaDB8EiH5KpXA=
+		</data>
+		<key>GoogleMobileAdsResources.bundle/Info.plist</key>
+		<data>
+		fZwazOpaLcBVJ4iD6NqpZvTZ+KM=
+		</data>
+		<key>GoogleMobileAdsResources.bundle/PrivacyInfo.xcprivacy</key>
+		<data>
+		VWCA3MeaiPMoOAS1uOteTSLX8js=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		5j8nPo16OFgIbh2mvsETq1M8KWI=
+		Osu1dCiNPxCOJzKxxcAw26IsgvA=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -426,11 +454,35 @@
 		</data>
 		<key>Runner.debug.dylib</key>
 		<data>
-		rcsRz8/alfey8GwjvwLg/degnEA=
+		kwq0bw6fwDHMJX5qVfyCFoQLzB8=
+		</data>
+		<key>UserMessagingPlatformResources.bundle/Info.plist</key>
+		<data>
+		gtk0jv7bBaEjRDKMF9QIA37XStA=
+		</data>
+		<key>UserMessagingPlatformResources.bundle/PrivacyInfo.xcprivacy</key>
+		<data>
+		k9OFlDPBRWfteJ+bfG12WAoBuls=
 		</data>
 		<key>__preview.dylib</key>
 		<data>
 		OXc6nknF7xsghyE7YOmBF5nXhIM=
+		</data>
+		<key>google_mobile_ads.bundle/GADTFullScreenTemplateView.nib</key>
+		<data>
+		vQtW7GMR0QkSmYBCHcBnQayakAA=
+		</data>
+		<key>google_mobile_ads.bundle/GADTMediumTemplateView.nib</key>
+		<data>
+		aUvB5WRnum8R4OUgvMymkaCFKe8=
+		</data>
+		<key>google_mobile_ads.bundle/GADTSmallTemplateView.nib</key>
+		<data>
+		5QmMT8qGnQ6i+w1h0WWle6nv/us=
+		</data>
+		<key>google_mobile_ads.bundle/Info.plist</key>
+		<data>
+		ppAMrTb8AdnjnnBsQSOn2bdcjWo=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -509,7 +561,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wuj6UMKvpbiVs2ghmJoDjMULKEo5LRvzX/0bruUZFVk=
+			l8HKdlftf+/3ayUTqusiGB2U4XVp9/zwXMy3xS8LypI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -523,7 +575,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			j8ql9Z+xI1LCYl5XDlK8z3+8NxnnsFuQgm7eILPVdWU=
+			6WoW1sox3vs+tgRpYMsrRS0iolktk7YbJbbRlUfIpzc=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
@@ -551,7 +603,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9kr0EAgUcu9GaQPsg88irn6Dfhoal7xvsJW3mIm5AsI=
+			KcpbEKkCCt4o81NkulxjwZ9FEQjqPHAxeD1KWt4NsPk=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/NativeAssetsManifest.json</key>
@@ -824,7 +876,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Vs+wlUkDrisgVqmiu3Ev+EutAluKdzuq46g1F+sV7I4=
+			rOw1tQQ57CdWMvqFsP1uzaeil2uuJYU/x7Y/Ij193cI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -1156,11 +1208,74 @@
 			BWQouTi9VwGKYAGdFcPB7i+nJ/I2h1mLu9k0hIsYCxo=
 			</data>
 		</dict>
+		<key>Frameworks/webview_flutter_wkwebview.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			tEoa7Trrve6NiuCnJvSdTWh6nrvwhD/yW4wUP/wPZbw=
+			</data>
+		</dict>
+		<key>Frameworks/webview_flutter_wkwebview.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			F9BYyw6xscqVrsHiMPnFUk3uiZTLTkTMSrJE3bvFtxk=
+			</data>
+		</dict>
+		<key>Frameworks/webview_flutter_wkwebview.framework/webview_flutter_wkwebview</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			OBRkLzzx64rF149NaLd2ELzffM/RCTTtINkqXEEFaZI=
+			</data>
+		</dict>
+		<key>Frameworks/webview_flutter_wkwebview.framework/webview_flutter_wkwebview_privacy.bundle/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gQD5Ou7r0widMiNyYRw9fCQSa48Xb+i9rTQ8IE7pqo4=
+			</data>
+		</dict>
+		<key>Frameworks/webview_flutter_wkwebview.framework/webview_flutter_wkwebview_privacy.bundle/PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bS2g2NkwIn1CjB2TY7CtbjoS4sm2jFzilxWKdBL8jDE=
+			</data>
+		</dict>
+		<key>GoogleMobileAdsResources.bundle/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			RyLdUCkoima1OVYfnlDMw9f+BHxgbh6MpwZJyg9GFRw=
+			</data>
+		</dict>
+		<key>GoogleMobileAdsResources.bundle/PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			afsRJYL8I/wGxjXJYdJio/e0tWVNKEeHSR3jAA2t+dI=
+			</data>
+		</dict>
 		<key>Runner.debug.dylib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			s/iPj2HilbmBDoTbF6vkXfMNd19Jc615xVnOwSUKeZ0=
+			4VT04M5lLGxTiF/Qee8n1OutKBPdMu+YO14vyGPLJbw=
+			</data>
+		</dict>
+		<key>UserMessagingPlatformResources.bundle/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			LEVSuupGTUEvCCo/QKw+KIJiXNhHX3SLhvUAP9wdVYc=
+			</data>
+		</dict>
+		<key>UserMessagingPlatformResources.bundle/PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			RbetuZ/NLZYqHIAPv8wTJbV6f6QWX0FhgjI7tf/pyQA=
 			</data>
 		</dict>
 		<key>__preview.dylib</key>
@@ -1168,6 +1283,34 @@
 			<key>hash2</key>
 			<data>
 			LjkctJEnEUNh64QUDYOagwM1fB9I3tFDqXh2sT9jSmk=
+			</data>
+		</dict>
+		<key>google_mobile_ads.bundle/GADTFullScreenTemplateView.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			RcKB8HRt1XMoH+uMy+pSh1fURqkVAeDhE0XdQp2oYaI=
+			</data>
+		</dict>
+		<key>google_mobile_ads.bundle/GADTMediumTemplateView.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			CzEM6HO7ko1NBxxL5C2Vt5MFY/BoAm3+GZQkiFaZewM=
+			</data>
+		</dict>
+		<key>google_mobile_ads.bundle/GADTSmallTemplateView.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			vCrD9z3i7PQtuzlaAmzIy6catlwtoD/zhvfED20McnY=
+			</data>
+		</dict>
+		<key>google_mobile_ads.bundle/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			X7ikf+tdA/FAaxFAFspvyePHEZrjfqngi9xlRW7is5Y=
 			</data>
 		</dict>
 	</dict>
