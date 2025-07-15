@@ -296,6 +296,12 @@
       "languageVersion": "3.3"
     },
     {
+      "name": "google_mobile_ads",
+      "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/google_mobile_ads-6.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.6"
+    },
+    {
       "name": "graphs",
       "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/graphs-2.3.2",
       "packageUri": "lib/",
@@ -764,6 +770,30 @@
       "languageVersion": "3.3"
     },
     {
+      "name": "webview_flutter",
+      "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/webview_flutter-4.13.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.6"
+    },
+    {
+      "name": "webview_flutter_android",
+      "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/webview_flutter_android-4.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.6"
+    },
+    {
+      "name": "webview_flutter_platform_interface",
+      "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/webview_flutter_platform_interface-2.13.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.6"
+    },
+    {
+      "name": "webview_flutter_wkwebview",
+      "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.22.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.5"
+    },
+    {
       "name": "xdg_directories",
       "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/xdg_directories-1.1.0",
       "packageUri": "lib/",
@@ -788,7 +818,7 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2025-07-15T08:53:05.159041Z",
+  "generated": "2025-07-15T09:24:12.782268Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///usr/local/Caskroom/flutter/3.3.2/flutter",
