@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/models/adManager.dart';
 import 'package:focuspulse/widgets/history.dart';
 import 'package:focuspulse/widgets/home.dart';
 import 'package:focuspulse/widgets/normal_timer.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class EntryPoint extends ConsumerStatefulWidget {
   const EntryPoint({super.key});
@@ -14,12 +16,19 @@ class EntryPoint extends ConsumerStatefulWidget {
 }
 
 class _EntryPointState extends ConsumerState<EntryPoint> {
+  bool _showAd = true;
   int _selectedIndex = 0;
   final List<Widget> _screens = [
     const HomeScreen(),
     const NormalTimer(),
     const HistoryScreen(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    AdManager.instance.loadBannerAd();
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -82,6 +91,32 @@ class _EntryPointState extends ConsumerState<EntryPoint> {
                 ),
               ],
             ),
+            if (_showAd)
+              Stack(
+                children: [
+                  Container(
+                    color: Colors.white,
+                    height: AdManager.instance.bannerAd!.size.height.toDouble(),
+                    child: AdWidget(ad: AdManager.instance.bannerAd!),
+                  ),
+                  Positioned(
+                    right: 0,
+                    top: 0,
+                    child: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          _showAd = false;
+                        });
+                      },
+                      icon: Icon(
+                        Icons.close_rounded,
+                        size: 24.w,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  )
+                ],
+              )
           ],
         ),
       ),
