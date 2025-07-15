@@ -18,7 +18,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		+3KO3yRhFrHJEQT8EY5Jv3XkFDc=
+		QHFDgqrEugYGLllReyEgOW+xsLc=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		37zgPuQDuxWqebUTwqJZ71v/05k=
+		OeOggA70R2mcZ8ElMffB9xyus6k=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		afTsHbWg2Dvj6jTub3vj/VHB5DA=
+		UgkQlGV3iFTuUoXkGyJSO4vKabU=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
-		wqWmWqz/ARj5VCkQ/GNbuo6ORgk=
+		X6C4jUogp47P/xEHsk422yVX90I=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/NativeAssetsManifest.json</key>
 		<data>
@@ -142,7 +142,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/logo_splashscreen.png</key>
 		<data>
-		eW8VCQIkp00wBgnzX85Pgq3KPKE=
+		EcN03YzFqW3hTIwwywfQHZqcRaE=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/opic.png</key>
 		<data>
@@ -310,7 +310,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		BPQt3SocZiBnX3vGTa3aw4vipkw=
+		lUM1fejMIlDPwWYJVhkqby4lHaI=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -428,6 +428,26 @@
 		<data>
 		+xwUHGjHXvoauSJFV+GzEGa9cCE=
 		</data>
+		<key>Frameworks/flutter_native_splash.framework/Info.plist</key>
+		<data>
+		m/+2KVkIq14O8valXfWU8t1Ze5Q=
+		</data>
+		<key>Frameworks/flutter_native_splash.framework/_CodeSignature/CodeResources</key>
+		<data>
+		4G19O469NXQALfzg1PfGHten1QA=
+		</data>
+		<key>Frameworks/flutter_native_splash.framework/flutter_native_splash</key>
+		<data>
+		3DGbXZd7x8j3sjwDHoLs1UOzJFs=
+		</data>
+		<key>Frameworks/flutter_native_splash.framework/flutter_native_splash_privacy.bundle/Info.plist</key>
+		<data>
+		EcP83xoR/TYfnjGYXqDJ6mP4Sm8=
+		</data>
+		<key>Frameworks/flutter_native_splash.framework/flutter_native_splash_privacy.bundle/PrivacyInfo.xcprivacy</key>
+		<data>
+		/LX0ZlwxwIAIhjZaDB8EiH5KpXA=
+		</data>
 		<key>Frameworks/just_audio.framework/Info.plist</key>
 		<data>
 		JPmwUGAcv/lFKnqwfPdns7k/ZyA=
@@ -482,7 +502,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		c1/IxqNnKW3FQbTYrJySY5GEmIc=
+		u/52FUkb3F1lDH+yQrp9QmSOXDY=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -490,7 +510,7 @@
 		</data>
 		<key>Runner.debug.dylib</key>
 		<data>
-		aR80DhYgHSSTFt/0bNfmoqsgVBM=
+		rcsRz8/alfey8GwjvwLg/degnEA=
 		</data>
 		<key>__preview.dylib</key>
 		<data>
@@ -524,7 +544,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FDy4GwaPsqwfSKAFkkE6/QqYrxpA4XvtQjHmjQI39Ic=
+			CTbWhtcv39cs+rTVjbWTMZrqdJnVilKMGY1d3kbsH/0=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
@@ -573,7 +593,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			tAkb4r6QzYt2jo6x9IXhD50FUwlf/FWOeIgslU6ffSg=
+			p2tP/RIfBsGQqwPca5vZ5url4O2dXS8OfY5h2L+En1w=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -587,7 +607,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mXeEBXfF2J5pFBJf1LXOi0GIT+DntW9bAl7AZoU0Exc=
+			ZkiXMUzGYwKhtQwZJSEyWf77NWTbxWHVD+JWbGoIBkg=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
@@ -615,7 +635,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Fiq+j6wTkLKP5NCJErH24PvIz6xziMfl/tfvRK+joz0=
+			9kr0EAgUcu9GaQPsg88irn6Dfhoal7xvsJW3mIm5AsI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/NativeAssetsManifest.json</key>
@@ -741,7 +761,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jVyPj1NRw/Mh4fZ2wsYfNnafN9gMFAJuDb/MODVyVXs=
+			O8HSkSLPES5nFzVDQIalg66T2ou1mXO1OnLsi2wSfKk=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/opic.png</key>
@@ -1035,7 +1055,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SUQm8F9Tcqvi0lngb+L8ki/HBy/K+uGVGDyfFR9kiXI=
+			2WkIOcfMa90gnl5mUcxrvvbFr1ol4koNtFu2EJ07CXQ=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -1241,6 +1261,41 @@
 			f9U0zjK97rmK0QD6mjgfFPYaERJcIRzzuQfTogbwpMk=
 			</data>
 		</dict>
+		<key>Frameworks/flutter_native_splash.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			CUMobqugH6KErYn9b0k0xYq2cm7SrDnK8i8p2rtFqE8=
+			</data>
+		</dict>
+		<key>Frameworks/flutter_native_splash.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AAt4llGKfLzU6Gpg5MA7K8XRoYpr96g+OZRrHuZWsFk=
+			</data>
+		</dict>
+		<key>Frameworks/flutter_native_splash.framework/flutter_native_splash</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			TJO/UKgiMOLBKkLaNXqPs497x6uoj3nY7igFfroADrI=
+			</data>
+		</dict>
+		<key>Frameworks/flutter_native_splash.framework/flutter_native_splash_privacy.bundle/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			T5Dv5sUg6WbxNe+msqMDu278wqpWo0kJfTf3ok/LOl0=
+			</data>
+		</dict>
+		<key>Frameworks/flutter_native_splash.framework/flutter_native_splash_privacy.bundle/PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bS2g2NkwIn1CjB2TY7CtbjoS4sm2jFzilxWKdBL8jDE=
+			</data>
+		</dict>
 		<key>Frameworks/just_audio.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
@@ -1336,7 +1391,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			GhEuKPUm0PQ0GBEN7lYzE629y8IwrxQdWKb/XX/XUj4=
+			s/iPj2HilbmBDoTbF6vkXfMNd19Jc615xVnOwSUKeZ0=
 			</data>
 		</dict>
 		<key>__preview.dylib</key>
