@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/components/title_appbar.dart';
 import 'package:focuspulse/models/store_result.dart';
 
 class RecordScreen extends ConsumerStatefulWidget {
@@ -66,24 +67,8 @@ class _RecordState extends ConsumerState<RecordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        forceMaterialTransparency: true,
-        backgroundColor: AppColors.bgWhite,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.close_outlined, size: 24.w),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: const Text(
-          'Record',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+      backgroundColor: AppColors.bgWhite,
+      appBar: titleAppbar(context, IconType.close, 'Record'),
       body: Padding(
         padding: EdgeInsets.all(16.w),
         child: Column(
