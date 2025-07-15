@@ -1,7 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.jay.focuspulse">
     <application
         android:label="FOCUSPULSE"
-        android:name="${FOCUSPULSE - Increase your test efficiency}"
         android:icon="@mipmap/ic_launcher">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

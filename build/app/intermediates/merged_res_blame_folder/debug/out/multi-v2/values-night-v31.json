@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.jay.focuspulse.app-mergeDebugResources-53:/values-night-v31/values-night-v31.xml",
+            "map": [
+                {
+                    "source": "/Users/hanjinsung/Desktop/Repository/focuspulse/android/app/src/main/res/values-night-v31/styles.xml",
+                    "from": {
+                        "startLines": "3,15",
+                        "startColumns": "4,4",
+                        "startOffsets": "172,880",
+                        "endLines": "8,17",
+                        "endColumns": "12,12",
+                        "endOffsets": "529,1044"
+                    },
+                    "to": {
+                        "startLines": "2,8",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,417",
+                        "endLines": "7,10",
+                        "endColumns": "12,12",
+                        "endOffsets": "412,581"
+                    }
+                }
+            ]
+        }
+    ]
+}
