@@ -26,6 +26,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "ansicolor",
+      "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/ansicolor-2.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "archive",
       "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/archive-4.0.5",
       "packageUri": "lib/",
@@ -158,6 +164,12 @@
       "languageVersion": "3.4"
     },
     {
+      "name": "csslib",
+      "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/csslib-1.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
       "name": "cupertino_icons",
       "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/cupertino_icons-1.0.8",
       "packageUri": "lib/",
@@ -230,6 +242,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "flutter_native_splash",
+      "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/flutter_native_splash-2.4.6",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "flutter_riverpod",
       "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/flutter_riverpod-2.6.1",
       "packageUri": "lib/",
@@ -288,6 +306,12 @@
       "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/hotreloader-4.3.0",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "html",
+      "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/html-0.15.6",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
     },
     {
       "name": "http",
@@ -674,6 +698,12 @@
       "languageVersion": "3.5"
     },
     {
+      "name": "universal_io",
+      "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/universal_io-2.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "uuid",
       "rootUri": "file:///Users/hanjinsung/.pub-cache/hosted/pub.dev/uuid-4.5.1",
       "packageUri": "lib/",
@@ -758,7 +788,7 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2025-07-05T22:14:35.111039Z",
+  "generated": "2025-07-15T08:39:17.943444Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///usr/local/Caskroom/flutter/3.3.2/flutter",
