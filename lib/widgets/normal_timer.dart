@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/components/title_appbar.dart';
 
 class NormalTimer extends ConsumerStatefulWidget {
   const NormalTimer({super.key});
@@ -120,18 +121,7 @@ class _NormalTimerState extends ConsumerState<NormalTimer> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(
-          'Timer',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+      appBar: titleAppbar(context, null, "Timer"),
       body: Padding(
         padding: EdgeInsets.all(16.w),
         child: Center(
