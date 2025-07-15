@@ -9,8 +9,10 @@ import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/components/blink_btn.dart';
 import 'package:focuspulse/components/timer_skip_dialog.dart';
 import 'package:focuspulse/components/title_appbar.dart';
+import 'package:focuspulse/models/adManager.dart';
 import 'package:focuspulse/models/load_timer_setting.dart';
 import 'package:focuspulse/widgets/record.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class TimerScreen extends ConsumerStatefulWidget {
   final String? testKey;
@@ -25,6 +27,7 @@ class TimerScreen extends ConsumerStatefulWidget {
 class _TimerState extends ConsumerState<TimerScreen> {
   late String _testKey;
   late String _soundKey;
+  bool _showAd = true;
   int currentStep = 0;
   List<Map<String, dynamic>> steps = [];
   int remainingSeconds = 0;
@@ -35,6 +38,7 @@ class _TimerState extends ConsumerState<TimerScreen> {
   @override
   void initState() {
     super.initState();
+    AdManager.instance.loadBannerAd();
     _testKey = widget.testKey ?? '';
     _soundKey = widget.soundKey ?? '';
   }
@@ -513,6 +517,33 @@ class _TimerState extends ConsumerState<TimerScreen> {
           );
         },
       ),
+      bottomSheet: _showAd && AdManager.instance.bannerAd != null
+          ? Stack(
+              children: [
+                Container(
+                  color: Colors.white,
+                  height: AdManager.instance.bannerAd!.size.height.toDouble(),
+                  child: AdWidget(ad: AdManager.instance.bannerAd!),
+                ),
+                Positioned(
+                  right: 0,
+                  top: 0,
+                  child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        _showAd = false;
+                      });
+                    },
+                    icon: Icon(
+                      Icons.close_rounded,
+                      size: 24.w,
+                      color: Colors.grey,
+                    ),
+                  ),
+                )
+              ],
+            )
+          : null,
     );
   }
 }
