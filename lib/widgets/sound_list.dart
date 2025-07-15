@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/components/title_appbar.dart';
 import 'package:focuspulse/models/load_sound_list.dart';
 import 'package:focuspulse/widgets/sound_details.dart';
 
@@ -31,25 +32,7 @@ class _SoundListState extends ConsumerState<SoundList> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
-      appBar: AppBar(
-        forceMaterialTransparency: true,
-        backgroundColor: AppColors.bgWhite,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, size: 24.w),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: Text(
-          'Sounds',
-          style: TextStyle(
-            fontSize: 18.sp,
-            fontWeight: FontWeight.bold,
-            fontFamily: "space_grotesk",
-          ),
-        ),
-      ),
+      appBar: titleAppbar(context, IconType.arrow, 'Sounds'),
       body: Padding(
         padding: EdgeInsets.all(16.w),
         child: Center(

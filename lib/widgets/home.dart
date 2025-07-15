@@ -27,17 +27,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.settings_outlined,
-              size: 24.w,
-            ),
-            onPressed: () {
-              print('Click icon settings');
-            },
-          )
-        ],
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),

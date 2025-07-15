@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/components/title_appbar.dart';
 import 'package:focuspulse/models/load_sound_list.dart';
 import 'package:focuspulse/models/load_timer_setting.dart';
 import 'package:focuspulse/widgets/timer.dart';
@@ -39,24 +40,7 @@ class _TestDetailsState extends ConsumerState<TestDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
-      appBar: AppBar(
-        forceMaterialTransparency: true,
-        backgroundColor: AppColors.bgWhite,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.close_outlined, size: 24.w),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: const Text(
-          'Test Details',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+      appBar: titleAppbar(context, IconType.close, 'Test Details'),
       body: FutureBuilder<List<Map<String, dynamic>>>(
         future: loadTimerSetting(),
         builder: (context, snapshot) {

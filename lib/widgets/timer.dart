@@ -233,7 +233,7 @@ class _TimerState extends ConsumerState<TimerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
-      appBar: titleAppbar(context, Icon(Icons.arrow_back, size: 24.w), "title"),
+      appBar: titleAppbar(context, IconType.arrow, "title"),
       body: FutureBuilder(
         future: loadTimerSetting(),
         builder: (context, snapshot) {
