@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "com.jay.focuspulse.app-merged_res-55:/drawable-v21_background.png.flat",
+        "source": "com.jay.focuspulse.app-main-49:/drawable-v21/background.png"
+    },
+    {
+        "merged": "com.jay.focuspulse.app-merged_res-55:/drawable-v21_launch_background.xml.flat",
+        "source": "com.jay.focuspulse.app-main-49:/drawable-v21/launch_background.xml"
+    },
+    {
+        "merged": "com.jay.focuspulse.app-merged_res-55:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.jay.focuspulse.app-main-49:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.jay.focuspulse.app-merged_res-55:/drawable-mdpi_splash.png.flat",
+        "source": "com.jay.focuspulse.app-main-49:/drawable-mdpi/splash.png"
+    },
+    {
+        "merged": "com.jay.focuspulse.app-merged_res-55:/drawable-hdpi_splash.png.flat",
+        "source": "com.jay.focuspulse.app-main-49:/drawable-hdpi/splash.png"
+    },
+    {
+        "merged": "com.jay.focuspulse.app-merged_res-55:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.jay.focuspulse.app-main-49:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.jay.focuspulse.app-merged_res-55:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.jay.focuspulse.app-main-49:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.jay.focuspulse.app-merged_res-55:/drawable-xxxhdpi_splash.png.flat",
+        "source": "com.jay.focuspulse.app-main-49:/drawable-xxxhdpi/splash.png"
+    },
+    {
+        "merged": "com.jay.focuspulse.app-merged_res-55:/drawable-xhdpi_splash.png.flat",
+        "source": "com.jay.focuspulse.app-main-49:/drawable-xhdpi/splash.png"
+    },
+    {
+        "merged": "com.jay.focuspulse.app-merged_res-55:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.jay.focuspulse.app-main-49:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.jay.focuspulse.app-merged_res-55:/drawable-xxhdpi_splash.png.flat",
+        "source": "com.jay.focuspulse.app-main-49:/drawable-xxhdpi/splash.png"
+    },
+    {
+        "merged": "com.jay.focuspulse.app-merged_res-55:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.jay.focuspulse.app-main-49:/mipmap-xhdpi/ic_launcher.png"
+    }
+]
