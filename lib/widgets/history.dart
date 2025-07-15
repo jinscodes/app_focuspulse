@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
+import 'package:focuspulse/components/title_appbar.dart';
 import 'package:focuspulse/models/remove_result.dart';
 import 'package:focuspulse/models/retrieve_result.dart';
 
@@ -32,19 +33,7 @@ class _HistoryScreenState extends ConsumerState<HistoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        forceMaterialTransparency: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(
-          'History',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+      appBar: titleAppbar(context, null, "History"),
       body: Padding(
         padding: EdgeInsets.all(16.w),
         child: _historyList.isEmpty
