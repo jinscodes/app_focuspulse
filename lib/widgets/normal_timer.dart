@@ -19,6 +19,33 @@ class _NormalTimerState extends ConsumerState<NormalTimer> {
   Timer? timer;
 
   void startTimer() {
+    if (remainingSeconds <= 0) {
+      showBottomSheet(
+        context: context,
+        builder: (context) {
+          return Container(
+            padding: EdgeInsets.all(16.w),
+            child: Text(
+              'Please set a duration before starting the timer.',
+              style: TextStyle(
+                fontSize: 16.sp,
+                fontWeight: FontWeight.normal,
+                fontFamily: "space_grotesk",
+              ),
+            ),
+          );
+        },
+      );
+
+      Future.delayed(const Duration(seconds: 2), () {
+        if (Navigator.of(context).canPop()) {
+          Navigator.of(context).pop();
+        }
+      });
+
+      return;
+    }
+
     timer?.cancel();
     timer = Timer.periodic(const Duration(seconds: 1), (t) {
       if (!mounted) {

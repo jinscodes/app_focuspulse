@@ -18,17 +18,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
-      // appBar: AppBar(
-      //   backgroundColor: AppColors.bgWhite,
-      //   elevation: 0,
-      //   title: Text(
-      //     'FocusPulse',
-      //     style: TextStyle(
-      //       fontSize: 18.sp,
-      //       fontWeight: FontWeight.bold,
-      //     ),
-      //   ),
-      // ),
       appBar: titleAppbar(context, null, "FocusPulse"),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
