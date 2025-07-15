@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
 import 'package:focuspulse/components/step_slide.dart';
+import 'package:focuspulse/models/clear_audio_cache.dart';
 import 'package:focuspulse/widgets/entry_point.dart';
 
 class Intro extends StatefulWidget {
@@ -33,6 +34,12 @@ class _StepsState extends State<Intro> {
       "router": "/step_break",
     }
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    clearAudioCache();
+  }
 
   void _nextStep() {
     setState(() {
