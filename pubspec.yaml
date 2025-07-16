@@ -20,6 +20,7 @@ dependencies:
   shared_preferences: ^2.5.3
   flutter_native_splash: ^2.4.6
   google_mobile_ads: ^6.0.0
+  webview_flutter: ^4.2.4
 
 dev_dependencies:
   flutter_test:
