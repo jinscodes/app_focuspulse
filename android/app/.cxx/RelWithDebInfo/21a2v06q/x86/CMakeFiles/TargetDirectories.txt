@@ -1,0 +1,2 @@
+/Users/hanjinsung/Desktop/Repository/focuspulse/android/app/.cxx/RelWithDebInfo/21a2v06q/x86/CMakeFiles/edit_cache.dir
+/Users/hanjinsung/Desktop/Repository/focuspulse/android/app/.cxx/RelWithDebInfo/21a2v06q/x86/CMakeFiles/rebuild_cache.dir
