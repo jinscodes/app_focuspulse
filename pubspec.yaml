@@ -32,10 +32,16 @@ dev_dependencies:
   riverpod_lint: ^2.3.10
 
 flutter_native_splash:
-  color: "#FFFFFF"
-  image: assets/images/logo_splashscreen.png
-  android: true
-  ios: true
+  color: "#FFFFFF" # Background color
+  image: assets/images/logo_splashscreen.png # Your splash screen image
+  android: true # Generate for Android
+  ios: true # Generate for iOS
+  android_gravity: center # Image position on Android
+  ios_content_mode: center # Image position on iOS
+  fullscreen: true # Full screen splash (Android)
+  android_12: # Android 12+ specific settings
+    image: assets/images/logo_splashscreen.png
+    color: "#FFFFFF"
 
 flutter_launcher_icons:
   android: true
