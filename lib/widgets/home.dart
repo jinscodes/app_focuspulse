@@ -21,32 +21,34 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       appBar: titleAppbar(context, null, "FocusPulse"),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                "Welcome to Test Timer!",
-                style: TextStyle(
-                  fontSize: 24.sp,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'space_grotesk',
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  "Welcome to Test Timer!",
+                  style: TextStyle(
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'space_grotesk',
+                  ),
                 ),
-              ),
-              SizedBox(height: 16.h),
-              Text(
-                "Select your test and sound to start the timer.",
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.normal,
-                  fontFamily: 'space_grotesk',
+                SizedBox(height: 16.h),
+                Text(
+                  "Select your test and sound to start the timer.",
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.normal,
+                    fontFamily: 'space_grotesk',
+                  ),
                 ),
-              ),
-              SizedBox(height: 32.h),
-              const QuickAccessTimers(),
-              SizedBox(height: 12.h),
-              const QuickAccessSounds(),
-            ],
+                SizedBox(height: 32.h),
+                const QuickAccessTimers(),
+                SizedBox(height: 12.h),
+                const QuickAccessSounds(),
+              ],
+            ),
           ),
         ),
       ),
