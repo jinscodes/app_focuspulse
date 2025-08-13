@@ -1,11 +1,58 @@
 import 'dart:io';
 
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AdManager {
   static final AdManager instance = AdManager();
   BannerAd? _bannerAd;
   InterstitialAd? _interstitialAd;
+
+  static const int _adCooldownDuration = 5 * 60 * 1000;
+  static const String _lastAdShownKey = 'last_ad_shown_timestamp';
+
+  Future<bool> shouldShowAd() async {
+    final prefs = await SharedPreferences.getInstance();
+    final lastAdShown = prefs.getInt(_lastAdShownKey) ?? 0;
+    final currentTime = DateTime.now().millisecondsSinceEpoch;
+    return (currentTime - lastAdShown) >= _adCooldownDuration;
+  }
+
+  Future<void> _updateLastAdShownTime() async {
+    final prefs = await SharedPreferences.getInstance();
+    final currentTime = DateTime.now().millisecondsSinceEpoch;
+    await prefs.setInt(_lastAdShownKey, currentTime);
+  }
+
+  void loadInterstitialAdWithCooldown({
+    required Function() onAdShown,
+    required Function() onAdSkipped,
+    required Function(String error) onError,
+  }) async {
+    final shouldShow = await shouldShowAd();
+
+    if (!shouldShow) {
+      onAdSkipped();
+      return;
+    }
+
+    loadInterstitialAd(
+      onLoaded: (ad) {
+        showInterstitialAd(
+          onAdDismissed: () async {
+            await _updateLastAdShownTime();
+            onAdShown();
+          },
+          onAdFailedToShow: (error) {
+            onError('Failed to show ad: $error');
+          },
+        );
+      },
+      onFailed: (error) {
+        onError('Failed to load ad: $error');
+      },
+    );
+  }
 
   void loadInterstitialAd({
     required Function(InterstitialAd ad) onLoaded,
@@ -15,9 +62,6 @@ class AdManager {
       adUnitId: Platform.isAndroid
           ? 'ca-app-pub-4654745491099162/4918863100'
           : 'ca-app-pub-4654745491099162/5519544626',
-      // adUnitId: Platform.isAndroid // test ad unit ID
-      //     ? 'ca-app-pub-3940256099942544/1033173712'
-      //     : 'ca-app-pub-3940256099942544/4411468910',
       request: const AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (ad) {

@@ -24,19 +24,16 @@ class _HistoryScreenState extends ConsumerState<HistoryScreen> {
     setState(() {
       _loading = true;
     });
-    AdManager.instance.loadInterstitialAd(
-      onLoaded: (ad) {
-        AdManager.instance.showInterstitialAd(
-          onAdDismissed: () {
-            _loadPrefs();
-          },
-          onAdFailedToShow: (error) {
-            _loadPrefs();
-          },
-        );
+
+    AdManager.instance.loadInterstitialAdWithCooldown(
+      onAdShown: () {
+        _loadPrefs();
       },
-      onFailed: (error) {
-        print('Interstitial failed to load: $error');
+      onAdSkipped: () {
+        _loadPrefs();
+      },
+      onError: (error) {
+        print('Ad error: $error');
         _loadPrefs();
       },
     );
