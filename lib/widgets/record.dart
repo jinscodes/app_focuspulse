@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
@@ -25,6 +26,7 @@ class _RecordState extends ConsumerState<RecordScreen> {
 
   List<Map<String, dynamic>> result = [];
   final Map<String, TextEditingController> _controllers = {};
+  final Set<String> _errorFields = {};
 
   @override
   void initState() {
@@ -37,6 +39,23 @@ class _RecordState extends ConsumerState<RecordScreen> {
   }
 
   void _onSave() async {
+    _errorFields.clear();
+
+    bool hasErrors = false;
+    for (var session in _sessions) {
+      final label = session['label'];
+      final text = _controllers[label]?.text ?? '';
+      if (text.isEmpty || int.tryParse(text) == null) {
+        _errorFields.add(label);
+        hasErrors = true;
+      }
+    }
+
+    if (hasErrors) {
+      setState(() {});
+      return;
+    }
+
     DateTime now = DateTime.now();
     Map<String, dynamic> finalResult = {};
     final List<Map<String, dynamic>> result = _sessions.map((session) {
@@ -44,7 +63,7 @@ class _RecordState extends ConsumerState<RecordScreen> {
       final score = _controllers[label]?.text ?? '';
       return {
         'label': label,
-        'score': score,
+        'score': int.parse(score),
       };
     }).toList();
 
@@ -96,6 +115,16 @@ class _RecordState extends ConsumerState<RecordScreen> {
                       TextField(
                         controller: _controllers[label],
                         keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                        ],
+                        onChanged: (value) {
+                          if (_errorFields.contains(label)) {
+                            setState(() {
+                              _errorFields.remove(label);
+                            });
+                          }
+                        },
                         decoration: InputDecoration(
                           hintText: 'Score',
                           hintStyle: TextStyle(
@@ -109,12 +138,44 @@ class _RecordState extends ConsumerState<RecordScreen> {
                           ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12.r),
-                            borderSide: const BorderSide(
-                              color: AppColors.borderGray,
+                            borderSide: BorderSide(
+                              color: _errorFields.contains(label)
+                                  ? Colors.red
+                                  : AppColors.borderGray,
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12.r),
+                            borderSide: BorderSide(
+                              color: _errorFields.contains(label)
+                                  ? Colors.red
+                                  : AppColors.borderGray,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12.r),
+                            borderSide: BorderSide(
+                              color: _errorFields.contains(label)
+                                  ? Colors.red
+                                  : Colors.blue,
+                              width: 2,
                             ),
                           ),
                         ),
                       ),
+                      if (_errorFields.contains(label))
+                        Padding(
+                          padding: EdgeInsets.only(top: 8.h, left: 16.w),
+                          child: Text(
+                            'Required',
+                            style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.normal,
+                              fontFamily: 'space_grotesk',
+                            ),
+                          ),
+                        ),
                     ],
                   );
                 },
