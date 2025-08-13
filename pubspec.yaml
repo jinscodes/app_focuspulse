@@ -2,7 +2,7 @@ name: focuspulse
 description: "Cusomizable Pomodoro Timer with a focus on productivity and user experience."
 publish_to: "none"
 
-version: 1.0.0+2
+version: 1.0.0+3
 
 environment:
   sdk: ">=3.4.4 <4.0.0"
