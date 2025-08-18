@@ -72,6 +72,7 @@ class _StepsState extends State<Intro> {
       appBar: AppBar(
         backgroundColor: AppColors.bgWhite,
         elevation: 0,
+        centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.close),
           onPressed: () => _skip(),
