@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focuspulse/colors.dart';
-import 'package:focuspulse/components/title_appbar.dart';
 import 'package:focuspulse/models/load_sound_list.dart';
-import 'package:focuspulse/models/pause_audio.dart';
 import 'package:focuspulse/models/play_audio.dart';
 import 'package:just_audio/just_audio.dart';
 
@@ -54,138 +52,152 @@ class _SoundDetailsState extends ConsumerState<SoundDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgWhite,
-      appBar: titleAppbar(context, IconType.close, 'Sound Details'),
+      appBar: AppBar(
+        backgroundColor: AppColors.bgWhite,
+        automaticallyImplyLeading: false,
+        titleSpacing: 0,
+        title: Align(
+          alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: EdgeInsets.only(left: 16.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Music Player',
+                  style: TextStyle(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'space_grotesk',
+                  ),
+                ),
+                Text(
+                  'Your personal music streaming experience',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.normal,
+                    fontFamily: 'space_grotesk',
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.all(16.w),
-        child: FutureBuilder(
+        child: FutureBuilder<List<Map<String, String>>>(
           future: loadSoundList(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
-              return const Scaffold(
-                body: Center(child: CircularProgressIndicator()),
-              );
+              return const Center(child: CircularProgressIndicator());
             }
+
             final soundList = snapshot.data!;
             final soundData = soundList.firstWhere(
               (item) => item['key'] == _soundKey,
-              orElse: () => {},
+              orElse: () => {'key': _soundKey, 'imgPath': 'music_note'},
             );
 
-            return Center(
+            final imagePath = soundData['imgPath'] == 'n/a'
+                ? 'music_note'
+                : soundData['imgPath'] ?? 'music_note';
+
+            return Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(24.w),
+              decoration: BoxDecoration(
+                border: Border.all(color: AppColors.borderGray),
+                borderRadius: BorderRadius.circular(12.r),
+              ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(16.r),
-                    child: Image.asset(
-                      'assets/images/${soundData['imgPath']}.png',
-                      width: 300.w,
-                      height: 300.h,
-                      fit: BoxFit.cover,
+                  Container(
+                    width: 150.w,
+                    height: 150.w,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: const LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          Color.fromARGB(255, 242, 242, 255),
+                          Color.fromARGB(255, 255, 255, 255),
+                        ],
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          spreadRadius: 2,
+                          blurRadius: 4,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: Center(
+                      child: SizedBox(
+                        width: 50.w,
+                        height: 50.w,
+                        child: Image.asset(
+                          'assets/images/music_note.png',
+                          fit: BoxFit.contain,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Image.asset(
+                              'assets/images/music_note.png',
+                              fit: BoxFit.contain,
+                            );
+                          },
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(height: 20.h),
                   Text(
-                    soundData['key']![0].toUpperCase() +
-                        soundData['key']!.substring(1),
+                    _soundKey[0].toUpperCase() + _soundKey.substring(1),
                     style: TextStyle(
                       fontSize: 24.sp,
                       fontWeight: FontWeight.bold,
-                      fontFamily: "space_grotesk",
+                      fontFamily: 'space_grotesk',
                     ),
+                    textAlign: TextAlign.center,
                   ),
-                  StreamBuilder<Duration>(
-                    stream: _audioPlayer.positionStream,
-                    builder: (context, snapshot) {
-                      final position = snapshot.data ?? Duration.zero;
-                      final duration =
-                          _audioPlayer.duration ?? const Duration(seconds: 1);
-                      return Column(
-                        children: [
-                          Slider(
-                            value: position.inMilliseconds
-                                .toDouble()
-                                .clamp(0, duration.inMilliseconds.toDouble()),
-                            min: 0,
-                            max: duration.inMilliseconds.toDouble(),
-                            onChanged: (value) async {
-                              await _audioPlayer
-                                  .seek(Duration(milliseconds: value.toInt()));
-                            },
-                            activeColor: Colors.black,
-                            inactiveColor: AppColors.bgGray,
-                            thumbColor: Colors.black,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 12.w),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "${position.inMinutes}:${(position.inSeconds % 60).toString().padLeft(2, '0')}",
-                                  style: TextStyle(
-                                    fontSize: 12.sp,
-                                    fontFamily: "space_grotesk",
-                                  ),
-                                ),
-                                Text(
-                                  "${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}",
-                                  style: TextStyle(
-                                    fontSize: 12.sp,
-                                    fontFamily: "space_grotesk",
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(height: 20.h),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              IconButton(
-                                onPressed: () =>
-                                    playNextSound(soundList, false),
-                                icon: Icon(
-                                  Icons.skip_previous_rounded,
-                                  color: Colors.black,
-                                  size: 60.w,
-                                ),
-                              ),
-                              SizedBox(width: 20.w),
-                              IconButton(
-                                icon: Icon(
-                                  _audioPlayer.playing
-                                      ? Icons.pause_circle_filled_outlined
-                                      : Icons.play_circle_fill_outlined,
-                                  color: Colors.black,
-                                  size: 80.w,
-                                ),
-                                onPressed: () async {
-                                  if (_audioPlayer.playing) {
-                                    pauseAudio(ref, _audioPlayer);
-                                  } else {
-                                    playAudio(
-                                      ref,
-                                      _audioPlayer,
-                                      soundData['key']!,
-                                    );
-                                  }
-                                },
-                              ),
-                              SizedBox(width: 20.w),
-                              IconButton(
-                                onPressed: () => playNextSound(soundList, true),
-                                icon: Icon(
-                                  Icons.skip_next_rounded,
-                                  color: Colors.black,
-                                  size: 60.w,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      );
-                    },
+                  SizedBox(height: 16.h),
+                  Text(
+                    'Relaxing Sounds - ${imagePath[0].toUpperCase()}${imagePath.substring(1)}',
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.normal,
+                      fontFamily: 'space_grotesk',
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 16.h),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        width: 8.w,
+                        height: 8.w,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color:
+                              _audioPlayer.playing ? Colors.green : Colors.red,
+                        ),
+                      ),
+                      SizedBox(width: 8.w),
+                      Text(
+                        _audioPlayer.playing ? 'Playing' : 'Paused',
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.normal,
+                          fontFamily: 'space_grotesk',
+                          color: Colors.grey[600],
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
